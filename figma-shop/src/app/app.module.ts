@@ -6,8 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderTopComponent } from './components/header/header-top/header-top.component';
 import { HeaderNavComponent } from './components/header/header-nav/header-nav.component';
-import { HeaderBreadcrumbsComponent } from './components/header/header-breadcrumbs/header-breadcrumbs.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { AboutComponent } from './pages/about/about.component';
+import { CareersComponent } from './pages/careers/careers.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +19,12 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     HeaderTopComponent,
     HeaderNavComponent,
-    HeaderBreadcrumbsComponent,
-    FooterComponent
+    FooterComponent,
+    ChatComponent,
+    BlogComponent,
+    AboutComponent,
+    CareersComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

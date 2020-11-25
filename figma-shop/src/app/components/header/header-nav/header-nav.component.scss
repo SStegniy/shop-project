@@ -1,0 +1,35 @@
+.header-search {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    .header-search__field {
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-search__shop {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.header-nav {
+    text-align: center;
+
+    .nav {
+        display: inline-block;
+    }
+    .list {
+        list-style-type: none;
+    }
+    .item {
+        display: inline-block;
+        padding: 5px 10px;
+
+        img {
+            display: inline;
+            margin-left: 5px;
+        }
+    }
+}
