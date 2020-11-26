@@ -6,6 +6,8 @@ import { ChatComponent } from '../../pages/chat/chat.component';
 import { BlogComponent } from '../../pages/blog/blog.component';
 import { AboutComponent } from '../../pages/about/about.component';
 import { CareersComponent } from '../../pages/careers/careers.component';
+import { BasketComponent } from '../../pages/basket/basket.component';
+
 
 const routes: Routes = [
   { path: '', component: InfoComponent },
@@ -13,6 +15,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'about', component: AboutComponent },
   { path: 'careers', component: CareersComponent },
+  { path: 'basket', component: BasketComponent },
 ];
 
 @NgModule({
