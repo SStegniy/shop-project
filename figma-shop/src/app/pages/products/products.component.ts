@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/shared/models/product.model';
-import { ProductServiceService } from '../../shared/services/product-service.service';
 import { map } from 'rxjs/operators'
+import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { ProductServiceService } from '../../shared/services/product-service.service';
 
 
 @Component({
@@ -10,8 +10,7 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
-  product: any;
+  allProducts: Array<IProduct>;
   
   constructor(private productService: ProductServiceService) { }
 
@@ -19,18 +18,16 @@ export class ProductsComponent implements OnInit {
     this.getProductList();
   }
 
-  getProductList(): void {
+  private getProductList(): void {
     this.productService.getdbProducts().snapshotChanges().pipe(
       map(changes => 
         changes.map(prod => 
-          ({ key: prod.payload.key, ...prod.payload.val() })
+          ({ id: prod.payload.key, ...prod.payload.val() })
         )
       )
     ).subscribe(product => {
-      this.product = product;
-      console.log(product);
+      this.allProducts = product;
     });
-    
   }
 
 }

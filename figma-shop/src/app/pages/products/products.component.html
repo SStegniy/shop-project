@@ -17,9 +17,13 @@
 
     <main class="main">
         <div class="row">
-            <div class="filter col-md-3 col-lg-3 border"></div>
+            <div class="filter col-md-3 col-lg-3 border">
+                
+            </div>
             <div class="products col-md-9 col-lg-9 border">
-                <app-product-details [product]="product"></app-product-details>
+                <div class="product-card" *ngFor="let product of allProducts">
+                    <app-product-card [product]="product"></app-product-card>
+                </div>
             </div>
         </div>
     </main>

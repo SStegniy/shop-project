@@ -1,4 +1,5 @@
 import { ICategory } from './category.interface';
+import { IMessage } from './message.interface';
 
 export interface IProduct {
     id: number;
@@ -15,7 +16,8 @@ export interface IProduct {
     size: string;
     buyProperties: string;
     stock: number | string;
-    description: Array<any>;
-    reviews: Array<any>;
-    questions: Array<any>;
+    image: string;
+    description: Array<IMessage>;
+    reviews: Array<IMessage>;
+    questions: Array<IMessage>;
 }

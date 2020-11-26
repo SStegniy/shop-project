@@ -1,7 +1,9 @@
 <div class="header-main">
     <div class="header-search">
         <div class="header-search__logo col-3">
-            <img src="../../../../assets/images/Freshnesecom.png" alt="logo">
+            <a [routerLink]="[ '/products' ]">
+                <img src="../../../../assets/images/Freshnesecom.png" alt="logo">
+            </a>
         </div>
         <div class="header-search__field col-6">
             <input type="text" name="search">
@@ -20,7 +22,7 @@
     <div class="header-nav">
         <nav class="nav">
             <ul class="list">
-                <li class="item">Electronics <img src="../../../../assets/images/arrow-down.svg" alt="dropdown"></li>
+                <li class="item">Electronics<img src="../../../../assets/images/arrow-down.svg" alt="dropdown"></li>
                 <li class="item">Food<img src="../../../../assets/images/arrow-down.svg" alt="dropdown"></li>
                 <li class="item">Clothes<img src="../../../../assets/images/arrow-down.svg" alt="dropdown"></li>
                 <li class="item">Skin<img src="../../../../assets/images/arrow-down.svg" alt="dropdown"></li>
@@ -33,7 +35,7 @@
     </div>
 
     <div class="breadcrumbs">
-        <span>Homepage / </span> <span>All Products </span>
+        <span>Homepage / </span>
+        <span>All Products </span>
     </div>
 </div>
-

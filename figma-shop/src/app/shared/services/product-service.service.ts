@@ -14,23 +14,23 @@ export class ProductServiceService {
     this.productRef = database.list(this.dbPath)
   }
 
-  createCustomer(product: any): void {
+  public createProduct(product: any): void {
     this.productRef.push(product);
   }
  
-  updateCustomer(key: string, value: any): Promise<void> {
+  public updateProduct(key: string, value: any): Promise<void> {
     return this.productRef.update(key, value);
   }
  
-  deleteCustomer(key: string): Promise<void> {
+  public deleteProduct(key: string): Promise<void> {
     return this.productRef.remove(key);
   }
  
-  getdbProducts(): AngularFireList<any> {
+  public getdbProducts(): AngularFireList<any> {
     return this.productRef;
   }
  
-  deleteAll(): Promise<void> {
+  public deleteAll(): Promise<void> {
     return this.productRef.remove();
   }
 

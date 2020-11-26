@@ -9,21 +9,22 @@ import { ProductServiceService } from '../../shared/services/product-service.ser
 })
 export class ProductDetailsComponent implements OnInit {
   @Input() product: any;
+
   constructor(private productService: ProductServiceService) { }
 
   ngOnInit(): void {
   }
 
-  updateActive(isActive: boolean) {
-    this.productService
-      .updateCustomer(this.product.key, { active: isActive })
-      .catch(err => console.log(err));
-  }
+  // updateActive(isActive: boolean) {
+  //   this.productService
+  //     .updateCustomer(this.product.key, { active: isActive })
+  //     .catch(err => console.log(err));
+  // }
  
-  deleteCustomer() {
-    this.productService
-      .deleteCustomer(this.product.key)
-      .catch(err => console.log(err));
-  }
+  // deleteCustomer() {
+  //   this.productService
+  //     .deleteCustomer(this.product.key)
+  //     .catch(err => console.log(err));
+  // }
 
 }

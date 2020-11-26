@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'about', component: AboutComponent },
   { path: 'careers', component: CareersComponent },
-  { path: 'careers', component: CareersComponent },
   { path: 'products', component: ProductsComponent },
 ];
 

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -17,6 +18,7 @@ import { CareersComponent } from './pages/careers/careers.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { environment } from '../environments/environment';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +33,12 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
     CareersComponent,
     ProductsComponent,
     ProductDetailsComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
   ],
