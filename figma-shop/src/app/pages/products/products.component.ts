@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ProductServiceService } from '../../shared/services/product-service.service';
 
@@ -10,8 +10,8 @@ import { ProductServiceService } from '../../shared/services/product-service.ser
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  allProducts: Array<IProduct>;
-  
+  public allProducts: Array<IProduct>;
+
   constructor(private productService: ProductServiceService) { }
 
   ngOnInit(): void {
@@ -20,8 +20,8 @@ export class ProductsComponent implements OnInit {
 
   private getProductList(): void {
     this.productService.getdbProducts().snapshotChanges().pipe(
-      map(changes => 
-        changes.map(prod => 
+      map(changes =>
+        changes.map(prod =>
           ({ id: prod.payload.key, ...prod.payload.val() })
         )
       )
@@ -29,5 +29,4 @@ export class ProductsComponent implements OnInit {
       this.allProducts = product;
     });
   }
-
 }

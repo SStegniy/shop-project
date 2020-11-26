@@ -11,14 +11,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderTopComponent } from './components/header/header-top/header-top.component';
 import { HeaderNavComponent } from './components/header/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ChatComponent } from './pages/chat/chat.component';
-import { BlogComponent } from './pages/blog/blog.component';
-import { AboutComponent } from './pages/about/about.component';
-import { CareersComponent } from './pages/careers/careers.component';
-import { ProductsComponent } from './pages/products/products.component';
+
 import { environment } from '../environments/environment';
+
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+
+import { InfoModule } from './lazy-load/info/info.module';
+import { ProductModule } from './lazy-load/product/product.module';
+
+
 
 @NgModule({
   declarations: [
@@ -27,11 +29,6 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     HeaderTopComponent,
     HeaderNavComponent,
     FooterComponent,
-    ChatComponent,
-    BlogComponent,
-    AboutComponent,
-    CareersComponent,
-    ProductsComponent,
     ProductDetailsComponent,
     ProductCardComponent,
   ],
@@ -41,6 +38,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    InfoModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

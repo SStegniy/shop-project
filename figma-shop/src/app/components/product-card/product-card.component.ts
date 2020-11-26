@@ -8,10 +8,9 @@ import { IProduct } from '../../shared/interfaces/product.interface';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product: IProduct;
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

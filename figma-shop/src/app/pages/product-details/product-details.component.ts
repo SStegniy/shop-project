@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/shared/models/product.model';
 import { ProductServiceService } from '../../shared/services/product-service.service';
 
 @Component({
@@ -14,17 +13,4 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // updateActive(isActive: boolean) {
-  //   this.productService
-  //     .updateCustomer(this.product.key, { active: isActive })
-  //     .catch(err => console.log(err));
-  // }
- 
-  // deleteCustomer() {
-  //   this.productService
-  //     .deleteCustomer(this.product.key)
-  //     .catch(err => console.log(err));
-  // }
-
 }
