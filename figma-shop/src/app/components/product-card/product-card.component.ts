@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import { IProduct } from '../../shared/interfaces/product.interface';
 
 @Component({
@@ -8,9 +8,10 @@ import { IProduct } from '../../shared/interfaces/product.interface';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product: IProduct;
-
+  public starCount = [1, 2, 3, 4, 5];
   constructor() { }
 
   ngOnInit(): void {
   }
 }
+

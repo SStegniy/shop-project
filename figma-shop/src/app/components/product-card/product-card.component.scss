@@ -1,0 +1,31 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-gap: 1em;
+
+  .card__image {
+
+  }
+
+  .card__content {
+    padding: 10px;
+  }
+
+  .card__cost {
+    padding: 10px 10px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card__add-to-wish {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .detail-button {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid black;
+  }
+}

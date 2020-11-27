@@ -6,23 +6,19 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 
-import { InfoModule } from './lazy-load/info/info.module';
-import { ProductModule } from './lazy-load/product/product.module';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderTopComponent } from './components/header/header-top/header-top.component';
 import { HeaderNavComponent } from './components/header/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-
-
-
-
-
-
-
+import { AboutComponent } from './pages/about/about.component';
+import { BasketComponent } from './pages/basket/basket.component';
+import { CareersComponent } from './pages/careers/careers.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { ProductCardModule } from './components/product-card/product-card.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +27,12 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     HeaderTopComponent,
     HeaderNavComponent,
     FooterComponent,
-    ProductCardComponent
+    CareersComponent,
+    ChatComponent,
+    ProductDetailsComponent,
+    ProductsComponent,
+    AboutComponent,
+    BasketComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +40,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    InfoModule,
-    ProductModule
+    ProductCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

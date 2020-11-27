@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
+
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ProductServiceService } from '../../shared/services/product-service.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ProductsComponent implements OnInit {
   }
 
   private getProductList(): void {
-    this.productService.getdbProducts().snapshotChanges().pipe(
+    this.productService.getDbProducts().snapshotChanges().pipe(
       map(changes =>
         changes.map(prod =>
           ({ id: prod.payload.key, ...prod.payload.val() })
