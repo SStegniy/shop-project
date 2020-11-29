@@ -1,10 +1,10 @@
-import { ICategory } from './category.interface';
-import { IMessage } from './message.interface';
+import { CategoryInterace } from './category.interface';
+import { MessageInterface } from './message.interface';
 import { DescriptionInterface } from './description.interface';
 
-export interface IProduct {
+export interface ProductInterface {
     id: number;
-    category: ICategory;
+    category: CategoryInterace;
     title: string;
     rating: number;
     price: number;
@@ -20,6 +20,6 @@ export interface IProduct {
     stock: number | string;
     image: string;
     description: DescriptionInterface;
-    reviews: IMessage;
-    questions: IMessage;
+    reviews: MessageInterface;
+    questions: MessageInterface;
 }

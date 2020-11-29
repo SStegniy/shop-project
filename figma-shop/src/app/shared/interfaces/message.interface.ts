@@ -1,4 +1,4 @@
-export interface IMessage {
+export interface MessageInterface {
     id: number;
     author: string;
     date: Date;
