@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import { IProduct } from '../../shared/interfaces/product.interface';
+import { ProductInterface } from '../../shared/interfaces/product.interface';
 
 @Component({
   selector: 'app-product-card',
@@ -7,7 +7,7 @@ import { IProduct } from '../../shared/interfaces/product.interface';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product: IProduct;
+  @Input() product: ProductInterface;
   public starCount = [1, 2, 3, 4, 5];
   constructor() { }
 

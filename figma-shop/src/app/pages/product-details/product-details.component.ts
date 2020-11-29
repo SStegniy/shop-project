@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductServiceService } from '../../shared/services/product-service.service';
-import { IProduct } from '../../shared/interfaces/product.interface';
+import { ProductInterface } from '../../shared/interfaces/product.interface';
+
 
 @Component({
   selector: 'app-product-details',
@@ -9,13 +10,15 @@ import { IProduct } from '../../shared/interfaces/product.interface';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  private product: Array<IProduct>;
+  private product: ProductInterface;
   public starCount = [1, 2, 3, 4, 5];
+  public routeData: any;
   constructor(
     private actRoute: ActivatedRoute,
-    private productService: ProductServiceService
-  ) { }
+    private productService: ProductServiceService) { }
 
   ngOnInit(): void {
+    this.actRoute.data.subscribe(data => console.log(data));
+    console.log(this.routeData);
   }
 }
