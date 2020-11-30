@@ -4,7 +4,6 @@ import { ProductInterface } from 'src/app/shared/interfaces/product.interface';
 import { ProductServiceService } from '../../shared/services/product-service.service';
 import { map } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',

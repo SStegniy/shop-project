@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductServiceService } from './shared/services/product-service.service';
 
 import { AboutComponent } from './pages/about/about.component';
-import { BasketComponent } from './pages/basket/basket.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { CareersComponent } from './pages/careers/careers.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
@@ -17,7 +17,7 @@ routes = [
   {path: '', redirectTo: 'products', pathMatch: 'full'},
   {path: 'about', component: AboutComponent},
   {path: 'blog', component: BlogComponent},
-  {path: 'basket', component: BasketComponent},
+  {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'careers', component: CareersComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'product/:id', component: ProductDetailsComponent, resolve: { id: ProductServiceService }},
@@ -25,7 +25,7 @@ routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

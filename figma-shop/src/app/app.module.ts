@@ -13,7 +13,7 @@ import { HeaderTopComponent } from './components/header/header-top/header-top.co
 import { HeaderNavComponent } from './components/header/header-nav/header-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
-import { BasketComponent } from './pages/basket/basket.component';
+import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { CareersComponent } from './pages/careers/careers.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
@@ -32,7 +32,7 @@ import { ProductCardModule } from './components/product-card/product-card.module
     ProductDetailsComponent,
     ProductsComponent,
     AboutComponent,
-    BasketComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,

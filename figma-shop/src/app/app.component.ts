@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Event, Router} from '@angular/router';
+import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +8,10 @@ import {ActivatedRoute, NavigationEnd, Event, Router} from '@angular/router';
 })
 export class AppComponent {
   title = 'figma-shop';
-  visibility: any;
-  constructor(
-    private actRoute: ActivatedRoute,
-    private router: Router) {
-      this.router.events.subscribe((event: Event) => {
-        if (event instanceof NavigationEnd) {
-          this.visibility = this.router.url;
-        }
-      });
+  componentRemoveFooter = ['ShoppingCartComponent'];
+  isFooterDisplayed = 'show-footer';
+
+  componentAdded(e: Event): void {
+    this.isFooterDisplayed = this.componentRemoveFooter.includes(e.constructor.name) ? 'hide' : 'show';
   }
 }
