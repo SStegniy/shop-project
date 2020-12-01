@@ -6,6 +6,22 @@
     .header-search__field {
         display: flex;
         justify-content: center;
+        background-color: #f9f9f9;
+        border-radius: 1em;
+        padding: 10px 16px;
+        border: 1px solid #d1d1d1;
+    }
+
+    .header-search__search {
+        margin-left: 4px;
+        padding-left: 20px;
+        font-size: 14px;
+        border: none;
+        background-color: inherit;
+    }
+
+    .header-search__search:focus {
+
     }
 
     .header-search__shop {

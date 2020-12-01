@@ -80,11 +80,31 @@ select {
 
 body {
   font-family: 'Open Sans';
-  padding: 16px 1.5em;
+  padding: 0px 1.5em;
 }
 
 .star {
   display: inline-block;
+}
+
+.count {
+  display: inline-block;
+  border-radius: 2em;
+  background-color: #F4F8EC;
+  padding: 0px 8px;
+}
+
+.main-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 0px;
+
+  &__title {
+    font-family: 'PoppinsReg';
+    font-size: 32px;
+    line-height: 48px;
+  }
 }
 
 .show {

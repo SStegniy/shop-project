@@ -1,15 +1,20 @@
-<div class="header-main">
+<div class="header-wrapper">
     <div class="header-search">
-        <div class="header-search__logo col-3">
+        <div class="header-search__logo">
             <a [routerLink]="[ '/products' ]">
                 <img src="./assets/images/Freshnesecom.png" alt="logo">
             </a>
         </div>
-        <div class="header-search__field col-6">
-            <input type="text" name="search">
+        <div class="header-search__field">
+            <select class="header-search__select" name="search" id="">
+              <option>All categories</option>
+              <option>Food</option>
+            </select>
+            <input class="header-search__search" type="text" name="search"
+                   placeholder="Search Products, categories ...">
             <img src="./assets/images/search.svg" alt="search">
         </div>
-        <div class="header-search__shop col-3">
+        <div class="header-search__shop">
             <div class="header-search__person">
                 <img src="./assets/images/person.png" alt="person">
             </div>
