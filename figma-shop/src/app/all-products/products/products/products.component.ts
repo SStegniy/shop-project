@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ProductInterface } from 'src/app/shared/interfaces/product.interface';
-import { ProductServiceService } from '../../shared/services/product-service.service';
+import { ProductServiceService } from '../../../shared/services/product-service.service';
 import { map } from 'rxjs/operators';
 
 @Component({

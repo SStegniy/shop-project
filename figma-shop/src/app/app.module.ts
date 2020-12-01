@@ -8,31 +8,16 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { HeaderTopComponent } from './components/header/header-top/header-top.component';
-import { HeaderNavComponent } from './components/header/header-nav/header-nav.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { AboutComponent } from './pages/about/about.component';
-import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
-import { CareersComponent } from './pages/careers/careers.component';
-import { ChatComponent } from './pages/chat/chat.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { ProductCardModule } from './components/product-card/product-card.module';
+import { ProductCardComponent } from './all-products/products/product-card/product-card.component';
+
+import { HeaderModule } from './header/header.module';
+import { FooterModule } from './footer/footer.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HeaderTopComponent,
-    HeaderNavComponent,
-    FooterComponent,
-    CareersComponent,
-    ChatComponent,
-    ProductDetailsComponent,
-    ProductsComponent,
-    AboutComponent,
-    ShoppingCartComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +25,8 @@ import { ProductCardModule } from './components/product-card/product-card.module
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    ProductCardModule
+    HeaderModule,
+    FooterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
