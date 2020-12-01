@@ -6,10 +6,11 @@
             </a>
         </div>
         <div class="header-search__field">
-            <select class="header-search__select" name="search" id="">
+            <select class="header-search__select" name="select" id="">
               <option>All categories</option>
               <option>Food</option>
             </select>
+            <img src="./assets/images/arrow-down.svg" alt="arrow-down" autocomplete="off">
             <input class="header-search__search" type="text" name="search"
                    placeholder="Search Products, categories ...">
             <img src="./assets/images/search.svg" alt="search">
@@ -18,7 +19,7 @@
             <div class="header-search__person">
                 <img src="./assets/images/person.png" alt="person">
             </div>
-            <div class="header-search__bucket">
+            <div class="header-search__busket">
                 <a [routerLink]="[ '/shopping-cart' ]">
                     <img src="./assets/images/bucket.svg" alt="person">
                 </a>
@@ -39,8 +40,9 @@
             </ul>
         </nav>
     </div>
-    <div class="breadcrumbs">
-        <span>Homepage / </span>
-        <span>All Products </span>
-    </div>
 </div>
+<div class="breadcrumbs">
+  <span class="breadcrumbs__previous-route">Homepage / </span>
+  <span class="breadcrumbs__current-route">All Products </span>
+</div>
+

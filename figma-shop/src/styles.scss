@@ -66,6 +66,8 @@ button,
 textarea,
 select {
   font: inherit;
+  border: none;
+  outline: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -81,6 +83,7 @@ select {
 body {
   font-family: 'Open Sans';
   padding: 0px 1.5em;
+  color: #151515;
 }
 
 .star {

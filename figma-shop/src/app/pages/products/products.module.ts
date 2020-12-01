@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
-import {RouterModule, Routes} from '@angular/router';
-import {ProductCardComponent} from './product-card/product-card.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ProductsComponent,
-    ProductCardComponent
+    ProductCardComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
