@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderModule } from './header/header.module';
-import { FooterModule } from './footer/footer.module';
 
 
 @NgModule({
@@ -23,8 +22,7 @@ import { FooterModule } from './footer/footer.module';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    HeaderModule,
-    FooterModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

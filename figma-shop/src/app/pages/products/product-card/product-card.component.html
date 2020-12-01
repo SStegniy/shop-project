@@ -23,7 +23,7 @@
       <span>Delivery in {{ product.deliveryTime }} day</span>
     </div>
     <div class="card__buttons">
-      <a class="card__details" [routerLink]="[ '/product', product.id ]">
+      <a class="card__details" [routerLink]="[ '/products', product.id ]">
         <div class="detail-button">Product Details {{ product.id }}</div>
       </a>
       <div class="card__add-to-wish">
@@ -33,4 +33,3 @@
     </div>
   </div>
 </div>
-

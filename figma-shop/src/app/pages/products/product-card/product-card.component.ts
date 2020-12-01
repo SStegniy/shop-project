@@ -6,6 +6,7 @@ import { ProductInterface } from '../../../shared/interfaces/product.interface';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
+
 export class ProductCardComponent implements OnInit {
   @Input() product: ProductInterface;
   public starCount = [1, 2, 3, 4, 5];
@@ -15,4 +16,3 @@ export class ProductCardComponent implements OnInit {
     console.log(this.product);
   }
 }
-
