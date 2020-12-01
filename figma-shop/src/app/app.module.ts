@@ -8,7 +8,6 @@ import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductCardComponent } from './all-products/products/product-card/product-card.component';
 
 import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
@@ -17,7 +16,6 @@ import { FooterModule } from './footer/footer.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductCardComponent
   ],
   imports: [
     BrowserModule,
