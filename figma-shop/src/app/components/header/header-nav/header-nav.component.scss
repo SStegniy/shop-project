@@ -19,6 +19,7 @@
         background-color: inherit;
         appearance: none;
         margin-right: 3px;
+        font-family: 'PoppinsSemiBold';
     }
 
     .header-search__search {
@@ -77,6 +78,7 @@
 .breadcrumbs {
     max-width: 1260px;
     margin: 0 auto;
+    padding: 16px 0px;
 
     span {
       line-height: 16px;

@@ -68,6 +68,7 @@ select {
   font: inherit;
   border: none;
   outline: none;
+  background-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -95,19 +96,8 @@ body {
   border-radius: 2em;
   background-color: #F4F8EC;
   padding: 0px 8px;
-}
-
-.main-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 8px 0px;
-
-  &__title {
-    font-family: 'PoppinsReg';
-    font-size: 32px;
-    line-height: 48px;
-  }
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .show {

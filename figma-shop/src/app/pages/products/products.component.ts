@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 
 export class ProductsComponent implements OnInit {
   public allProducts: Array<ProductInterface>;
+  public starCount = [5, 4, 3, 2, 1];
 
   constructor(private productService: ProductServiceService) { }
 
