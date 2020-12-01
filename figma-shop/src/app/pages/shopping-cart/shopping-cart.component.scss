@@ -1,0 +1,103 @@
+.basket-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 1.5em;
+  max-width: 1260px;
+  margin: 30px auto 0px auto;
+}
+
+.elem-title {
+  font-size: 22px;
+  font-family: 'PoppinsReg';
+}
+
+.elem-description {
+  font-size: 12px;
+  line-height: 16px;
+  color: #A9A9A9;
+}
+
+.info {
+  padding: 0px 5px;
+
+  //.info__title {
+  //  font-size: 22px;
+  //  font-family: 'PoppinsReg';
+  //}
+  //.info__descr {
+  //  font-size: 12px;
+  //  line-height: 16px;
+  //  color: #A9A9A9;
+  //}
+
+  .person-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .person-info-inner {
+    width: 50%;
+  }
+  .person-info-inner:first-child {
+    padding-right: 1em;
+  }
+  .person-info-inner:last-child {
+    padding-left: 1em;
+  }
+
+  .person-info-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    label {
+      font-size: 12px;
+      font-family: 'PoppinsReg';
+    }
+    input {
+      width: 100%;
+      border-radius: 1em;
+      background-color: #F9F9F9;
+      padding: 10px 15px;
+      font-size: 14px;
+      line-height: 19px;
+      border: 1px solid #D1D1D1;
+    }
+    input:focus {
+      outline: none;
+      border: 1px solid #bdbdbd;
+    }
+  }
+
+  .notes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+    label {
+      font-size: 12px;
+      font-family: 'PoppinsReg';
+    }
+    textarea {
+      resize: none;
+      height: 100px;
+      border-radius: 1em;
+      background-color: #F9F9F9;
+      padding: 10px 15px;
+      font-size: 14px;
+      line-height: 19px;
+    }
+    textarea:focus {
+      outline: none;
+      border: 1px solid #bdbdbd;
+    }
+  }
+}
+
+.summary {
+  border: 1px solid #D1D1D1;
+  border-radius: 1em;
+  padding: 32px 16px;
+}

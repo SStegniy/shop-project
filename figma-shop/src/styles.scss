@@ -1,4 +1,5 @@
 @import './assets/fonts/openSans/opensans.css';
+@import './assets/fonts/poppins/poppins.css';
 
 // -------------- Reset css----------
 *,
@@ -24,6 +25,7 @@ li,
 figure,
 figcaption,
 blockquote,
+label,
 dl,
 dd {
   margin: 0;
@@ -78,4 +80,17 @@ select {
 
 body {
   font-family: 'Open Sans';
+  padding: 0px 1.5em;
+}
+
+.star {
+  display: inline-block;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }

@@ -1,0 +1,63 @@
+<div class="inner-product">
+  <div class="main-title">
+    <h1>All Products</h1>
+    <div class="count-products">
+      <span>117</span>
+      <span>Products</span>
+    </div>
+  </div>
+
+  <div class="sort-select">
+    <select name="" id="">
+      <option value="">asdasd</option>
+      <option value="">asdasd</option>
+      <option value="">asdasd</option>
+    </select>
+  </div>
+
+  <main class="main">
+    <div class="filter">
+      <div class="filter__element">
+        <h3 class="filter__title">Categories</h3>
+        <div class="filter__items categoryItem">
+          <p class="filter__name ">Category name</p>
+          <span class="filter__count">320</span>
+        </div>
+        <div class="filter__items categoryItem">
+          <p class="filter__name">Category name</p>
+          <span class="filter__count">112</span>
+        </div>
+        <div class="filter__items categoryItem">
+          <p class="filter__name">Category name</p>
+          <span class="filter__count">32</span>
+        </div>
+      </div>
+      <div class="filter__element">
+        <h3 class="filter__title">Brand</h3>
+        <div class="filter__items">
+          <input type="checkbox">
+          <span> Filtre by brand item</span>
+        </div>
+        <div class="filter__items">
+          <input type="checkbox">
+          <span> Filtre by brand item</span>
+        </div>
+        <div class="filter__items">
+          <input type="checkbox">
+          <span> Filtre by brand item</span>
+        </div>
+      </div>
+      <div class="filter__element"></div>
+      <div class="filter__element"></div>
+    </div>
+    <div class="products">
+      <div class="product-card" *ngFor="let product of allProducts">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+

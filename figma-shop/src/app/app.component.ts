@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'figma-shop';
+  componentRemoveFooter = ['ShoppingCartComponent'];
+  isFooterDisplayed = 'show-footer';
+
+  componentAdded(e: Event): void {
+    this.isFooterDisplayed = this.componentRemoveFooter.includes(e.constructor.name) ? 'hide' : 'show';
+  }
 }

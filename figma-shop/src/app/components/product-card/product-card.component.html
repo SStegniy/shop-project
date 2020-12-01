@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card__image">
+    <img src="../../../assets/images/food-image.jpg" alt="image">
+  </div>
+  <div class="card__content">
+    <h2 class="card__title">{{ product.title | titlecase }}</h2>
+    <p class="card__smallDesc">{{ product.description.small | titlecase }}</p>
+    <div class="star-wrapper">
+      <img class="star" *ngFor="let star of starCount" src="../../../assets/images/star.svg" alt="">
+    </div>
+    <div><span>Freshness </span><span>{{ product.freshness | titlecase }}</span></div>
+    <div><span>Farm </span><span>{{ product.farm | titlecase }}</span></div>
+    <div><span>Delivery </span><span>{{ product.deliveryArea | titlecase }}</span></div>
+    <div><span>Stock </span><span>{{ product.stock }}</span></div>
+  </div>
+  <div class="card__cost">
+    <div class="card__payment">
+      <p class="card__price">{{ product.price }} USD</p>
+      <span class="card__old-price">{{ product.previousPrice }}</span>
+    </div>
+    <div class="card__delivery">
+      <p>Free shipping</p>
+      <span>Delivery in {{ product.deliveryTime }} day</span>
+    </div>
+    <div class="card__buttons">
+      <a class="card__details" [routerLink]="[ '/product', product.id ]">
+        <div class="detail-button">Product Details {{ product.id }}</div>
+      </a>
+      <div class="card__add-to-wish">
+        <img src="../../../assets/images/heart.svg" alt="heart">
+        <span>Add to wish list</span>
+      </div>
+    </div>
+  </div>
+</div>
+
