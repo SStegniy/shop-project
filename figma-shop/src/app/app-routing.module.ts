@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-let routes: Routes;
-routes = [
-  { path: '',
-    redirectTo: '/products',
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '',
     pathMatch: 'full'
   },
   {
     path: 'products',
-    loadChildren: () => import('./all-products/products/products.module').then(m => m.ProductsModule)
+    loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule)
   },
   {
     path: 'products/:id',
-    loadChildren: () => import('./all-products/product-details/product-details.module').then(m => m.ProductDetailsModule)
+    loadChildren: () => import('./pages/product-details/product-details.module').then(m => m.ProductDetailsModule)
   },
   {
     path: 'shopping-cart',
@@ -34,11 +34,12 @@ routes = [
   {
     path: 'about',
     loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {}
