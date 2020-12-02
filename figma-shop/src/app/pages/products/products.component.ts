@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from 'src/app/shared/interfaces/product.interface';
 import { ProductServiceService } from '../../shared/services/product-service.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-products',
@@ -12,21 +11,14 @@ import { map } from 'rxjs/operators';
 
 export class ProductsComponent implements OnInit {
   public allProducts: Array<ProductInterface>;
-  public starCount = [5, 4, 3, 2, 1];
 
-  constructor(private productService: ProductServiceService) { }
+  constructor(
+    private productService: ProductServiceService,
+    private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getProducts();
-  }
-
-  private getProducts(): any{
-    this.productService.getDbProducts().snapshotChanges()
-      .pipe(map(changes =>
-        changes.map(c =>
-        ({ key: c.payload.key, ...c.payload.val() })
-        )
-      )
-    ).subscribe(data => this.allProducts = data);
+    this.actRoute.data.subscribe(data => {
+      this.allProducts = data.products;
+    });
   }
 }

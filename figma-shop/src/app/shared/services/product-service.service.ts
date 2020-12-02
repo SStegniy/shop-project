@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { ProductInterface } from '../interfaces/product.interface';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
-  public prodRef: AngularFireList<ProductInterface> = null;
-  constructor(private database: AngularFireDatabase) {
-    this.prodRef = database.list('products');
-  }
-  public getDbProducts(): AngularFireList<ProductInterface>{
-    return this.prodRef;
-  }
+
+  constructor(private database: AngularFireDatabase) { }
+
   public getOneProduct(id: number): Promise<ProductInterface> {
     return new Promise((resolve, reject) => {
       this.database.database.ref(`products/${id}`).once('value')
@@ -19,5 +16,9 @@ export class ProductServiceService {
           resolve(snapshot.val());
         });
     });
+  }
+
+  public getAllProducts(): Promise<ProductInterface> {
+    return this.database.database.ref('products').once('value').then(snap => snap.val());
   }
 }

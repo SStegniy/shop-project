@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductServiceService } from '../../shared/services/product-service.service';
 import { ProductInterface } from '../../shared/interfaces/product.interface';
 
@@ -12,13 +12,15 @@ import { ProductInterface } from '../../shared/interfaces/product.interface';
 export class ProductDetailsComponent implements OnInit {
   private product: ProductInterface;
   public starCount = [1, 2, 3, 4, 5];
+
   constructor(
     private actRoute: ActivatedRoute,
-    private router: Router,
     private productService: ProductServiceService) { }
 
   ngOnInit(): void {
-    this.getProduct();
+    this.actRoute.data.subscribe((data) => {
+      this.product = data.product;
+    });
   }
 
   private getProduct(): void {

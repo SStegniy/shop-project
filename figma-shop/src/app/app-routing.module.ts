@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllProductsResolver } from './pages/products/all-products.resolver';
 
 const routes: Routes = [
   {
@@ -9,11 +10,12 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule)
+    loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule),
+    resolve: { products: AllProductsResolver }
   },
   {
     path: 'products/:id',
-    loadChildren: () => import('./pages/product-details/product-details.module').then(m => m.ProductDetailsModule)
+    loadChildren: () => import('./pages/product-details/product-details.module').then(m => m.ProductDetailsModule),
   },
   {
     path: 'shopping-cart',
