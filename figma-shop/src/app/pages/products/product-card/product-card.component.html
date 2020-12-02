@@ -1,17 +1,19 @@
 <div class="card">
   <div class="card__image">
-    <img src="./assets/images/food-image.jpg" alt="image">
+    <img [src]="product.imgUrl" alt="image">
   </div>
   <div class="card__content">
     <h2 class="card__title">{{ product.title | titlecase }}</h2>
     <p class="card__smallDesc">{{ product.description.small | titlecase }}</p>
     <div class="star-wrapper">
-      <img class="star" *ngFor="let star of starCount" src="./assets/images/star.svg" alt="">
+      <img class="star" *ngFor="let star of starCount" src="./assets/images/star.svg" alt="rating-star">
     </div>
-    <div><span>Freshness </span><span>{{ product.freshness | titlecase }}</span></div>
-    <div><span>Farm </span><span>{{ product.farm | titlecase }}</span></div>
-    <div><span>Delivery </span><span>{{ product.deliveryArea | titlecase }}</span></div>
-    <div><span>Stock </span><span>{{ product.stock }}</span></div>
+    <div class="card__product-info">
+      <div><span>Freshness </span><span class="green">{{ product.freshness | titlecase }}</span></div>
+      <div><span>Farm </span><span>{{ product.farm | titlecase }}</span></div>
+      <div><span>Delivery </span><span>{{ product.deliveryArea | titlecase }}</span></div>
+      <div><span>Stock </span><span class="green">{{ product.stock }}</span></div>
+    </div>
   </div>
   <div class="card__cost">
     <div class="card__payment">
@@ -24,12 +26,13 @@
     </div>
     <div class="card__buttons">
       <a class="card__details" [routerLink]="[ '/products', product.id ]">
-        <div class="detail-button">Product Details {{ product.id }}</div>
+        <div class="detail-button"><span>Product Details</span>
+          <img src="./assets/images/arrow-right.svg" alt="arrow-right"></div>
       </a>
-      <div class="card__add-to-wish">
+      <button type="button" class="card__add-to-wish">
         <img src="./assets/images/heart.svg" alt="heart">
         <span>Add to wish list</span>
-      </div>
+      </button>
     </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ export interface ProductInterface {
     size: string;
     buyProperties: string;
     stock: number | string;
-    image: string;
+    imgUrl: string;
     description: DescriptionInterface;
     reviews: MessageInterface;
     questions: MessageInterface;

@@ -1,0 +1,97 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+
+  .filter__title {
+    font-family: 'PoppinsSemiBold';
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 4px;
+  }
+
+  .filter__name {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .filter__name_category {
+    margin-top: 0px;
+  }
+
+  .filter__element {
+    padding: 5px;
+    margin-bottom: 45px;
+  }
+
+  .filter__items {
+    display: flex;
+    align-items: center;
+
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 16px;
+
+      span {
+        font-size: 14px;
+        line-height: 19px;
+      }
+    }
+  }
+
+  .filter__checkbox {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .filter__star {
+    margin-right: 4px;
+  }
+
+  .categoryItem {
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+
+  .filter__input-range {
+    width: 100%;
+  }
+
+  .filter__range-count-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .filter__range-count {
+    display: inline-flex;
+    flex-direction: column;
+    width: 45%;
+
+    span {
+      font-size: 12px;
+      line-height: 18px;
+      font-family: 'PoppinsSemiBold';
+    }
+
+    input {
+      background-color: #F9F9F9;
+      border: 1px solid #D1D1D1;
+      padding: 11px 16px 12px 21px;
+      border-radius: 12px;
+      color: #A9A9A9;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  .filter__separator {
+    color: #D1D1D1;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
