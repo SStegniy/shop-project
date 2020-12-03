@@ -25,7 +25,7 @@ export class ProdDetailsResolver implements Resolve<ProductInterface>{
     });
   }
 
-  // I wrote this method for myself to see how it can be implemented using Promise
+  // I wrote this method for myself to see how it can be implemented using Observable
   public res(route: ActivatedRouteSnapshot): Observable<any> | Promise<any> | any {
     const id = +route.params.id;
     return new Observable((observer) => {

@@ -9,10 +9,10 @@
       <img class="star" *ngFor="let star of starCount" src="./assets/images/star.svg" alt="rating-star">
     </div>
     <div class="card__product-info">
-      <div><span>Freshness </span><span class="green">{{ product.freshness | titlecase }}</span></div>
-      <div><span>Farm </span><span>{{ product.farm | titlecase }}</span></div>
-      <div><span>Delivery </span><span>{{ product.deliveryArea | titlecase }}</span></div>
-      <div><span>Stock </span><span class="green">{{ product.stock }}</span></div>
+      <div class="card__info-wrapper"><span>Freshness </span><span class="green">{{ product.freshness | titlecase }}</span></div>
+      <div class="card__info-wrapper"><span>Farm </span><span>{{ product.farm | titlecase }}</span></div>
+      <div class="card__info-wrapper"><span>Delivery </span><span>{{ product.deliveryArea | titlecase }}</span></div>
+      <div class="card__info-wrapper"><span>Stock </span><span class="green">{{ product.stock }}</span></div>
     </div>
   </div>
   <div class="card__cost">
@@ -29,7 +29,7 @@
         <div class="detail-button"><span>Product Details</span>
           <img src="./assets/images/arrow-right.svg" alt="arrow-right"></div>
       </a>
-      <button type="button" class="card__add-to-wish">
+      <button class="card__add-to-wish">
         <img src="./assets/images/heart.svg" alt="heart">
         <span>Add to wish list</span>
       </button>
