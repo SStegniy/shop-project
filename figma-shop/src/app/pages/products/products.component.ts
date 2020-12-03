@@ -11,6 +11,8 @@ import { ProductServiceService } from '../../shared/services/product-service.ser
 
 export class ProductsComponent implements OnInit {
   public allProducts: Array<ProductInterface>;
+  public productsViewed: Array<ProductInterface> = [];
+  public page = 1;
 
   constructor(
     private productService: ProductServiceService,
@@ -21,4 +23,5 @@ export class ProductsComponent implements OnInit {
       this.allProducts = data.products;
     });
   }
+
 }
