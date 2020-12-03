@@ -1,42 +1,54 @@
-.main {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 1.5em;
+.inner-product {
+  max-width: 1260px;
+  margin: 0 auto;
 
-  .filter {
+  .main-title {
     display: flex;
-    flex-direction: column;
-    outline: 1px solid black;
-  }
-
-  .filter__title {
-    font-family: 'PoppinsReg';
-    font-size: 18px;
-    line-height: 27px;
-  }
-
-  .filter__element {
-    padding: 20px;
-  }
-
-  .filter__items {
-    display: flex;
-    align-items: center;
-  }
-
-  .categoryItem {
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+
+    &__title {
+      font-family: 'PoppinsReg';
+      font-size: 32px;
+      line-height: 48px;
+    }
   }
 
-  .filter__count {
+  .sort-wrapper {
     display: inline-block;
-    border-radius: 2em;
-    background-color: #F4F8EC;
-    padding: 0px 8px;
+    margin-top: 20px;
   }
 
+  .sort {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: #F9F9F9;
+    border: 1px solid #D1D1D1;
+    border-radius: 12px;
+  }
 
-  .product-card {
-    margin-bottom: 1.5em;
+  .sort__title {
+    margin-right: 24px;
+    padding-right: 24px;
+    border-right: 1px solid #D1D1D1;
+  }
+
+  .sort__element {
+    cursor: pointer;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-gap: 1.5em;
+    margin-top: 70px;
+
+    .product-card {
+      margin-bottom: 1.5em;
+    }
   }
 }

@@ -1,0 +1,9 @@
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-info__item {
+  display: flex;
+  flex-direction: column;
+}

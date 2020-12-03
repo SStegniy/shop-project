@@ -66,6 +66,9 @@ button,
 textarea,
 select {
   font: inherit;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -81,12 +84,17 @@ select {
 body {
   font-family: 'Open Sans';
   padding: 0px 1.5em;
+  color: #151515;
 }
 
-.star {
+.count {
   display: inline-block;
+  border-radius: 2em;
+  background-color: #F4F8EC;
+  padding: 0px 8px;
+  font-size: 12px;
+  line-height: 18px;
 }
-
 .show {
   display: block;
 }

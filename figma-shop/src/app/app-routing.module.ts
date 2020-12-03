@@ -1,31 +1,47 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllProductsResolver } from './pages/products/all-products.resolver';
 
-import { ProductServiceService } from './shared/services/product-service.service';
-
-import { AboutComponent } from './pages/about/about.component';
-import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
-import { CareersComponent } from './pages/careers/careers.component';
-import { ChatComponent } from './pages/chat/chat.component';
-import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { BlogComponent } from './pages/blog/blog.component';
-
-
-let routes: Routes;
-routes = [
-  {path: '', redirectTo: 'products', pathMatch: 'full'},
-  {path: 'about', component: AboutComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: 'shopping-cart', component: ShoppingCartComponent},
-  {path: 'careers', component: CareersComponent},
-  {path: 'chat', component: ChatComponent},
-  {path: 'product/:id', component: ProductDetailsComponent, resolve: { id: ProductServiceService }},
-  {path: 'products', component: ProductsComponent}
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'products',
+    pathMatch: 'full'
+  },
+  {
+    path: 'products',
+    loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule),
+    resolve: { products: AllProductsResolver }
+  },
+  {
+    path: 'products/:id',
+    loadChildren: () => import('./pages/product-details/product-details.module').then(m => m.ProductDetailsModule),
+  },
+  {
+    path: 'shopping-cart',
+    loadChildren: () => import('./pages/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatModule)
+  },
+  {
+    path: 'careers',
+    loadChildren: () => import('./pages/careers/careers.module').then(m => m.CareersModule)
+  },
+  {
+    path: 'blog',
+    loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {}

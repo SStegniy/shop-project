@@ -1,20 +1,26 @@
-<div class="header-main">
+<div class="header-wrapper">
     <div class="header-search">
-        <div class="header-search__logo col-3">
+        <div class="header-search__logo">
             <a [routerLink]="[ '/products' ]">
                 <img src="./assets/images/Freshnesecom.png" alt="logo">
             </a>
         </div>
-        <div class="header-search__field col-6">
-            <input type="text" name="search">
+        <div class="header-search__field">
+            <select class="header-search__select" name="select" id="">
+              <option>All categories</option>
+              <option>Food</option>
+            </select>
+            <img src="./assets/images/arrow-down.svg" alt="arrow-down" autocomplete="off">
+            <input class="header-search__search" type="text" name="search"
+                   placeholder="Search Products, categories ...">
             <img src="./assets/images/search.svg" alt="search">
         </div>
-        <div class="header-search__shop col-3">
+        <div class="header-search__shop">
             <div class="header-search__person">
                 <img src="./assets/images/person.png" alt="person">
             </div>
-            <div class="header-search__bucket">
-                <a [routerLink]="[ '/shopping-cart']">
+            <div class="header-search__busket">
+                <a [routerLink]="[ '/shopping-cart' ]">
                     <img src="./assets/images/bucket.svg" alt="person">
                 </a>
             </div>
@@ -34,8 +40,9 @@
             </ul>
         </nav>
     </div>
-    <div class="breadcrumbs">
-        <span>Homepage / </span>
-        <span>All Products </span>
-    </div>
 </div>
+<div class="breadcrumbs">
+  <span class="breadcrumbs__previous-route">Homepage / </span>
+  <span class="breadcrumbs__current-route">All Products </span>
+</div>
+

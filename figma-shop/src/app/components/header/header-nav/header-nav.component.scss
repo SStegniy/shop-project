@@ -1,35 +1,91 @@
 .header-search {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
 
     .header-search__field {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        background-color: #f9f9f9;
+        border-radius: 1em;
+        padding: 10px 16px;
+        border: 1px solid #d1d1d1;
+        max-width: 450px;
+        flex-grow: 2;
+    }
+
+    .header-search__select {
+        background-color: inherit;
+        appearance: none;
+        margin-right: 3px;
+        font-family: 'PoppinsSemiBold';
+    }
+
+    .header-search__search {
+        margin-left: 8px;
+        padding-left: 16px;
+        font-size: 14px;
+        border: none;
+        background-color: inherit;
+        flex-grow: 2;
+        border-left: 1px solid #E5E5E5;
+    }
+
+    .header-search__search:focus {
+        border: none;
+        outline: none;
     }
 
     .header-search__shop {
         display: flex;
         justify-content: flex-end;
+
+        .header-search__person {
+            margin-right: 40px;
+        }
+        .header-search__busket {
+            transform: translate(0, 5%);
+        }
     }
 }
 
 .header-nav {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 
     .nav {
         display: inline-block;
+        background-color: #F9F9F9;
     }
     .list {
         list-style-type: none;
     }
     .item {
         display: inline-block;
-        padding: 5px 10px;
+        padding: 16px 21px;
+        font-family: 'PoppinsReg';
+        font-size: 15px;
+        line-height: 22px;
 
         img {
             display: inline;
             margin-left: 5px;
         }
+    }
+}
+
+.breadcrumbs {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 16px 0px;
+
+    span {
+      line-height: 16px;
+    }
+
+    .breadcrumbs__previous-route {
+        color: #A9A9A9;
+
     }
 }

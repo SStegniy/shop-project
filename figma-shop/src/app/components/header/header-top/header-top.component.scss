@@ -1,20 +1,30 @@
 .header-top {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 16px 0px;
 
     .left-info {
         display: flex;
         justify-content: flex-start;
+
+        span {
+          margin-right: 33px;
+        }
     }
 
     .right-info {
         display: flex;
         justify-content: flex-end;
+
+        span {
+          margin-left: 33px;
+        }
     }
 
-    span {
-        display: inline-block;
-        padding: 10px;
+    .top-link {
+      color: #6A983C;
+      text-decoration: none;
     }
 }
 
