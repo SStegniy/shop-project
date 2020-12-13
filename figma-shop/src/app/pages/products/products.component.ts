@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from 'src/app/shared/interfaces/product.interface';
-import { ProductServiceService } from '../../shared/services/product-service.service';
+import { ProductService } from '../../shared/services/product.service';
+import { FilterData } from '../../shared/interfaces/filter-data.interface';
+import { FiltersService } from '../../shared/services/filters.service';
 
 @Component({
   selector: 'app-products',
@@ -11,12 +13,13 @@ import { ProductServiceService } from '../../shared/services/product-service.ser
 
 export class ProductsComponent implements OnInit {
   public allProducts: Array<ProductInterface>;
-  public productsViewed: Array<ProductInterface> = [];
   public page = 1;
+  public formData: FilterData;
 
   constructor(
-    private productService: ProductServiceService,
-    private actRoute: ActivatedRoute) { }
+    private productService: ProductService,
+    private actRoute: ActivatedRoute,
+    private filterService: FiltersService) { }
 
   ngOnInit(): void {
     this.actRoute.data.subscribe(data => {
@@ -24,4 +27,11 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  public addForm(data): void {
+    this.formData = data;
+  }
+
+  public filteredProducts(): ProductInterface[] {
+    return this.filterService.filterAllProducts(this.allProducts);
+  }
 }

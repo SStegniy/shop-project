@@ -1,10 +1,9 @@
-import { CategoryInterace } from './category.interface';
 import { MessageInterface } from './message.interface';
 import { DescriptionInterface } from './description.interface';
 
 export interface ProductInterface {
     id: number;
-    category: CategoryInterace;
+    category: string;
     title: string;
     rating: number;
     price: number;

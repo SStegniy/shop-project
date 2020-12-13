@@ -10,10 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderModule } from './components/header/header.module';
+import { FilterModule } from './shared/pipes/filter/filter.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +22,8 @@ import { HeaderModule } from './components/header/header.module';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    HeaderModule
+    HeaderModule,
+    FilterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

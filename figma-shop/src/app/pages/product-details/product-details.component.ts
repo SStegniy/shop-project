@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductServiceService } from '../../shared/services/product-service.service';
+import { ProductService } from '../../shared/services/product.service';
 import { ProductInterface } from '../../shared/interfaces/product.interface';
 
 @Component({
@@ -15,7 +15,7 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private actRoute: ActivatedRoute,
-    private productService: ProductServiceService) { }
+    private productService: ProductService) { }
 
   ngOnInit(): void {
     this.actRoute.data.subscribe((data) => {

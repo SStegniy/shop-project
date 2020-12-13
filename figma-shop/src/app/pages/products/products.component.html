@@ -17,9 +17,9 @@
     </div>
   </div>
   <main class="main">
-    <app-filter></app-filter>
+    <app-filter (formFilterResult)="addForm($event)"></app-filter>
     <div class="products">
-      <div class="product-card" *ngFor="let product of allProducts | paginate: { itemsPerPage: 5, currentPage: page }">
+      <div class="product-card" *ngFor="let product of filteredProducts() | filter: formData | paginate: { itemsPerPage: 5, currentPage: page }">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>

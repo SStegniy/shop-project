@@ -52,10 +52,37 @@
   .categoryItem {
     justify-content: space-between;
     margin-top: 12px;
+
+    input {
+      display: none;
+    }
   }
 
-  .filter__input-range {
-    width: 100%;
+  ::ng-deep {
+    .filter__range-slider {
+      .ngx-slider {
+        .ngx-slider-selection {
+          background: rgba(106,152,60,1) !important;
+        }
+        .ngx-slider-pointer {
+          width: 20px;
+          height: 20px;
+          background-color: white;
+          border: 1px solid #D1D1D1;
+          top: -8px;
+        }
+        .ngx-slider-pointer:focus {
+          outline: none;
+        }
+        .ngx-slider-pointer:after {
+          display: none;
+        }
+        .ngx-slider-model-value,
+        .ngx-slider-model-high {
+          display: none;
+        }
+      }
+    }
   }
 
   .filter__range-count-wrapper {
