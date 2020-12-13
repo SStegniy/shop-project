@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductsComponent } from './products.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductCardComponent } from './product-card/product-card.component';
+
+import { ProductsComponent } from './products.component';
 import { FilterComponent } from './filter/filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 const routes: Routes = [
   {
@@ -17,10 +20,12 @@ const routes: Routes = [
     ProductsComponent,
     ProductCardComponent,
     FilterComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    NgxPaginationModule
   ]
 })
 

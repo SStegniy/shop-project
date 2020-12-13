@@ -19,10 +19,22 @@
   <main class="main">
     <app-filter></app-filter>
     <div class="products">
-      <div class="product-card" *ngFor="let product of allProducts">
+      <div class="product-card" *ngFor="let product of allProducts | paginate: { itemsPerPage: 5, currentPage: page }">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>
   </main>
+  <div class="pagination">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    <div class="button show-button">
+      <span>Show more products</span>
+      <img src="./assets/images/arrow-right.svg" alt="arrow-right">
+    </div>
+    <div class="count-products">
+      <span class="count">117</span>
+      <span>Products</span>
+    </div>
+  </div>
+  <app-footer></app-footer>
 </div>
 

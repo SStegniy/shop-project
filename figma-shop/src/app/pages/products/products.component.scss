@@ -16,6 +16,22 @@
     }
   }
 
+  .count-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span:first-child {
+      margin-right: 10px;
+    }
+
+    span:last-child {
+      color: #A9A9A9;
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
   .sort-wrapper {
     display: inline-block;
     margin-top: 20px;
@@ -50,5 +66,17 @@
     .product-card {
       margin-bottom: 1.5em;
     }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 15px;
+  }
+
+  .show-button {
+    display: inline-flex;
+    width: auto;
   }
 }
