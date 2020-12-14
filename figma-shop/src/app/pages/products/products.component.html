@@ -12,14 +12,14 @@
       <select class="sort__element" name="sort-select" id="sort">
         <option value="1">Select</option>
         <option value="2">Select</option>
-        <option value="3">Selcet</option>
+        <option value="3">Select</option>
       </select>
     </div>
   </div>
   <main class="main">
-    <app-filter (formFilterResult)="addForm($event)"></app-filter>
+    <app-filter></app-filter>
     <div class="products">
-      <div class="product-card" *ngFor="let product of filteredProducts() | filter: formData | paginate: { itemsPerPage: 5, currentPage: page }">
+      <div class="product-card" *ngFor="let product of filteredProducts | paginate: { itemsPerPage: 5, currentPage: page }">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>

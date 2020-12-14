@@ -5,6 +5,7 @@ import { Output, EventEmitter } from '@angular/core';
 import { FiltersService } from '../../../shared/services/filters.service';
 import { ProductInterface } from '../../../shared/interfaces/product.interface';
 import { ProductService } from '../../../shared/services/product.service';
+import {distinctUntilChanged} from "rxjs/operators";
 
 @Component({
   selector: 'app-filter',
@@ -13,7 +14,7 @@ import { ProductService } from '../../../shared/services/product.service';
 })
 
 export class FilterComponent implements OnInit {
-  @Output() formFilterResult = new EventEmitter<ProductInterface[]>();
+  // @Output() formFilterResult = new EventEmitter<ProductInterface[]>();
   private allProducts: ProductInterface[];
   public allCategories = [];
   public allBrands = [];
@@ -45,33 +46,34 @@ export class FilterComponent implements OnInit {
   }
 
   private formOnChange(): void {
-    this.form.valueChanges.subscribe(data => {
+    this.form.valueChanges.pipe(distinctUntilChanged()).subscribe(data => {
       this.max = data.price[1];
       this.min = data.price[0];
-      this.filterService.filter = {
-        category: data.category,
-        brand: this.checkedBrands,
-        rating: this.checkedRatings,
-        price: [data.price[0], data.price[1]]
-      };
-      console.log({
+      this.filterService.getFilterData({
         category: data.category,
         brand: this.checkedBrands,
         rating: this.checkedRatings,
         price: [data.price[0], data.price[1]]
       });
     });
-  }
-
-  private parentCheckForm(data): void {
-    this.formFilterResult.emit(data);
+    // this.form.valueChanges.subscribe(data => {
+    //   this.max = data.price[1];
+    //   this.min = data.price[0];
+    //   this.filterService.getFilterData(data);
+      // this.filterService.filter = {
+      //   category: data.category,
+      //   brand: this.checkedBrands,
+      //   rating: this.checkedRatings,
+      //   price: [data.price[0], data.price[1]]
+      // };
+    // });
   }
 
   private createFormGroup(): void {
     this.form = this.formBuilder.group({
       category: new FormControl(),
       brand: this.formBuilder.array(this.allBrands.map(elem => new FormControl(false))),
-      rating: new FormArray(this.allRatings.map(elem => new FormControl(false))),
+      rating: this.formBuilder.array(this.allRatings.map(elem => new FormControl(false))),
       price: new FormControl()
     });
   }

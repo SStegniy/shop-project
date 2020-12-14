@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from 'src/app/shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
-import { FilterData } from '../../shared/interfaces/filter-data.interface';
 import { FiltersService } from '../../shared/services/filters.service';
 
 @Component({
@@ -12,9 +11,8 @@ import { FiltersService } from '../../shared/services/filters.service';
 })
 
 export class ProductsComponent implements OnInit {
-  public allProducts: Array<ProductInterface>;
+  public allProducts: ProductInterface[];
   public page = 1;
-  public formData: FilterData;
 
   constructor(
     private productService: ProductService,
@@ -27,11 +25,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  public addForm(data): void {
-    this.formData = data;
-  }
-
-  public filteredProducts(): ProductInterface[] {
+  get filteredProducts(): ProductInterface[] {
     return this.filterService.filterAllProducts(this.allProducts);
   }
 }
