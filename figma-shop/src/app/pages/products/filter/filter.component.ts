@@ -16,8 +16,8 @@ export class FilterComponent implements OnInit {
   public objectKeys = Object.keys;
   private allProducts: ProductInterface[];
   public allCategories = {};
-  public allBrands = [];
-  public allRatings = [5, 4, 3, 2, 1];
+  public allBrands: string[] = [];
+  public allRatings: number[] = [5, 4, 3, 2, 1];
   public form: FormGroup;
   public sliderValue = 90;
   public sliderHighValue = 300;
@@ -38,14 +38,15 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.allProducts = this.prodService.products.getValue();
-    this.getCategories();
-    this.getBrands();
+    this.allCategories = this.getCategories();
+    this.allBrands = this.getBrands();
     this.createFormGroup();
     this.formOnChange();
   }
 
   private formOnChange(): void {
     this.form.valueChanges.pipe(distinctUntilChanged()).subscribe(data => {
+      debugger
       this.filterService.getFilterData({
         category: data.category,
         brand: this.checkedBrands,
@@ -65,21 +66,21 @@ export class FilterComponent implements OnInit {
     });
   }
 
-  private getCategories(): void {
+  private getCategories(): any {
     const categories = [];
     this.allProducts.forEach(prod => categories.push(prod.category.toLowerCase()));
-    this.allCategories = categories.reduce((count, elem) => {
-       !count[elem] ? count[elem] = (count[elem] = 1) : count[elem] = (count[elem] += 1);
-       return count;
+    return categories.reduce((count, elem) => {
+      count[elem] = count[elem] ? count[elem] += 1 : 1;
+      return count;
     }, {});
   }
 
-  private getBrands(): void {
-    const brands = [];
-    this.allProducts.forEach(prod => {
+  private getBrands(): string[] {
+    const brands: string[] = [];
+    this.allProducts.forEach((prod: ProductInterface) => {
       brands.push(prod.farm.toLowerCase());
     });
-    this.allBrands = [...new Set(brands)];
+    return [...new Set(brands)];
   }
 
   public checkboxBrandValue(index: number): void {
@@ -102,13 +103,11 @@ export class FilterComponent implements OnInit {
   }
 
   public resetForm(): void {
-    console.log(this.form.value);
     this.form.reset({
-      category: '',
+      category: null,
       brand: [],
       rating: [],
       price: [0, this.max]
     });
-    console.log(this.form.value);
   }
 }

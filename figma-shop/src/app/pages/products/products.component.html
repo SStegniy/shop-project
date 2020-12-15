@@ -24,7 +24,7 @@
   </main>
   <div class="pagination">
     <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
-    <div class="button show-button" *ngIf="page > itemsPerPage" (click)="showMoreProducts()">
+    <div class="button show-button" (click)="showMoreProducts()">
       <span>Show more products</span>
       <img src="./assets/images/arrow-right.svg" alt="arrow-right">
     </div>

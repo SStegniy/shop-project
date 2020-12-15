@@ -35,12 +35,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   get filteredProducts(): ProductInterface[] {
-    return this.filterService.filterAllProducts(this.allProducts);
+    return this.filterService.filterAllProducts([...this.allProducts]);
   }
 
   public showMoreProducts(): void {
-    if ((this.filteredProducts.length / 5)) {
-
+    if (!this.page) {
+      
     }
     this.itemsPerPage += 5;
   }
@@ -48,6 +48,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public onPageChange(page: number): void {
     window.scrollTo(0, 0);
     this.page = page;
+    this.itemsPerPage = 5;
   }
 
   ngOnDestroy(): void {

@@ -18,9 +18,9 @@
   </div>
   <div class="filter__element">
     <h3 class="filter__title">Rating</h3>
-    <div class="filter__items" *ngFor="let r of allRatings; let i = index" formArrayName="rating">
+    <div class="filter__items" *ngFor="let rating of allRatings; let i = index" formArrayName="rating">
       <label>
-        <input class="filter__checkbox" type="checkbox" (click)="checkboxRatingValue(r)" formControlName="{{ i }}">
+        <input class="filter__checkbox" type="checkbox" (click)="checkboxRatingValue(rating)" formControlName="{{ i }}">
         <img *ngFor="let star of allRatings; let j = index" class="filter__star"
              src="./assets/images/{{(allRatings.length - j) > i ? 'star-yell' : 'small-star'}}.svg" alt="star">
       </label>
