@@ -1,122 +1,52 @@
-<div class="filter">
+<form class="filter" [formGroup]="form">
   <div class="filter__element">
     <h3 class="filter__title">Categories</h3>
-    <div class="filter__items categoryItem">
-      <p class="filter__name filter__name_category">Category name</p>
-      <span class="count">320</span>
-    </div>
-    <div class="filter__items categoryItem">
-      <p class="filter__name filter__name_category">Category name</p>
-      <span class="count">112</span>
-    </div>
-    <div class="filter__items categoryItem">
-      <p class="filter__name filter__name_category">Category name</p>
-      <span class="count">32</span>
-    </div>
-    <div class="filter__items categoryItem">
-      <p class="filter__name filter__name_category">Category name</p>
-      <span class="count">40</span>
-    </div>
+    <label class="filter__items categoryItem" *ngFor="let category of objectKeys(allCategories); let i = index">
+      <input class="filter__category-radio" type="radio" name="category" formControlName="category" value="{{ category }}">
+      <p class="filter__name filter__name_category">{{ category | titlecase }}</p>
+      <span class="count">{{ allCategories[category] }}</span>
+    </label>
   </div>
   <div class="filter__element">
     <h3 class="filter__title">Brand</h3>
-    <div class="filter__items">
+    <div class="filter__items" *ngFor="let brand of allBrands; let i = index" formArrayName="brand">
       <label>
-        <input class="filter__checkbox" type="checkbox">
-        <span> Filtre by brand item</span>
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox">
-        <span> Filtre by brand item</span>
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox">
-        <span> Filtre by brand item</span>
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox">
-        <span> Filtre by brand item</span>
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox">
-        <span> Filtre by brand item</span>
+        <input class="filter__checkbox" (click)="checkboxBrandValue(i)" type="checkbox" formControlName="{{ i }}">
+        <span> {{ brand | titlecase }}</span>
       </label>
     </div>
   </div>
   <div class="filter__element">
     <h3 class="filter__title">Rating</h3>
-    <div class="filter__items">
+    <div class="filter__items" *ngFor="let rating of allRatings; let i = index" formArrayName="rating">
       <label>
-        <input class="filter__checkbox" type="checkbox" name="star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox" name="star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="yellow-star">
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox" name="star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="yellow-star">
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox" name="star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="star">
-      </label>
-    </div>
-    <div class="filter__items">
-      <label>
-        <input class="filter__checkbox" type="checkbox" name="star">
-        <img class="filter__star" src="./assets/images/star-yell.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="yellow-star">
-        <img class="filter__star" src="./assets/images/small-star.svg" alt="yellow-star">
+        <input class="filter__checkbox" type="checkbox" (click)="checkboxRatingValue(rating)" formControlName="{{ i }}">
+        <img *ngFor="let star of allRatings; let j = index" class="filter__star"
+             src="./assets/images/{{(allRatings.length - j) > i ? 'star-yell' : 'small-star'}}.svg" alt="star">
       </label>
     </div>
   </div>
   <div class="filter__element">
     <h3 class="filter__title">Price</h3>
-    <input class="filter__input-range" type="range" id="price">
+    <div class="filter__range-slider">
+      <ngx-slider [(value)]="sliderValue"
+                  [(highValue)]="sliderHighValue"
+                  [options]="sliderOptions"
+                  formControlName="price"></ngx-slider>
+    </div>
     <div class="filter__range-count-wrapper">
       <label class="filter__range-count">
         <span>Min</span>
-        <input type="number" value="0">
+        <input type="number" [value]="this.min">
       </label>
       <span class="filter__separator">-</span>
       <label class="filter__range-count">
         <span>Max</span>
-        <input type="number" value="0">
+        <input type="number" [value]="this.max">
       </label>
     </div>
   </div>
-</div>
+  <div class="filter__reset-wrapper">
+    <h3 class="filter__reset" (click)="resetForm()">Reset</h3>
+  </div>
+</form>

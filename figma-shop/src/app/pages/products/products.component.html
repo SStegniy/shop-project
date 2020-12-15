@@ -2,31 +2,29 @@
   <div class="main-title">
     <h1 class="main-title__title">All Products</h1>
     <div class="count-products">
-      <span class="count">117</span>
+      <span class="count">{{ filteredProducts.length }}</span>
       <span>Products</span>
     </div>
   </div>
   <div class="sort-wrapper">
     <div class="sort">
       <span class="sort__title">Sort by</span>
-      <select class="sort__element" name="sort-select" id="sort">
-        <option value="1">Select</option>
-        <option value="2">Select</option>
-        <option value="3">Selcet</option>
+      <select class="sort__element" [(ngModel)]="sortValue" name="sort-select" id="sort">
+        <option *ngFor="let option of sortConditions">{{ option }}</option>
       </select>
     </div>
   </div>
   <main class="main">
     <app-filter></app-filter>
     <div class="products">
-      <div class="product-card" *ngFor="let product of allProducts | paginate: { itemsPerPage: 5, currentPage: page }">
+      <div class="product-card" *ngFor="let product of filteredProducts | sorting: sortValue | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>
   </main>
   <div class="pagination">
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
-    <div class="button show-button">
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+    <div class="button show-button" (click)="showMoreProducts()">
       <span>Show more products</span>
       <img src="./assets/images/arrow-right.svg" alt="arrow-right">
     </div>

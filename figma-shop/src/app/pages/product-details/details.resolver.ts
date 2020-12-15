@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ProductInterface } from '../../shared/interfaces/product.interface';
-import { ProductServiceService } from '../../shared/services/product-service.service';
+import { ProductService } from '../../shared/services/product.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class ProdDetailsResolver implements Resolve<ProductInterface>{
   constructor(
-    private prodService: ProductServiceService,
+    private prodService: ProductService,
     private router: Router) {}
 
   public resolve(route: ActivatedRouteSnapshot): Observable<any> | Promise<any> | any {​​

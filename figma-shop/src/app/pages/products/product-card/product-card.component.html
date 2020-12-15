@@ -6,7 +6,8 @@
     <h2 class="card__title">{{ product.title | titlecase }}</h2>
     <p class="card__smallDesc">{{ product.description.small | titlecase }}</p>
     <div class="star-wrapper">
-      <img class="star" *ngFor="let star of starCount" src="./assets/images/star.svg" alt="rating-star">
+      <img class="star" *ngFor="let star of starCount; let i = index"
+           src="./assets/images/{{ star <= product.rating ? 'solid-star' : 'star' }}.svg" alt="rating-star">
     </div>
     <div class="card__product-info">
       <div class="card__info-wrapper"><span>Freshness </span><span class="green">{{ product.freshness | titlecase }}</span></div>

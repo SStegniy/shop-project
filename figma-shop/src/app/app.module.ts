@@ -10,10 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderModule } from './components/header/header.module';
+import { SortingModule } from './shared/pipes/sorting/sorting.module';
+import { AllProductsResolver } from './pages/products/all-products.resolver';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -21,9 +23,10 @@ import { HeaderModule } from './components/header/header.module';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    HeaderModule
+    HeaderModule,
+    SortingModule
   ],
-  providers: [],
+  providers: [AllProductsResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

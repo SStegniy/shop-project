@@ -19,7 +19,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule
-  ]
+  ],
+  providers: [ProdDetailsResolver]
 })
 
 export class ProductDetailsModule {}
