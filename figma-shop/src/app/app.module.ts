@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderModule } from './components/header/header.module';
-import { FilterModule } from './shared/pipes/filter/filter.module';
+import { SortingModule } from './shared/pipes/sorting/sorting.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { FilterModule } from './shared/pipes/filter/filter.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     HeaderModule,
-    FilterModule
+    SortingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

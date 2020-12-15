@@ -4,12 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FilterModule } from '../../shared/pipes/filter/filter.module';
 
 import { ProductsComponent } from './products.component';
 import { FilterComponent } from './filter/filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { SortingModule } from '../../shared/pipes/sorting/sorting.module';
 
 
 const routes: Routes = [
@@ -33,7 +33,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     NgxSliderModule,
-    FilterModule
+    SortingModule
   ]
 })
 

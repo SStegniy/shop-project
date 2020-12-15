@@ -1,10 +1,10 @@
 <form class="filter" [formGroup]="form">
   <div class="filter__element">
     <h3 class="filter__title">Categories</h3>
-    <label class="filter__items categoryItem" *ngFor="let category of allCategories">
-      <input type="radio" name="category" formControlName="category" value="{{ category }}">
+    <label class="filter__items categoryItem" *ngFor="let category of objectKeys(allCategories); let i = index">
+      <input class="filter__category-radio" type="radio" name="category" formControlName="category" value="{{ category }}">
       <p class="filter__name filter__name_category">{{ category | titlecase }}</p>
-      <span class="count">320</span>
+      <span class="count">{{ allCategories[category] }}</span>
     </label>
   </div>
   <div class="filter__element">
@@ -45,5 +45,8 @@
         <input type="number" [value]="this.max">
       </label>
     </div>
+  </div>
+  <div class="filter__reset-wrapper">
+    <h3 class="filter__reset" (click)="resetForm()">Reset</h3>
   </div>
 </form>

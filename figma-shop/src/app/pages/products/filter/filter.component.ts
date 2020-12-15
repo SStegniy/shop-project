@@ -13,8 +13,9 @@ import { distinctUntilChanged } from 'rxjs/operators';
 })
 
 export class FilterComponent implements OnInit {
+  public objectKeys = Object.keys;
   private allProducts: ProductInterface[];
-  public allCategories = [];
+  public allCategories = {};
   public allBrands = [];
   public allRatings = [5, 4, 3, 2, 1];
   public form: FormGroup;
@@ -45,14 +46,14 @@ export class FilterComponent implements OnInit {
 
   private formOnChange(): void {
     this.form.valueChanges.pipe(distinctUntilChanged()).subscribe(data => {
-      this.max = data.price[1];
-      this.min = data.price[0];
       this.filterService.getFilterData({
         category: data.category,
         brand: this.checkedBrands,
         rating: this.checkedRatings,
         price: [data.price[0], data.price[1]]
       });
+      this.max = data.price[1];
+      this.min = data.price[0];
     });
   }
 
@@ -67,10 +68,11 @@ export class FilterComponent implements OnInit {
 
   private getCategories(): void {
     const categories = [];
-    this.allProducts.forEach(prod => {
-      categories.push(prod.category.toLowerCase());
-    });
-    this.allCategories = [...new Set(categories)];
+    this.allProducts.forEach(prod => categories.push(prod.category.toLowerCase()));
+    this.allCategories = categories.reduce((count, elem) => {
+       count[elem] === undefined ? count[elem] = (count[elem] = 1) : count[elem] = (count[elem] += 1);
+       return count;
+    }, {});
   }
 
   private getBrands(): void {
@@ -98,5 +100,16 @@ export class FilterComponent implements OnInit {
     } else {
       this.checkedRatings.push(rating);
     }
+  }
+
+  public resetForm(): void {
+    console.log(this.form.value);
+    this.form.reset({
+      category: '',
+      brand: [],
+      rating: [],
+      price: [0, this.max]
+    });
+    console.log(this.form.value);
   }
 }
