@@ -15,8 +15,8 @@ export class FiltersService {
   }
 
   filterAllProducts(products: ProductInterface[]): ProductInterface[] {
-    if (!this.filter || this.filter.category === null && this.filter.brand.length === 0 &&
-      this.filter.rating.length === 0) {
+    if (!this.filter || this.filter.category === null && this.filter.brand.length &&
+      this.filter.rating.length) {
         return products;
     } else {
       return this.checkCategoryPresents(products).filter(product => {
@@ -32,7 +32,7 @@ export class FiltersService {
         return product.category.toLowerCase() === this.filter.category.toLowerCase();
       }
       else {
-        return !!product;
+        return Boolean(product);
       }
     });
 
@@ -43,7 +43,7 @@ export class FiltersService {
         return this.filter.brand.includes(product.farm.toLowerCase());
       }
       else {
-        return !!product;
+        return Boolean(product);
       }
   }
 
@@ -52,7 +52,7 @@ export class FiltersService {
       return this.filter.rating.includes(product.rating);
     }
     else {
-      return !!product;
+      return Boolean(product);
     }
   }
 
@@ -61,7 +61,7 @@ export class FiltersService {
       return this.filter.price[0] <= product.price && this.filter.price[1] >= product.price;
     }
     else {
-      return !!product;
+      return Boolean(product);
     }
   }
 }

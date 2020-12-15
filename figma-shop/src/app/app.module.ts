@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { HeaderModule } from './components/header/header.module';
 import { SortingModule } from './shared/pipes/sorting/sorting.module';
+import { AllProductsResolver } from './pages/products/all-products.resolver';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { SortingModule } from './shared/pipes/sorting/sorting.module';
     HeaderModule,
     SortingModule
   ],
-  providers: [],
+  providers: [AllProductsResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

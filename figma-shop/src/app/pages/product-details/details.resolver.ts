@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { ProductInterface } from '../../shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class ProdDetailsResolver implements Resolve<ProductInterface>{
   constructor(

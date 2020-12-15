@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from 'src/app/shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
 import { FiltersService } from '../../shared/services/filters.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +11,8 @@ import { FiltersService } from '../../shared/services/filters.service';
   styleUrls: ['./products.component.scss']
 })
 
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
+  public dataSubscription: Subscription;
   public allProducts: ProductInterface[];
   public page = 1;
   public itemsPerPage = 5;
@@ -23,7 +25,11 @@ export class ProductsComponent implements OnInit {
     private filterService: FiltersService) { }
 
   ngOnInit(): void {
-    this.actRoute.data.subscribe(data => {
+    this.handleProducts();
+  }
+
+  public handleProducts(): void {
+    this.dataSubscription = this.actRoute.data.subscribe(data => {
       this.allProducts = data.products;
     });
   }
@@ -42,5 +48,9 @@ export class ProductsComponent implements OnInit {
   public onPageChange(page: number): void {
     window.scrollTo(0, 0);
     this.page = page;
+  }
+
+  ngOnDestroy(): void {
+    this.dataSubscription.unsubscribe();
   }
 }

@@ -11,7 +11,6 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SortingModule } from '../../shared/pipes/sorting/sorting.module';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -34,7 +33,8 @@ const routes: Routes = [
     FormsModule,
     NgxSliderModule,
     SortingModule
-  ]
+  ],
+  providers: []
 })
 
 export class ProductsModule {}

@@ -3,9 +3,7 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { ProductService } from '../../shared/services/product.service';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class AllProductsResolver implements Resolve<any>{
   constructor(private prodService: ProductService) { }

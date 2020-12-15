@@ -52,8 +52,7 @@ export class FilterComponent implements OnInit {
         rating: this.checkedRatings,
         price: [data.price[0], data.price[1]]
       });
-      this.max = data.price[1];
-      this.min = data.price[0];
+      [ this.min , this.max] = data.price;
     });
   }
 
@@ -70,7 +69,7 @@ export class FilterComponent implements OnInit {
     const categories = [];
     this.allProducts.forEach(prod => categories.push(prod.category.toLowerCase()));
     this.allCategories = categories.reduce((count, elem) => {
-       count[elem] === undefined ? count[elem] = (count[elem] = 1) : count[elem] = (count[elem] += 1);
+       !count[elem] ? count[elem] = (count[elem] = 1) : count[elem] = (count[elem] += 1);
        return count;
     }, {});
   }
