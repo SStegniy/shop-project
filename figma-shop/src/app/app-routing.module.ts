@@ -11,15 +11,34 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule),
-    resolve: { products: AllProductsResolver }
+    resolve: { products: AllProductsResolver },
+    data : {
+      crumbs: [
+        { label: 'home', url: '' },
+        { label: 'all products', url: 'products' },
+      ]
+    }
   },
   {
     path: 'products/:id',
     loadChildren: () => import('./pages/product-details/product-details.module').then(m => m.ProductDetailsModule),
+    data: {
+      crumbs: [
+        { label: 'home', url: ''},
+        { label: 'all products', url: 'products' },
+        { label: 'details', url: 'products/:id' }
+      ]
+    }
   },
   {
     path: 'shopping-cart',
-    loadChildren: () => import('./pages/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule)
+    loadChildren: () => import('./pages/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule),
+    data: {
+      crumbs: [
+        { label: 'home', url: '' },
+        { label: 'order', url: 'shopping-cart' },
+      ]
+    }
   },
   {
     path: 'chat',

@@ -80,12 +80,18 @@
     margin: 0 auto;
     padding: 16px 0px;
 
-    span {
-      line-height: 16px;
+    &__item {
+      display: inline-block;
+      margin-right: 8px;
+      color: #A9A9A9;
     }
 
-    .breadcrumbs__previous-route {
-        color: #A9A9A9;
+    &__item + &__item::before {
+      content: '/';
+      margin-right: 4px;
+    }
 
+    .breadcrumbs__item:last-child a {
+      color: #151515;
     }
 }

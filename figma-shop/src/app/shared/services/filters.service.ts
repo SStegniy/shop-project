@@ -11,7 +11,6 @@ export class FiltersService {
   constructor() { }
 
   getFilterData(data): void {
-    debugger
     this.filter = data;
   }
 

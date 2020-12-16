@@ -42,7 +42,10 @@
     </div>
 </div>
 <div class="breadcrumbs">
-  <span class="breadcrumbs__previous-route">Homepage / </span>
-  <span class="breadcrumbs__current-route">All Products </span>
+  <ul class="breadcrumbs__list">
+    <li class="breadcrumbs__item" *ngFor="let crumb of breadcrumbs">
+      <a [routerLink]="crumb.url"> {{ crumb.label | titlecase }}</a>
+    </li>
+  </ul>
 </div>
 
