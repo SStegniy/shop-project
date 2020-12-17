@@ -8,7 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: ProductDetailsComponent,
-    resolve: { product: ProdDetailsResolver }
+    resolve: { product: ProdDetailsResolver },
+    data: {
+      label: 'details'
+    }
   }
 ];
 

@@ -46,7 +46,6 @@ export class FilterComponent implements OnInit {
 
   private formOnChange(): void {
     this.form.valueChanges.pipe(distinctUntilChanged()).subscribe(data => {
-      debugger
       this.filterService.getFilterData({
         category: data.category,
         brand: this.checkedBrands,
