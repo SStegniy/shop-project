@@ -1,14 +1,58 @@
 <div class="details">
   <div class="details__images">
-    <div class="details__main-image">
-      <img src="../../../assets/images/food-image.jpg" alt="product">
+    <div class="details__image-content">
+      <span>-36%</span>
+      <span>Free shipping</span>
     </div>
-    <div class="details__small-images"></div>
+    <div class="details__main-image">
+      <img class="details__image" src="{{ product.imgUrl }}" alt="{{ product.title }}">
+    </div>
+    <div class="details__small-image-wrapper">
+      <div class="details__small-images">
+        <img class="details__image" src="{{ product.imgUrl }}" alt="{{ product.title }}">
+      </div>
+      <div class="details__small-images">
+        <img class="details__image" src="{{ product.imgUrl }}" alt="{{ product.title }}">
+      </div>
+    </div>
   </div>
   <div class="details__content">
-    <h2 class="details__title"></h2>
+    <h2 class="details__title">{{ product.description.small | titlecase }}</h2>
     <div class="stars-wrapper">
-      <img class="star" *ngFor="let star of starCount" src="../../../assets/images/star.svg" alt="star">
+      <img class="star" *ngFor="let star of starCount"
+           src="./assets/images/{{ product.rating < star ? 'star' : 'solid-star' }}.svg" alt="star">
+      <span class="details__reviewers-count">({{ product.reviews.length }} customer{{ product.reviews.length > 1 ? 's' : '' }} reviews)</span>
+    </div>
+    <p class="details__description">{{ product.description.main }}</p>
+    <div class="details__info">
+      <div class="details__left-info">
+        <div class="details__info-row">
+          <span>Country:</span>
+          <span>Category:</span>
+          <span>Stock:</span>
+          <span>Color:</span>
+        </div>
+        <div class="details__info-row details__info-row__bigger">
+          <span>{{ product.country | titlecase }}</span>
+          <span>{{ product.category | titlecase }}</span>
+          <span>{{ product.stock }}</span>
+          <span>{{ product.color | titlecase }}</span>
+        </div>
+      </div>
+      <div class="details__right-info">
+        <div class="details__info-row">
+          <span>Size:</span>
+          <span>Buy by:</span>
+          <span>Delivery:</span>
+          <span>Delivery area:</span>
+        </div>
+        <div class="details__info-row details__info-row__bigger">
+          <span>{{ product.sizes }}</span>
+          <span>{{ product.buyProperties }}</span>
+          <span>{{ product.deliveryTime }}</span>
+          <span>{{ product.deliveryArea | titlecase }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>

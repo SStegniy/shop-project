@@ -1,5 +1,82 @@
 .details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
+  grid-gap: 32px;
+  max-width: 1260px;
+
+  .details__main-image {
+    height: 418px;
+  }
+
+  .details__small-image-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 39px;
+    margin-top: 26px;
+  }
+
+  .details__small-images {
+    height: 218px;
+  }
+
+  .details__image {
+    object-fit: cover;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  .details__title {
+    font-size: 32px;
+    line-height: 48px;
+    font-family: 'PoppinsBig';
+  }
+
+  .stars-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  .details__reviewers-count {
+    color: #A9A9A9;
+    margin-left: 10px;
+  }
+
+  .details__description {
+    font-size: 17px;
+    line-height: 23px;
+    margin-top: 42px;
+  }
+
+  .details__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 39px;
+    margin-top: 40px;
+
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .details__left-info, .details__right-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .details__info-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .details__info-row:nth-child(odd) {
+    color: #A9A9A9;
+  }
+
+  //.details__info-row__bigger {
+  //  flex-grow: 2;
+  //}
 }
