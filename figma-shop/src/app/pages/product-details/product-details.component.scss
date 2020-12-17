@@ -1,11 +1,26 @@
+.details-container {
+  max-width: 1260px;
+}
+
 .details {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 32px;
-  max-width: 1260px;
+
+  .details__image-content {
+    margin-bottom: 2px;
+
+    span {
+      margin-left: 13px;
+    }
+  }
 
   .details__main-image {
     height: 418px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
   }
 
   .details__small-image-wrapper {
@@ -17,12 +32,20 @@
 
   .details__small-images {
     height: 218px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
   }
 
   .details__image {
     object-fit: cover;
+    width: 100%;
     height: 100%;
-    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .details__title {
@@ -74,9 +97,234 @@
 
   .details__info-row:nth-child(odd) {
     color: #A9A9A9;
+    margin-right: 20px;
   }
 
-  //.details__info-row__bigger {
-  //  flex-grow: 2;
-  //}
+  .order {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #F5F5F5;
+    border-radius: 12px;
+    margin-top: 40px;
+  }
+
+  .order__price-wrapper {
+    margin-right: auto;
+  }
+
+  .order__price {
+    font-size: 26px;
+    line-height: 39px;
+    font-family: 'PoppinsBig';
+  }
+
+  .order__previous-price {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'PoppinsBig';
+    color: #A9A9A9;
+  }
+
+  .order__count {
+    border: 1px solid #D1D1D1;
+    background: #F9F9F9;
+    border-radius: 12px;
+    max-width: 111px;
+    display: flex;
+    justify-content: space-around;
+    padding: 11px;
+    margin-right: 24px;
+  }
+
+  .order__input-number {
+    width: 40px;
+    text-align: right;
+    border-right: 1px solid #D1D1D1;
+  }
+
+  .order__select {
+    font-family: 'PoppinsBig';
+    font-size: 12px;
+    margin-left: 14px;
+  }
+
+  .order__add {
+    padding: 12px 16px 12px 18px;
+    width: auto;
+
+    span:first-child {
+      margin-right: 8px;
+    }
+
+  }
+
+  .order__add-to-wish-wrapper {
+    margin-top: 24px;
+  }
+
+  .order__wish-button {
+    width: auto;
+    background-color: transparent;
+    transition: background-color .2s linear;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: #F5F5F5;
+    }
+  }
+
+  .order__tabs {
+    width: 100%;
+    margin-top: 59px;
+
+    & > input[type='radio'] {
+      display: none;
+    }
+
+    & > input[type='radio']:checked + .tab {
+      border-bottom: 1px solid #151515;
+    }
+
+    #tab-btn-1:checked~.order__content-wrapper #description,
+    #tab-btn-2:checked~.order__content-wrapper #reviews,
+    #tab-btn-3:checked~.order__content-wrapper #questions {
+      display: block;
+    }
+
+    .tab {
+      display: inline-block;
+      width: calc(100% / 3);
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 27px;
+      user-select: none;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+      cursor: pointer;
+      padding-bottom: 16px;
+    }
+
+    .order__content {
+      display: none;
+      margin-top: 48px;
+    }
+
+    .order__content > h3, .order__message-container > h3 {
+      font-size: 15px;
+      line-height: 22px;
+      font-family: 'PoppinsSemiBold';
+      margin-bottom: 8px;
+    }
+    .order__content > p,
+    .order__message-container > p {
+      font-size: 14px;
+      line-height: 19px;
+      margin-bottom: 32px;
+    }
+
+    .order__content > p:last-of-type,
+    .order__content > .order__message-container:last-of-type > p {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.offers_card-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.offers {
+  margin-top: 85px;
+  padding: 0px 35px;
+  margin-bottom: 96px;
+
+  .offers__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 37px;
+
+    h2 {
+      font-family: 'PoppinsSemiBold';
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+
+  .offers__more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    line-height: 22px;
+    font-family: PoppinsSemiBold;
+    cursor: pointer;
+
+    img {
+      margin-left: 12px;
+    }
+  }
+}
+
+.offers-card {
+  min-width: 251px;
+  max-width: 251px;
+  margin-right: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .offers-card__image-wrapper {
+    width: 251px;
+    min-height: 180px;
+    position: relative;
+  }
+
+  .offers-card__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+  }
+
+  .offers-card__title {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 22px;
+    font-family: 'PoppinsSemiBold';
+  }
+
+  .offers-card__description {
+    font-size: 12px;
+    line-height: 16px;
+    color: #575757;
+  }
+
+  .offers-card__price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  .offers-card__price {
+
+  }
+
+  .offers-card__buy-button {
+    width: auto;
+    padding: 6.5px 12px;
+  }
 }

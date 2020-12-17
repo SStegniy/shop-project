@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './components/header/header.module';
 import { SortingModule } from './shared/pipes/sorting/sorting.module';
 import { AllProductsResolver } from './pages/products/all-products.resolver';
+import { FooterModule } from './components/footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AllProductsResolver } from './pages/products/all-products.resolver';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     HeaderModule,
+    FooterModule,
     SortingModule
   ],
   providers: [AllProductsResolver],
