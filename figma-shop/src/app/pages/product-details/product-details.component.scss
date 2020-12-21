@@ -208,6 +208,15 @@
       padding-bottom: 16px;
     }
 
+    .order__content-wrapper {
+      max-height: 150px;
+      overflow-y: scroll;
+    }
+
+    .order__content-wrapper::-webkit-scrollbar {
+      width: 10px;
+    }
+
     .order__content {
       display: none;
       margin-top: 48px;

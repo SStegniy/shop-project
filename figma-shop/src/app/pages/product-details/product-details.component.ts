@@ -21,7 +21,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getProduct();
     this.currentCategoryProducts = this.filterCurrentCategory(this.product.category);
-    this.currentCategoryProductsViewed = this.getFourProducts();
+    this.currentCategoryProductsViewed = this.getProductsByCounter(this.currentCategoryIndex);
   }
 
   private getProduct(): void {
@@ -37,7 +37,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  private getFourProducts(): ProductInterface[] {
-    return this.currentCategoryProducts.slice(this.currentCategoryIndex, 4);
+  private getProductsByCounter(counter: number): ProductInterface[] {
+    return this.currentCategoryProducts.slice(counter, 4);
   }
 }

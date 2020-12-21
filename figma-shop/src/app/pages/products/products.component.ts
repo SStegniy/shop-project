@@ -39,9 +39,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   public showMoreProducts(): void {
-    if (!this.page) {
-      
-    }
     this.itemsPerPage += 5;
   }
 

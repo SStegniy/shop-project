@@ -5,10 +5,15 @@
   border-radius: 12px;
 
   .card__image {
-    min-width: 300px;
-    height: 100%;
+    min-width: 268px;
+    height: 280px;
+    position: relative;
 
     img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       height: 100%;
       width: 100%;
       object-fit: cover;
@@ -17,7 +22,7 @@
   }
 
   .card__content {
-    padding: 30px;
+    padding: 25px;
   }
 
   .card__title {
@@ -34,7 +39,7 @@
   }
 
   .star-wrapper {
-    margin-bottom: 20px;
+    margin-bottom:17px;
   }
 
   .star {
@@ -48,10 +53,16 @@
     .card__info-wrapper {
       color: #A9A9A9;
       margin-top: 10px;
+      font-size: 14px;
+      line-height: 19px;
 
       .green {
         color: #6A983C;
       }
+    }
+
+    .card__info-wrapper:first-child {
+      margin-top: 0px;
     }
 
     .card__info-wrapper + span:first-child {
