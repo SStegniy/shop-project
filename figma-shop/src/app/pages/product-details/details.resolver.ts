@@ -14,11 +14,8 @@ export class ProdDetailsResolver implements Resolve<ProductInterface>{
   public resolve(route: ActivatedRouteSnapshot): Observable<any> | Promise<any> | any {​​
     const id = route.params.id;
     return new Promise((resolve, reject) => {
-      Promise.all([
-        this.prodService.getOneProduct(id),
-        this.prodService.getAllProducts()
-      ])
-        .then((data: ProductInterface[]) => resolve(data))
+      return this.prodService.getOneProduct(id)
+        .then((data: ProductInterface) => resolve(data))
         .catch(error => {
           this.router.navigateByUrl('products');
           resolve(false);
