@@ -13,6 +13,8 @@ import { HeaderModule } from './components/header/header.module';
 import { SortingModule } from './shared/pipes/sorting/sorting.module';
 import { AllProductsResolver } from './pages/products/all-products.resolver';
 import { FooterModule } from './components/footer/footer.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FooterModule } from './components/footer/footer.module';
     AngularFireDatabaseModule,
     HeaderModule,
     FooterModule,
-    SortingModule
+    SortingModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule
   ],
   providers: [AllProductsResolver],
   bootstrap: [AppComponent]
