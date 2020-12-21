@@ -14,11 +14,11 @@ export interface ProductInterface {
     deliveryTime: number;
     country: string;
     color: string;
-    size: string;
+    sizes: string;
     buyProperties: string;
     stock: number | string;
     imgUrl: string;
     description: DescriptionInterface;
-    reviews: MessageInterface;
-    questions: MessageInterface;
+    reviews: MessageInterface[];
+    questions: MessageInterface[];
 }

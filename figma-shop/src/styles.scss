@@ -87,7 +87,7 @@ html {
 
 body {
   font-family: 'Open Sans';
-  padding: 0px 1.5em;
+  padding: 0px 45px;
   color: #151515;
 }
 
@@ -124,5 +124,24 @@ body {
 
   img {
     margin-left: 12px;
+  }
+}
+
+.add-to-wish {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background-color: #F5F5F5;
+  font-family: 'PoppinsSemiBold';
+  font-size: 15px;
+  line-height: 22px;
+  width: 100%;
+  margin-top: 12px;
+
+  img {
+    margin-right: 10px;
   }
 }

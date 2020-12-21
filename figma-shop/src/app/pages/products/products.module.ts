@@ -8,8 +8,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductsComponent } from './products.component';
 import { FilterComponent } from './filter/filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { SortingModule } from '../../shared/pipes/sorting/sorting.module';
+import { FooterModule } from '../../components/footer/footer.module';
 
 const routes: Routes = [
   {
@@ -22,8 +22,7 @@ const routes: Routes = [
   declarations: [
     ProductsComponent,
     ProductCardComponent,
-    FilterComponent,
-    FooterComponent
+    FilterComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -32,7 +31,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     NgxSliderModule,
-    SortingModule
+    SortingModule,
+    FooterModule
   ],
   providers: []
 })

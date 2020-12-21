@@ -19,7 +19,7 @@ export class ProductService {
     });
   }
 
-  public getAllProducts(): Promise<ProductInterface> {
+  public getAllProducts(): Promise<ProductInterface[]> {
     return new Promise((resolve, reject) => {
       return this.database.database.ref('products').once('value')
         .then(snap => {

@@ -1,14 +1,143 @@
+<div class="details-container">
 <div class="details">
   <div class="details__images">
-    <div class="details__main-image">
-      <img src="../../../assets/images/food-image.jpg" alt="product">
+    <div class="details__image-content">
+      <span class="count">-36%</span>
+      <span class="count">Free shipping</span>
     </div>
-    <div class="details__small-images"></div>
+    <div class="details__main-image">
+      <img class="details__image" [src]="product.imgUrl" [alt]="product.title">
+    </div>
+    <div class="details__small-image-wrapper">
+      <div class="details__small-images">
+        <img class="details__image" [src]="product.imgUrl" [alt]="product.title">
+      </div>
+      <div class="details__small-images">
+        <img class="details__image" [src]="product.imgUrl" [alt]="product.title">
+      </div>
+    </div>
   </div>
   <div class="details__content">
-    <h2 class="details__title"></h2>
+    <h2 class="details__title">{{ product.description.small | titlecase }}</h2>
     <div class="stars-wrapper">
-      <img class="star" *ngFor="let star of starCount" src="../../../assets/images/star.svg" alt="star">
+      <img class="star" *ngFor="let star of starCount"
+           src="./assets/images/{{ product.rating < star ? 'star' : 'solid-star' }}.svg" alt="star">
+      <span class="details__reviewers-count">({{ product.reviews.length }} customer{{ product.reviews.length > 1 ? 's' : '' }} reviews)</span>
+    </div>
+    <p class="details__description">{{ product.description.main }}</p>
+    <div class="details__info">
+      <div class="details__left-info">
+        <div class="details__info-row">
+          <span>Country:</span>
+          <span>Category:</span>
+          <span>Stock:</span>
+          <span>Color:</span>
+        </div>
+        <div class="details__info-row details__info-row__bigger">
+          <span>{{ product.country | titlecase }}</span>
+          <span>{{ product.category | titlecase }}</span>
+          <span>{{ product.stock }}</span>
+          <span>{{ product.color | titlecase }}</span>
+        </div>
+      </div>
+      <div class="details__right-info">
+        <div class="details__info-row">
+          <span>Size:</span>
+          <span>Buy by:</span>
+          <span>Delivery:</span>
+          <span>Delivery area:</span>
+        </div>
+        <div class="details__info-row details__info-row__bigger">
+          <span>{{ product.sizes }}</span>
+          <span>{{ product.buyProperties }}</span>
+          <span>{{ product.deliveryTime }}</span>
+          <span>{{ product.deliveryArea | titlecase }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="order">
+      <div class="order__price-wrapper">
+        <p class="order__price">{{ product.price }} USD</p>
+        <span class="order__previous-price">{{ product.previousPrice }} USD</span>
+      </div>
+      <div class="order__count">
+        <input class="order__input-number" type="number" value="1">
+        <select class="order__select">
+          <option value="some">Pcs</option>
+          <option value="some">Pcs</option>
+        </select>
+      </div>
+      <button class="button order__add">
+        <span>+</span>
+        <span>Add to cart</span>
+      </button>
+    </div>
+    <div class="order__add-to-wish-wrapper">
+      <button class="add-to-wish order__wish-button">
+        <img src="./assets/images/heart.svg" alt="heart">
+        <span>Add to wish list</span>
+      </button>
+    </div>
+
+    <div class="order__tabs">
+      <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+      <label class="tab" for="tab-btn-1">Description</label>
+      <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+      <label class="tab" for="tab-btn-2">Reviews <span class="count">{{ product.reviews.length }}</span></label>
+      <input type="radio" name="tab-btn" id="tab-btn-3" value="">
+      <label class="tab" for="tab-btn-3">Question <span class="count">{{  product.questions.length }}</span></label>
+
+      <div class="order__content-wrapper">
+        <div class="order__content" id="description">
+          <h3>Origins</h3>
+          <p>{{ product.description.origins }}</p>
+          <h3>How to cook</h3>
+          <p>{{ product.description.howToCook }}</p>
+        </div>
+        <div class="order__content" id="reviews">
+          <div class="order__message-container" *ngFor="let review of product.reviews">
+            <h3>{{ review.author }} <span>{{ review.date | date }}</span></h3>
+            <p>{{ review.body }}</p>
+          </div>
+        </div>
+        <div class="order__content" id="questions">
+          <div class="order__message-container" *ngFor="let question of product.questions">
+            <h3>{{ question.author }} <span>{{ question.date | date }}</span></h3>
+            <p>{{ question.body }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  </div>
+
+  <div class="offers">
+    <div class="offers__title">
+      <h2>You may be love</h2>
+      <button class="offers__more">
+        More Products
+        <img src="./assets/images/arrow-right.svg" alt="arrow-right">
+      </button>
+    </div>
+
+    <div class="offers_card-wrapper">
+      <div class="offers-card" *ngFor="let categoryProduct of currentCategoryProductsViewed">
+        <div class="offers-card__image-wrapper">
+          <img class="offers-card__image" [src]="categoryProduct.imgUrl" [alt]="categoryProduct.title">
+        </div>
+        <div class="offers-card__content">
+          <h3 class="offers-card__title">{{ categoryProduct.title }}</h3>
+          <p class="offers-card__description">{{ categoryProduct.description.small | slice:0:40 }}
+            {{ categoryProduct.description.small.length > 40 ? '...' : '' }}</p>
+          <div class="offers-card__price-info">
+            <p class="offers-card__price">{{ categoryProduct.price }} USD</p>
+            <button class="offers-card__buy-button button">Buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<app-footer></app-footer>

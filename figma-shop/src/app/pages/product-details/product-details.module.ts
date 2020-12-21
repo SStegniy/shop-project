@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from './product-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProdDetailsResolver } from './details.resolver';
+import { FooterModule } from '../../components/footer/footer.module';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    FooterModule
   ],
   providers: [ProdDetailsResolver]
 })
