@@ -11,42 +11,46 @@ import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
 })
 export class ShoppingCartComponent implements OnInit {
   public personForm: FormGroup;
-  public countries = countryList;
+  public countries: string[] = countryList;
   public filteredCountries: Observable<string[]>;
   public countriesFormControl = new FormControl();
   constructor() { }
 
   ngOnInit(): void {
-    this.createFormGroup();
+    this.personForm = this.initPersonForm();
+    this.filteredCountries = this.getFilteredCountries();
     this.onFormChange();
   }
 
-  private createFormGroup(): void {
-    this.personForm = new FormGroup({
+  private initPersonForm(): FormGroup {
+    return new FormGroup({
       firstName: new FormControl(),
       lastName: new FormControl(),
       email: new FormControl(),
       phone: new FormControl(),
       address: new FormControl(),
-      country: new FormControl(),
-      city: this.countriesFormControl,
+      country: this.countriesFormControl,
+      city: new FormControl(),
       postal: new FormControl(),
     });
   }
 
-  private onFormChange(): void {
-    this.filteredCountries = this.countriesFormControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this.filterCountries(value))
-    );
+  private onFormChange(): any {
     this.personForm.valueChanges.pipe(distinctUntilChanged()).subscribe(data => {
       console.log(data);
     });
   }
 
+  private getFilteredCountries(): Observable<string[]> {
+    return this.countriesFormControl.valueChanges.pipe(
+      startWith(''),
+      map((value: string) => this.filterCountries(value))
+    );
+  }
+
   private filterCountries(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.countries.filter(country => country.toLowerCase().includes(filterValue));
+    return this.countries.filter((country: string) => country.toLowerCase().includes(filterValue));
   }
 
 }

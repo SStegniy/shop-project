@@ -18,7 +18,7 @@
         </div>
         <div class="person-info-group">
           <label for="country">State/Country</label>
-          <input type="text" id="country" [formControl]="countriesFormControl"
+          <input type="text" id="country" formControlName="country"
                  [matAutocomplete]="auto" placeholder="Choose a state or Country" autocomplete="off">
           <mat-autocomplete #auto="matAutocomplete" class="auto-complete">
             <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
