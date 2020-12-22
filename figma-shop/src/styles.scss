@@ -121,8 +121,8 @@ html {
 }
 
 body {
-  font-family: 'Open Sans';
-  padding: 0px 45px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0 45px;
   color: #151515;
 }
 
@@ -130,7 +130,7 @@ body {
   display: inline-block;
   border-radius: 2em;
   background-color: #F4F8EC;
-  padding: 0px 8px;
+  padding: 0 8px;
   font-size: 12px;
   line-height: 18px;
 }
@@ -151,7 +151,7 @@ body {
   border-radius: 12px;
   background-color: #6A983C;
   color: #FFFFFF;
-  font-family: 'PoppinsSemiBold';
+  font-family: 'PoppinsSemiBold', sans-serif;
   font-size: 15px;
   line-height: 22px;
   width: 100%;
@@ -170,7 +170,7 @@ body {
   padding: 6px 12px;
   border-radius: 12px;
   background-color: #F5F5F5;
-  font-family: 'PoppinsSemiBold';
+  font-family: 'PoppinsSemiBold', sans-serif;
   font-size: 15px;
   line-height: 22px;
   width: 100%;
@@ -198,7 +198,7 @@ body {
   }
 
   .product-count__select {
-    font-family: 'PoppinsBig';
+    font-family: 'PoppinsBig', sans-serif;
     font-size: 12px;
     margin-left: 14px;
   }

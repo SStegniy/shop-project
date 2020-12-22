@@ -52,7 +52,22 @@
       <label for="notes">Order notes</label>
       <textarea name="" id="notes" cols="30" rows="10" placeholder="Need a specific delivery day?"></textarea>
     </div>
+    <div class="confirmation">
+      <h2 class="elem-title">Confirmation</h2>
+      <p class="elem-description">We are getting to the end. Just few clicks and your order si ready!</p>
+      <div class="confirmation__privacy">
+        <input type="checkbox" id="message">
+        <label for="message">I agree with sending an Marketing and newsletter emails. No spam, promissed!</label>
+      </div>
+      <div class="confirmation__privacy">
+        <input type="checkbox" id="terms">
+        <label for="terms">I agree with sending an Marketing and newsletter emails. No spam, promissed!</label>
+      </div>
+      <button class="confirmation__button button">Complete order</button>
+    </div>
   </div>
+
+  <div class="summary-wrapper">
   <div class="summary">
     <h2 class="elem-title">Order Summary</h2>
     <p class="elem-description">Price can change depending on shipping method and taxes of your state.</p>
@@ -93,5 +108,28 @@
         </select>
       </div>
     </div>
+    <div class="summary__total">
+      <div class="summary__subtotal">
+        <span>Subtotal</span>
+        <span>73.12 USD</span>
+      </div>
+      <div class="summary__tax">
+        <span>Tax</span>
+        <span>12.10 USD</span>
+      </div>
+      <div class="summary__promo-group">
+        <input class="summary__promo" type="text" placeholder="Apply promo code">
+        <span class="summary__promo-send">Apply now</span>
+      </div>
+      <div class="summary__total-wrapper">
+        <div class="summary__total-info">
+          <h3 class="summary__total-title">Total Order</h3>
+          <p class="summary__total-description">Guaranteed delivery day:  June 12, 2020</p>
+        </div>
+        <h3 class="summary__total-price">89.84 USD</h3>
+      </div>
+    </div>
   </div>
+  </div>
+
 </div>
