@@ -37,8 +37,6 @@ $figma-shop-theme: mat-light-theme((
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-@import '~ngx-toastr/toastr';
-
 // -------------- Reset css----------
 *,
 *::before,
@@ -118,10 +116,6 @@ select {
   }
 }
 // -------------- Reset css----------
-
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -208,6 +202,16 @@ body {
     font-size: 12px;
     margin-left: 14px;
   }
+}
+
+.person-info-group .ng-invalid {
+  border: 1px solid red !important;
+}
+
+.disabled-button {
+  color: #c1bebe;
+  background-color: #7b7777;
+  border: 1px solid #656060;
 }
 
 .mat-body p, .mat-body-1 p, .mat-typography p {

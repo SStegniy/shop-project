@@ -1,12 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { countryList } from './countries-list';
 import { Observable } from 'rxjs';
-import { distinctUntilChanged, map, startWith } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import { ProductInterface } from '../../../shared/interfaces/product.interface';
 import { OrderService } from '../../../shared/services/order.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,7 +15,7 @@ export class ShoppingCartComponent implements OnInit {
   public personForm: FormGroup;
   public countries: string[] = countryList;
   public filteredCountries: Observable<string[]>;
-  public countriesFormControl = new FormControl();
+  public countriesFormControl = new FormControl('', [Validators.required]);
   public totalPrice: number;
   public countStars = [1, 2, 3, 4, 5];
   public orderedProducts: ProductInterface[];
@@ -30,25 +28,18 @@ export class ShoppingCartComponent implements OnInit {
     this.filteredCountries = this.getFilteredCountries();
     this.orderedProducts = this.getProductFromLocal();
     this.getTotal();
-    this.onFormChange();
   }
 
   private initPersonForm(): FormGroup {
     return new FormGroup({
-      firstName: new FormControl(),
-      lastName: new FormControl(),
-      email: new FormControl(),
-      phone: new FormControl(),
-      address: new FormControl(),
+      firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+      phone: new FormControl('', [Validators.required, Validators.pattern('((\\+38)?\\(?\\d{3}\\)?[\\s\\.-]?(\\d{7}|\\d{3}[\\s\\.-]\\d{2}[\\s\\.-]\\d{2}|\\d{3}-\\d{4}))')]),
+      address: new FormControl('', [Validators.required]),
       country: this.countriesFormControl,
-      city: new FormControl(),
+      city: new FormControl('', [Validators.required]),
       postal: new FormControl(),
-    });
-  }
-
-  private onFormChange(): any {
-    this.personForm.valueChanges.pipe(distinctUntilChanged()).subscribe(data => {
-      console.log(data);
     });
   }
 
@@ -78,7 +69,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   public addToWishList(product: ProductInterface): void {
-    console.log('To wish');
+    alert(`${product.title} was added to wish list`);
   }
 
   public changeProductCount(): void {

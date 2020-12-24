@@ -45,6 +45,8 @@ export class HeaderNavComponent implements OnInit {
       this.countOfProducts = this.productsInCart.reduce((total: number, prod: ProductInterface) => {
         return total + prod.count;
       }, 0);
+    } else {
+      this.countOfProducts = 0;
     }
   }
 }

@@ -6,20 +6,24 @@
       <div class="person-info-inner">
         <div class="person-info-group">
           <label for="firstName">First name</label>
-          <input type="text" id="firstName" placeholder="First name" formControlName="firstName" autocomplete="off">
+          <input type="text" id="firstName" placeholder="First name" formControlName="firstName"
+                 [class.ng-invalid]="personForm.get('firstName').invalid && personForm.get('firstName').touched" autocomplete="off">
         </div>
         <div class="person-info-group">
           <label for="email">Email address</label>
-          <input type="text" id="email" placeholder="Email address" formControlName="email" autocomplete="off">
+          <input type="text" id="email" placeholder="Email address" formControlName="email"
+                 [class.ng-invalid]="personForm.get('email').invalid && personForm.get('email').touched" autocomplete="off">
         </div>
         <div class="person-info-group">
           <label for="address">Address</label>
-          <input type="text" id="address" placeholder="Address" autocomplete="off">
+          <input type="text" id="address" placeholder="Address" formControlName="address"
+                 [class.ng-invalid]="personForm.get('address').invalid && personForm.get('address').touched" autocomplete="off">
         </div>
         <div class="person-info-group">
           <label for="country">State/Country</label>
           <input type="text" id="country" formControlName="country"
-                 [matAutocomplete]="auto" placeholder="Choose a state or Country" autocomplete="off">
+                 [matAutocomplete]="auto" placeholder="Choose a state or Country"
+                 [class.ng-invalid]="personForm.get('country').invalid && personForm.get('country').touched" autocomplete="off">
           <mat-autocomplete #auto="matAutocomplete" class="auto-complete">
             <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
               {{ country }}
@@ -30,15 +34,18 @@
       <div class="person-info-inner">
         <div class="person-info-group">
           <label for="lastName">Last name</label>
-          <input type="text" id="lastName" placeholder="Last name" formControlName="lastName" autocomplete="off">
+          <input type="text" id="lastName" placeholder="Last name" formControlName="lastName"
+                 [class.ng-invalid]="personForm.get('lastName').invalid && personForm.get('lastName').touched" autocomplete="off">
         </div>
         <div class="person-info-group">
           <label for="phone">Phone number</label>
-          <input type="text" id="phone" placeholder="Phone number" formControlName="phone" autocomplete="off">
+          <input type="text" id="phone" placeholder="Phone number" formControlName="phone"
+                 [class.ng-invalid]="personForm.get('phone').invalid && personForm.get('phone').touched" autocomplete="off">
         </div>
         <div class="person-info-group">
           <label for="city">Town/City</label>
-          <input type="text" id="city" placeholder="City" formControlName="city" autocomplete="off">
+          <input type="text" id="city" placeholder="City" formControlName="city"
+                 [class.ng-invalid]="personForm.get('city').invalid && personForm.get('city').touched" autocomplete="off">
         </div>
         <div class="person-info-group">
           <label for="postalCode">ZIP/Postal code</label>
@@ -63,7 +70,8 @@
         <input type="checkbox" id="terms">
         <label for="terms">I agree with sending an Marketing and newsletter emails. No spam, promissed!</label>
       </div>
-      <button class="confirmation__button button" (click)="completeOrder()">Complete order</button>
+      <button class="confirmation__button button" (click)="completeOrder()"
+              [disabled]="personForm.invalid" [class.disabled-button]="personForm.invalid">Complete order</button>
     </div>
   </div>
 

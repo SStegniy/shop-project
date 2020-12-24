@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ProductInterface } from '../interfaces/product.interface';
 import { Subject } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class OrderService {
   ordersInCart: Subject<number> = new Subject<number>();
 
   constructor(
-    private toaster: ToastrService,
-    private router: Router) { }
+    private router: Router,
+    private snackBar: MatSnackBar) { }
 
   public addProduct(product: ProductInterface): void {
     let localProducts: ProductInterface[] = [];
@@ -45,9 +45,18 @@ export class OrderService {
     if (localStorage.getItem('order')) {
       localStorage.removeItem('order');
       this.router.navigateByUrl('');
-      this.toaster.success('', 'Success');
+      this.snackBar.open('Order confirmed!', 'Done', {
+        duration: 2000,
+        horizontalPosition: 'end',
+        verticalPosition: 'bottom'
+      });
     } else {
-      this.toaster.warning('', 'No products to order');
+      this.snackBar.open('No products to order', 'Done', {
+        duration: 2000,
+        horizontalPosition: 'end',
+        verticalPosition: 'bottom'
+      });
     }
+    this.ordersInCart.next();
   }
 }
