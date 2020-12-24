@@ -15,6 +15,7 @@ import { AllProductsResolver } from './pages/products/all-products.resolver';
 import { FooterModule } from './components/footer/footer.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     FooterModule,
     SortingModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    ToastrModule.forRoot()
   ],
   providers: [AllProductsResolver],
   bootstrap: [AppComponent]
