@@ -10,7 +10,8 @@
     padding-top: 8px;
 
     &__title {
-      font-family: 'PoppinsReg';
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
       font-size: 32px;
       line-height: 48px;
     }
@@ -55,6 +56,10 @@
 
   .sort__element {
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .main {
