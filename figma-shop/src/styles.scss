@@ -33,8 +33,9 @@ $figma-shop-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($figma-shop-theme);
 
-@import './assets/fonts/openSans/opensans.css';
-@import './assets/fonts/poppins/poppins.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 // -------------- Reset css----------
 *,
@@ -121,8 +122,8 @@ html {
 }
 
 body {
-  font-family: 'Open Sans';
-  padding: 0px 45px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 0 45px;
   color: #151515;
 }
 
@@ -130,7 +131,7 @@ body {
   display: inline-block;
   border-radius: 2em;
   background-color: #F4F8EC;
-  padding: 0px 8px;
+  padding: 0 8px;
   font-size: 12px;
   line-height: 18px;
 }
@@ -151,7 +152,8 @@ body {
   border-radius: 12px;
   background-color: #6A983C;
   color: #FFFFFF;
-  font-family: 'PoppinsSemiBold';
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   font-size: 15px;
   line-height: 22px;
   width: 100%;
@@ -170,7 +172,8 @@ body {
   padding: 6px 12px;
   border-radius: 12px;
   background-color: #F5F5F5;
-  font-family: 'PoppinsSemiBold';
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   font-size: 15px;
   line-height: 22px;
   width: 100%;
@@ -198,11 +201,16 @@ body {
   }
 
   .product-count__select {
-    font-family: 'PoppinsBig';
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 12px;
     margin-left: 14px;
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-body p, .mat-body-1 p, .mat-typography p {
+  margin: 0;
+}
+.mat-body, .mat-body-1, .mat-typography {
+  font: 400 14px/19px 'Open Sans', sans-serif;
+}

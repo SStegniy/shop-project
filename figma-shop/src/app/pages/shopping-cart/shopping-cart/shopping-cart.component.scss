@@ -3,18 +3,21 @@
   grid-template-columns: 1fr 468px;
   grid-gap: 32px;
   max-width: 1260px;
-  margin: 30px auto 0 auto;
+  margin: 30px auto 50px auto;
 }
 
 .elem-title {
   font-size: 22px;
-  font-family: 'PoppinsReg', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .elem-description {
   font-size: 12px;
   line-height: 16px;
   color: #A9A9A9;
+  margin-bottom: 32px;
 }
 
 .info {
@@ -44,7 +47,8 @@
 
     label {
       font-size: 12px;
-      font-family: 'PoppinsReg', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
     }
     input, select {
       width: 100%;
@@ -68,21 +72,45 @@
 
     label {
       font-size: 12px;
-      font-family: 'PoppinsReg', sans-serif;
+      font-family: 'PoppinsSemiBold', sans-serif;
     }
     textarea {
       resize: none;
       height: 100px;
       border-radius: 1em;
       background-color: #F9F9F9;
-      padding: 10px 15px;
+      padding: 11px 21px;
       font-size: 14px;
       line-height: 19px;
+      margin-bottom: 64px;
     }
     textarea:focus {
       outline: none;
       border: 1px solid #bdbdbd;
     }
+  }
+
+  .confirmation__privacy {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: 1px solid #D1D1D1;
+    padding: 11px 18px;
+    background: #F9F9F9;
+    margin-bottom: 16px;
+
+    label {
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  }
+
+  .confirmation__button {
+    width: auto;
+    margin-top: 32px;
+    font-size: 15px;
+    line-height: 22px;
   }
 }
 
@@ -102,6 +130,7 @@
     align-items: flex-start;
     border-bottom: 1px solid #F9F9F9;
     position: relative;
+    margin-bottom: 32px;
   }
 
   .summary__inner-left {
@@ -157,6 +186,10 @@
 
   .summary-title {
     margin-bottom: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
   }
 
   .summary__info {
@@ -193,7 +226,8 @@
 
   .summary__price {
     color: #6A983C;
-    font-family: 'PoppinsSemiBold', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 18px;
     line-height: 27px;
     margin-bottom: 35px;
@@ -203,7 +237,85 @@
     padding: 5px 0;
     position: absolute;
     right: 0;
-    bottom: 15px;
+    bottom: 22px;
     margin: 0;
+  }
+
+  .summary__total {
+    margin-top: 40px;
+  }
+
+  .summary__subtotal, .summary__tax {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .summary__subtotal {
+    margin-bottom: 12px;
+  }
+
+  .summary__tax {
+    margin-bottom: 32px;
+  }
+
+  .summary__promo-group {
+    position: relative;
+
+    input {
+      width: 100%;
+      border-radius: 1em;
+      background-color: #F9F9F9;
+      padding: 10px 15px;
+      font-size: 14px;
+      line-height: 19px;
+      border: 1px solid #D1D1D1;
+    }
+
+    input:focus {
+      outline: none;
+      border: 1px solid #bdbdbd;
+    }
+  }
+
+  .summary__promo-send {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 15px;
+    line-height: 22px;
+    font-family: 'PoppinsSemiBold', sans-serif;
+    cursor: pointer;
+  }
+
+  .summary__total-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 43px;
+  }
+
+  .summary__total-title {
+    font-size: 12px;
+    line-height: 18px;
+    font-family: 'PoppinsSemiBold', sans-serif;
+    margin: 0;
+  }
+
+  .summary__total-description {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 0;
+    color: #6A983C;
+  }
+
+  .summary__total-price {
+    font-family: 'PoppinsSemiBold', sans-serif;
+    font-size: 26px;
+    line-height: 39px;
+    color: #6A983C;
   }
 }

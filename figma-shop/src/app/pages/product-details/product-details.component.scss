@@ -1,5 +1,6 @@
 .details-container {
   max-width: 1260px;
+  margin: 0 auto;
 }
 
 .details {
@@ -51,7 +52,8 @@
   .details__title {
     font-size: 32px;
     line-height: 48px;
-    font-family: 'PoppinsBig';
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   .stars-wrapper {
@@ -93,6 +95,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    span {
+      margin-bottom: 12px;
+    }
   }
 
   .details__info-row:nth-child(odd) {
@@ -117,14 +123,17 @@
   .order__price {
     font-size: 26px;
     line-height: 39px;
-    font-family: 'PoppinsBig';
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
   }
 
   .order__previous-price {
     font-size: 12px;
     line-height: 18px;
-    font-family: 'PoppinsBig';
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     color: #A9A9A9;
+    text-decoration: line-through;
   }
 
   .order__add {
@@ -179,6 +188,7 @@
       font-weight: 600;
       font-size: 18px;
       line-height: 27px;
+      font-family: 'Poppins', sans-serif;
       user-select: none;
       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
       cursor: pointer;
@@ -187,6 +197,7 @@
 
     .order__content-wrapper {
       max-height: 150px;
+      margin-top: 48px;
       overflow-y: scroll;
     }
 
@@ -196,13 +207,13 @@
 
     .order__content {
       display: none;
-      margin-top: 48px;
     }
 
     .order__content > h3, .order__message-container > h3 {
       font-size: 15px;
       line-height: 22px;
-      font-family: 'PoppinsSemiBold';
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
       margin-bottom: 8px;
     }
     .order__content > p,
@@ -214,21 +225,22 @@
 
     .order__content > p:last-of-type,
     .order__content > .order__message-container:last-of-type > p {
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
   }
 }
 
-.offers_card-wrapper {
+.offers-card-wrapper {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   flex-wrap: nowrap;
   overflow: hidden;
 }
 
 .offers {
   margin-top: 85px;
-  padding: 0px 35px;
+  padding: 0 35px;
   margin-bottom: 96px;
 
   .offers__title {
@@ -238,7 +250,8 @@
     margin-bottom: 37px;
 
     h2 {
-      font-family: 'PoppinsSemiBold';
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       font-size: 18px;
       line-height: 27px;
     }
@@ -250,7 +263,8 @@
     align-items: center;
     font-size: 15px;
     line-height: 22px;
-    font-family: PoppinsSemiBold;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
     cursor: pointer;
 
     img {
@@ -289,7 +303,8 @@
     margin-bottom: 8px;
     font-size: 15px;
     line-height: 22px;
-    font-family: 'PoppinsSemiBold';
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
   }
 
   .offers-card__description {
