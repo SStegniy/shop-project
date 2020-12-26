@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { ProductInterface } from '../../../shared/interfaces/product.interface';
 import { OrderService } from '../../../shared/services/order.service';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -19,9 +20,12 @@ export class ShoppingCartComponent implements OnInit {
   public totalPrice: number;
   public countStars = [1, 2, 3, 4, 5];
   public orderedProducts: ProductInterface[];
+  private emailRegExp = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
+  private phoneRegExp = '((\\+38)?\\(?\\d{3}\\)?[\\s\\.-]?(\\d{7}|\\d{3}[\\s\\.-]\\d{2}[\\s\\.-]\\d{2}|\\d{3}-\\d{4}))';
 
   constructor(
-    private orderService: OrderService) { }
+    private orderService: OrderService,
+    private snackbarService: SnackbarService) { }
 
   ngOnInit(): void {
     this.personForm = this.initPersonForm();
@@ -34,8 +38,8 @@ export class ShoppingCartComponent implements OnInit {
     return new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      email: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-      phone: new FormControl('', [Validators.required, Validators.pattern('((\\+38)?\\(?\\d{3}\\)?[\\s\\.-]?(\\d{7}|\\d{3}[\\s\\.-]\\d{2}[\\s\\.-]\\d{2}|\\d{3}-\\d{4}))')]),
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegExp)]),
+      phone: new FormControl('', [Validators.required, Validators.pattern(this.phoneRegExp)]),
       address: new FormControl('', [Validators.required]),
       country: this.countriesFormControl,
       city: new FormControl('', [Validators.required]),
@@ -55,27 +59,8 @@ export class ShoppingCartComponent implements OnInit {
     return this.countries.filter((country: string) => country.toLowerCase().includes(filterValue));
   }
 
-  public getProductFromLocal(): ProductInterface[] {
-    if (localStorage.getItem('order')) {
-      return JSON.parse(localStorage.getItem('order'));
-    }
-  }
-
-  public removeProduct(id: number): void {
-    this.orderService.removeProduct(id);
-    const productIndex = this.orderedProducts.findIndex((prod: ProductInterface) => prod.id === id);
-    this.orderedProducts.splice(productIndex, 1);
-    this.getTotal();
-  }
-
-  public addToWishList(product: ProductInterface): void {
-    alert(`${product.title} was added to wish list`);
-  }
-
-  public changeProductCount(): void {
-    localStorage.setItem('order', JSON.stringify(this.orderedProducts));
-    this.getTotal();
-    this.orderService.ordersInCart.next();
+  private getProductFromLocal(): ProductInterface[] {
+    return this.orderService.getOrderFromLocalStorage();
   }
 
   private getTotal(): void {
@@ -86,6 +71,23 @@ export class ShoppingCartComponent implements OnInit {
     } else {
       this.totalPrice = 0;
     }
+  }
+
+  public removeProduct(id: number): void {
+    this.orderService.removeOrderFromLocalStorage(id);
+    const productIndex = this.orderedProducts.findIndex((prod: ProductInterface) => prod.id === id);
+    this.orderedProducts.splice(productIndex, 1);
+    this.getTotal();
+  }
+
+  public addToWishList(product: ProductInterface): void {
+    this.snackbarService.snackMessage(`${product.title} was added to wish list`, true);
+  }
+
+  public changeProductCount(): void {
+    this.orderService.changeOrderCountInLocalStorage(this.orderedProducts);
+    this.getTotal();
+    this.orderService.ordersInCart.next();
   }
 
   public completeOrder(): void {

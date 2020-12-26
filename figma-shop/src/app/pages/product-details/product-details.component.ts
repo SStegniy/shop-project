@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from '../../shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
 import { OrderService } from '../../shared/services/order.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from '../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-product-details',
@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private prodService: ProductService,
     private orderService: OrderService,
-    private snackBar: MatSnackBar) { }
+    private snackbarService: SnackbarService) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -51,12 +51,8 @@ export class ProductDetailsComponent implements OnInit {
     // ------- add counter for product
     product.count = count;
     // ------- add counter for product
-    this.orderService.addProduct(product);
+    this.orderService.setOrderToLocalStorage(product);
     this.productCount = 1;
-    this.snackBar.open('Added to cart', 'Done', {
-      duration: 2000,
-      horizontalPosition: 'end',
-      verticalPosition: 'bottom'
-    });
+    this.snackbarService.snackMessage('Added to cart', true);
   }
 }

@@ -22,7 +22,6 @@ export class HeaderNavComponent implements OnInit {
   ngOnInit(): void {
     this.checkBreadCrumbs();
     this.checkCart();
-    this.getLocalProducts();
   }
 
   private checkBreadCrumbs(): void {
@@ -35,11 +34,11 @@ export class HeaderNavComponent implements OnInit {
 
   private checkCart(): void {
     this.orderService.ordersInCart.subscribe(() => {
-      this.getLocalProducts();
+      this.getCountOfProducts();
     });
   }
 
-  private getLocalProducts(): void {
+  private getCountOfProducts(): void {
     if (localStorage.getItem('order')) {
       this.productsInCart = JSON.parse(localStorage.getItem('order'));
       this.countOfProducts = this.productsInCart.reduce((total: number, prod: ProductInterface) => {
