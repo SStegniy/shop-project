@@ -1,0 +1,25 @@
+<form class="login-form" [formGroup]="loginForm">
+  <h2>{{ signStatus ? 'Sign In With' : 'Sign Up' }}</h2>
+  <div class="social-login">
+    <div class="social social__facebook">
+      <img class="social__logo" src="./assets/images/facebook.png" alt="facebook">
+      <span>Facebook</span>
+    </div>
+    <div class="social social__google" (click)="loginUserViaGoogle()">
+      <img class="social__logo" src="./assets/images/google.png" alt="google">
+      <span>Google</span>
+    </div>
+  </div>
+  <div class="group">
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email" placeholder="Email" autocomplete="off">
+  </div>
+  <div class="group">
+    <label for="password">Password</label>
+    <input type="text" id="password" formControlName="password" placeholder="Password" autocomplete="off">
+  </div>
+  <button class="signIn button" (click)="signIn()">Sign In</button>
+  <div class="change-loginForm">
+    <span (click)="changeForm()">{{ signStatus ? 'Register' : 'Log in' }}</span>
+  </div>
+</form>

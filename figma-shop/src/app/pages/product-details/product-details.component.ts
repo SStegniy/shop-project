@@ -48,11 +48,16 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   public addToCart(product: ProductInterface, count: number): void {
-    // ------- add counter for product
-    product.count = count;
-    // ------- add counter for product
-    this.orderService.setOrderToLocalStorage(product);
-    this.productCount = 1;
-    this.snackbarService.snackMessage('Added to cart', true);
+    if (localStorage.getItem('user')) {
+      // ------- add counter for product
+      product.count = count;
+      // ------- add counter for product
+      this.orderService.setOrderToLocalStorage(product);
+      this.productCount = 1;
+      this.snackbarService.snackMessage('Added to cart', true);
+    }
+    else {
+      this.snackbarService.snackMessage('Please log in', false);
+    }
   }
 }

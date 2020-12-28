@@ -87,7 +87,7 @@ export class ShoppingCartComponent implements OnInit {
   public changeProductCount(): void {
     this.orderService.changeOrderCountInLocalStorage(this.orderedProducts);
     this.getTotal();
-    this.orderService.ordersInCart.next();
+    this.orderService.ordersInCart.next(1);
   }
 
   public completeOrder(): void {
