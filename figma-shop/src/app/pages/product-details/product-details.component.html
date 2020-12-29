@@ -61,13 +61,13 @@
           <span class="order__previous-price">{{ product.previousPrice }} USD</span>
         </div>
         <div class="product-count">
-          <input class="product-count__input-number" type="number" value="1">
+          <input class="product-count__input-number" min="1" type="number" [(ngModel)]="productCount">
           <select class="product-count__select">
             <option value="some">Pcs</option>
             <option value="some">Pcs</option>
           </select>
         </div>
-        <button class="button order__add">
+        <button class="button order__add" (click)="addToCart(product, productCount)">
           <span>+</span>
           <span>Add to cart</span>
         </button>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from '../../shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
+import { OrderService } from '../../shared/services/order.service';
+import { SnackbarService } from '../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,11 +16,14 @@ export class ProductDetailsComponent implements OnInit {
   private relatedProducts: ProductInterface[];
   public currentCategoryProductsViewed: ProductInterface[];
   private currentCategoryIndex = 0;
+  public productCount = 1;
   public starCount = [1, 2, 3, 4, 5];
 
   constructor(
     private actRoute: ActivatedRoute,
-    private prodService: ProductService) { }
+    private prodService: ProductService,
+    private orderService: OrderService,
+    private snackbarService: SnackbarService) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -40,5 +45,14 @@ export class ProductDetailsComponent implements OnInit {
 
   private getProductsByCounter(counter: number): ProductInterface[] {
     return this.relatedProducts.slice(counter, 4);
+  }
+
+  public addToCart(product: ProductInterface, count: number): void {
+    // ------- add counter for product
+    product.count = count;
+    // ------- add counter for product
+    this.orderService.setOrderToLocalStorage(product);
+    this.productCount = 1;
+    this.snackbarService.snackMessage('Added to cart', true);
   }
 }
