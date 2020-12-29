@@ -47,6 +47,28 @@
         }
         .header-search__busket {
             transform: translate(0, 5%);
+            position: relative;
+        }
+        .header-search__count {
+          position: absolute;
+          left: -5px;
+          bottom: -5px;
+          min-width: 16px;
+          height: 16px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #E5704B;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+          border-radius: 12px;
+
+          span {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 18px;
+            color: #FFFFFF;
+          }
         }
     }
 }
