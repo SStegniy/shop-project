@@ -1,11 +1,11 @@
-<form class="login-form" [formGroup]="loginForm" *ngIf="!userAuthStatus" (ngSubmit)="signIn()">
+<form class="login-form" [formGroup]="loginForm" *ngIf="!userAuthStatus">
   <h2>{{ signStatus ? 'Sign In With' : 'Sign Up' }}</h2>
   <div class="social-login">
-    <div class="social social__facebook" (click)="loginVia('facebook')">
+    <div class="social social__facebook" (click)="loginVia(socialType.facebook)">
       <img class="social__logo" src="./assets/images/facebook.png" alt="facebook">
       <span>Facebook</span>
     </div>
-    <div class="social social__google" (click)="loginVia('google')">
+    <div class="social social__google" (click)="loginVia(socialType.google)">
       <img class="social__logo" src="./assets/images/google.png" alt="google">
       <span>Google</span>
     </div>
@@ -18,7 +18,7 @@
     <label for="password">Password</label>
     <input type="text" id="password" formControlName="password" placeholder="Password" autocomplete="off">
   </div>
-  <button class="signIn button" type="submit">Sign In</button>
+  <button class="signIn button" type="submit" (click)="signIn()">Sign In</button>
   <div class="change-loginForm">
     <span (click)="changeForm()">{{ signStatus ? 'Register' : 'Log in' }}</span>
   </div>

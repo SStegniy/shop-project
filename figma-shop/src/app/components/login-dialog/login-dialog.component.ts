@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserInterface } from '../../shared/interfaces/user.interface';
+import { SocialType } from '../../shared/enums/social-media.enum';
 
 @Component({
   selector: 'app-login-dialog',
@@ -12,15 +13,22 @@ import { UserInterface } from '../../shared/interfaces/user.interface';
 export class LoginDialogComponent implements OnInit {
   public loginForm: FormGroup;
   public signStatus = true;
-  public userAuthStatus = false;
+  public userAuthStatus: boolean;
   public user: UserInterface;
+  public socialType = SocialType;
 
   constructor(
     private authService: AuthService,
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.user = this.getUserFromLocal();
     this.loginForm = this.createLoginFormGroup();
+    this.checkUserPresence();
+  }
+
+  private getUserFromLocal(): UserInterface {
+    return this.authService.getLocalUser();
   }
 
   private createLoginFormGroup(): FormGroup {
@@ -35,26 +43,23 @@ export class LoginDialogComponent implements OnInit {
     const password: string = this.loginForm.value.password;
     this.authService.login(email, password);
     this.dialog.closeAll();
-    this.userAuthStatus = true;
   }
 
   public signOut(): void {
     this.authService.singOut();
     this.dialog.closeAll();
-    this.userAuthStatus = false;
   }
 
   public changeForm(): void {
     this.signStatus = !this.signStatus;
   }
 
-  public loginVia(social: string): void {
-    this.userAuthStatus = true;
+  public loginVia(social: SocialType): void {
+    this.authService.loginWith(social);
     this.dialog.closeAll();
-    if (social === 'facebook') {
-      this.authService.loginWith(social);
-    } else {
-      this.authService.loginWith(social);
-    }
+  }
+
+  private checkUserPresence(): void {
+    this.userAuthStatus = !!this.user;
   }
 }

@@ -52,6 +52,11 @@ export class OrderService {
     this.ordersInCart.next(1);
   }
 
+  public removeAllProductsFromLocalStorage(): void {
+    localStorage.removeItem(this.orderStorageKey);
+    this.ordersInCart.next(0);
+  }
+
   public completeOrder(order: any): void {
     if (localStorage.getItem(this.orderStorageKey)) {
       localStorage.removeItem(this.orderStorageKey);
