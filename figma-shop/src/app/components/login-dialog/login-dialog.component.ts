@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
+import { UserInterface } from '../../shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-login-dialog',
@@ -11,6 +12,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class LoginDialogComponent implements OnInit {
   public loginForm: FormGroup;
   public signStatus = true;
+  public userAuthStatus = false;
+  public user: UserInterface;
 
   constructor(
     private authService: AuthService,
@@ -32,13 +35,26 @@ export class LoginDialogComponent implements OnInit {
     const password: string = this.loginForm.value.password;
     this.authService.login(email, password);
     this.dialog.closeAll();
+    this.userAuthStatus = true;
+  }
+
+  public signOut(): void {
+    this.authService.singOut();
+    this.dialog.closeAll();
+    this.userAuthStatus = false;
   }
 
   public changeForm(): void {
     this.signStatus = !this.signStatus;
   }
 
-  public loginUserViaGoogle(): void {
-    this.authService.loginWithGoogle();
+  public loginVia(social: string): void {
+    this.userAuthStatus = true;
+    this.dialog.closeAll();
+    if (social === 'facebook') {
+      this.authService.loginWith(social);
+    } else {
+      this.authService.loginWith(social);
+    }
   }
 }
