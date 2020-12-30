@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
   }
 
   private checkUserLogin(): boolean {
-    const user = this.authService.getLocalUser();
+    const user = this.authService.getUserFromLocalStorage();
     if (user) {
       return true;
     } else {
