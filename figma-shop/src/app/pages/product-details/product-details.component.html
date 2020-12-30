@@ -123,7 +123,9 @@
     <div class="offers-card-wrapper">
       <div class="offers-card" *ngFor="let categoryProduct of currentCategoryProductsViewed">
         <div class="offers-card__image-wrapper">
-          <img class="offers-card__image" [src]="categoryProduct.imgUrl" [alt]="categoryProduct.title">
+          <a [routerLink]="[ '/products', categoryProduct.id ]">
+            <img class="offers-card__image" [src]="categoryProduct.imgUrl" [alt]="categoryProduct.title">
+          </a>
         </div>
         <div class="offers-card__content">
           <h3 class="offers-card__title">{{ categoryProduct.title }}</h3>
@@ -131,7 +133,9 @@
             {{ categoryProduct.description.small.length > 40 ? '...' : '' }}</p>
           <div class="offers-card__price-info">
             <p class="offers-card__price">{{ categoryProduct.price }} USD</p>
-            <button class="offers-card__buy-button button">Buy now</button>
+            <a [routerLink]="[ '/products', categoryProduct.id ]">
+              <button class="offers-card__buy-button button">Buy now</button>
+            </a>
           </div>
         </div>
       </div>
