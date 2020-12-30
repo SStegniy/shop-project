@@ -1,4 +1,4 @@
-export enum SocialType {
+export enum SocialTypeEnum {
   google = 'google',
   facebook = 'facebook'
 }

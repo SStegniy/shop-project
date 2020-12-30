@@ -74,7 +74,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   public removeProduct(id: number): void {
-    this.orderService.removeOrderFromLocalStorage(id);
+    this.orderService.deleteProductFromLocalStorage(id);
     const productIndex = this.orderedProducts.findIndex((prod: ProductInterface) => prod.id === id);
     this.orderedProducts.splice(productIndex, 1);
     this.getTotal();

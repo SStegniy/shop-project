@@ -8,7 +8,12 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 24px;
-    margin-bottom: 15px;
+  }
+
+  .horizontal-line {
+    border: 0.1px solid #d1d1d1;
+    width: 115%;
+    margin: 15px 0;
   }
 
   .social-login {
@@ -74,7 +79,6 @@
 
   .signIn {
     padding: 8px;
-    margin-top: 15px;
   }
 
   .change-loginForm {
@@ -83,6 +87,10 @@
 
     span {
       cursor: pointer;
+      color: #a20000;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
     }
   }
 }

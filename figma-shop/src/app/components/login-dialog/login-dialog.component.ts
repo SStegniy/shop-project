@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UserInterface } from '../../shared/interfaces/user.interface';
-import { SocialType } from '../../shared/enums/social-media.enum';
+import { SocialTypeEnum } from '../../shared/enums/social-media.enum';
 
 @Component({
   selector: 'app-login-dialog',
@@ -15,7 +15,7 @@ export class LoginDialogComponent implements OnInit {
   public signStatus = true;
   public userAuthStatus: boolean;
   public user: UserInterface;
-  public socialType = SocialType;
+  public socialType = SocialTypeEnum;
 
   constructor(
     private authService: AuthService,
@@ -28,11 +28,12 @@ export class LoginDialogComponent implements OnInit {
   }
 
   private getUserFromLocal(): UserInterface {
-    return this.authService.getLocalUser();
+    return this.authService.getUserFromLocalStorage();
   }
 
   private createLoginFormGroup(): FormGroup {
     return new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     });
@@ -45,6 +46,14 @@ export class LoginDialogComponent implements OnInit {
     this.dialog.closeAll();
   }
 
+  public register(): void {
+    const name: string = this.loginForm.value.name;
+    const email: string = this.loginForm.value.email;
+    const password: string = this.loginForm.value.password;
+    this.authService.signUp(name, email, password);
+    this.dialog.closeAll();
+  }
+
   public signOut(): void {
     this.authService.singOut();
     this.dialog.closeAll();
@@ -54,7 +63,7 @@ export class LoginDialogComponent implements OnInit {
     this.signStatus = !this.signStatus;
   }
 
-  public loginVia(social: SocialType): void {
+  public loginVia(social: SocialTypeEnum): void {
     this.authService.loginWith(social);
     this.dialog.closeAll();
   }

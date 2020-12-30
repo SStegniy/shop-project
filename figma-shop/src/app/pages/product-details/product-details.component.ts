@@ -42,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   private getUser(): UserInterface {
-    return this.authService.getLocalUser();
+    return this.authService.getUserFromLocalStorage();
   }
 
   private getRelatedProducts(category: string): void {

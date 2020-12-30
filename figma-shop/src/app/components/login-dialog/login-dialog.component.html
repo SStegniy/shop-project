@@ -1,5 +1,6 @@
 <form class="login-form" [formGroup]="loginForm" *ngIf="!userAuthStatus">
   <h2>{{ signStatus ? 'Sign In With' : 'Sign Up' }}</h2>
+  <div class="horizontal-line"></div>
   <div class="social-login">
     <div class="social social__facebook" (click)="loginVia(socialType.facebook)">
       <img class="social__logo" src="./assets/images/facebook.png" alt="facebook">
@@ -10,6 +11,12 @@
       <span>Google</span>
     </div>
   </div>
+  <ng-template [ngIf]="!signStatus">
+    <div class="group">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" placeholder="Name" autocomplete="off">
+    </div>
+  </ng-template>
   <div class="group">
     <label for="email">Email</label>
     <input type="text" id="email" formControlName="email" placeholder="Email" autocomplete="off">
@@ -18,7 +25,9 @@
     <label for="password">Password</label>
     <input type="text" id="password" formControlName="password" placeholder="Password" autocomplete="off">
   </div>
-  <button class="signIn button" type="submit" (click)="signIn()">Sign In</button>
+  <div class="horizontal-line"></div>
+  <button class="signIn button" *ngIf="signStatus" type="submit" (click)="signIn()">Log in</button>
+  <button class="signIn button" *ngIf="!signStatus" type="submit" (click)="register()">Register</button>
   <div class="change-loginForm">
     <span (click)="changeForm()">{{ signStatus ? 'Register' : 'Log in' }}</span>
   </div>

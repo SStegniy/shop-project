@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivationStart, Router } from '@angular/router';
+import { Router, RoutesRecognized } from '@angular/router';
 import { BreadcrumbsInterface } from '../../../shared/interfaces/breadcrumbs.interface';
 import { OrderService } from '../../../shared/services/order.service';
 import { ProductInterface } from '../../../shared/interfaces/product.interface';
@@ -29,8 +29,8 @@ export class HeaderNavComponent implements OnInit {
 
   private checkBreadCrumbs(): void {
     this.router.events.subscribe((data) => {
-      if (data instanceof ActivationStart) {
-        this.breadcrumbs = data.snapshot.data.crumbs;
+      if (data instanceof RoutesRecognized) {
+        this.breadcrumbs = data.state.root.children[0].children[0].data.crumbs;
       }
     });
   }

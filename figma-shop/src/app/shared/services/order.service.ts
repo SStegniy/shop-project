@@ -44,7 +44,7 @@ export class OrderService {
     }
   }
 
-  public removeOrderFromLocalStorage(id: number): void {
+  public deleteProductFromLocalStorage(id: number): void {
     const localProducts: ProductInterface[] = JSON.parse(localStorage.getItem(this.orderStorageKey));
     const productIndex = localProducts.findIndex((prod: ProductInterface) => prod.id === id);
     localProducts.splice(productIndex, 1);
@@ -52,7 +52,7 @@ export class OrderService {
     this.ordersInCart.next(1);
   }
 
-  public removeAllProductsFromLocalStorage(): void {
+  public removeOrderFromLocalStorage(): void {
     localStorage.removeItem(this.orderStorageKey);
     this.ordersInCart.next(0);
   }

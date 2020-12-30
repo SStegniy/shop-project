@@ -5,7 +5,7 @@ import * as firebase from 'firebase/app';
 import { switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
-import { SocialType } from '../enums/social-media.enum';
+import { SocialTypeEnum } from '../enums/social-media.enum';
 import { UserInterface } from '../interfaces/user.interface';
 import { SnackbarService } from './snackbar.service';
 import { OrderService } from './order.service';
@@ -41,10 +41,6 @@ export class AuthService {
     );
   }
 
-  public getLocalUser(): UserInterface {
-    return JSON.parse(localStorage.getItem('user'));
-  }
-
   public login(email: string, password: string): void {
     this.afAuth.signInWithEmailAndPassword(email, password)
       .then( user => {
@@ -52,7 +48,7 @@ export class AuthService {
           .onSnapshot(snap => {
             snap.forEach(userRef => {
               this.currentUser = userRef.data() as UserInterface;
-              localStorage.setItem('user', JSON.stringify(this.currentUser));
+              this.setUserToLocalStorage(this.currentUser);
               this.router.navigateByUrl('');
             });
           });
@@ -60,7 +56,7 @@ export class AuthService {
       .catch( () => this.snackbarService.snackMessage('Such user does not exist', false) );
   }
 
-  async loginWith(social: SocialType): Promise<void> {
+  async loginWith(social: SocialTypeEnum): Promise<void> {
     let provider: firebase.default.auth.AuthProvider;
     switch (social) {
       case 'facebook':
@@ -71,15 +67,31 @@ export class AuthService {
     }
     const credential = await this.afAuth.signInWithPopup(provider);
     this.router.navigateByUrl('');
-    console.log(credential.user);
     return this.updateUserData(credential.user);
+  }
+
+  public signUp(name: string, email: string, password: string): void {
+    this.afAuth.createUserWithEmailAndPassword(email, password)
+      .then(userResponse => {
+        const user = {
+          userId: userResponse.user.uid,
+          email: userResponse.user.email,
+          displayName: name
+        };
+        this.afFirestore.collection('userList').add(user)
+          .then(() => {
+            this.snackbarService.snackMessage(`Hello ${user.displayName}`, true);
+            this.setUserToLocalStorage(user);
+          })
+          .catch(() => this.snackbarService.snackMessage('Something went wrong', false));
+      });
   }
 
   async singOut(): Promise<void> {
     await this.afAuth.signOut();
-    localStorage.removeItem('user');
+    this.removeUserFromLocalStorage();
     await this.router.navigateByUrl('');
-    this.orderService.removeAllProductsFromLocalStorage();
+    this.orderService.removeOrderFromLocalStorage();
   }
 
   private updateUserData(user: firebase.default.User): Promise<void> {
@@ -89,7 +101,19 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName
     };
-    localStorage.setItem('user', JSON.stringify(userData));
+    this.setUserToLocalStorage(userData);
     return userRef.set(userData, {merge: true});
+  }
+
+  public getUserFromLocalStorage(): UserInterface {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
+  public setUserToLocalStorage(user: UserInterface): void {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  public removeUserFromLocalStorage(): void {
+    localStorage.removeItem('user');
   }
 }
