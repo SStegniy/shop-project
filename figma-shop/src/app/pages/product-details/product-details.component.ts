@@ -6,6 +6,7 @@ import { OrderService } from '../../shared/services/order.service';
 import { SnackbarService } from '../../shared/services/snackbar.service';
 import { UserInterface } from '../../shared/interfaces/user.interface';
 import { AuthService } from '../../shared/services/auth.service';
+import { WishListService } from '../../shared/services/wish-list.service';
 
 @Component({
   selector: 'app-product-details',
@@ -27,7 +28,8 @@ export class ProductDetailsComponent implements OnInit {
     private prodService: ProductService,
     private orderService: OrderService,
     private authService: AuthService,
-    private snackbarService: SnackbarService) { }
+    private snackbarService: SnackbarService,
+    private wishService: WishListService) { }
 
   ngOnInit(): void {
     this.user = this.getUser();
@@ -68,5 +70,10 @@ export class ProductDetailsComponent implements OnInit {
     else {
       this.snackbarService.snackMessage('Please log in', false);
     }
+  }
+
+  public addToWishList(product: ProductInterface): void {
+    product.count = 1; // --- add count!!
+    this.wishService.addWishedProduct(product);
   }
 }

@@ -43,6 +43,16 @@ const routes: Routes = [
     }
   },
   {
+    path: 'wish-list',
+    loadChildren: () => import('./pages/wish-list/wish-list.module').then(m => m.WishListModule),
+    data: {
+      crumbs: [
+        { label: 'home', url: '' },
+        { label: 'wish list', url: 'wish-list' },
+      ]
+    }
+  },
+  {
     path: 'chat',
     loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatModule)
   },

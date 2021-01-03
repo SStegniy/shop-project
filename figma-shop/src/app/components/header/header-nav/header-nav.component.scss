@@ -42,9 +42,18 @@
         display: flex;
         justify-content: flex-end;
 
-        .header-search__person {
+        .header-search__person, .header-search__wish {
             margin-right: 40px;
             cursor: pointer;
+        }
+        .header-search__wish {
+          font-size: 20px;
+          position: relative;
+
+          .wish-image {
+            width: 24px;
+            height: 24px;
+          }
         }
         .header-search__busket {
             transform: translate(0, 5%);

@@ -30,5 +30,16 @@
       <span>Help</span>
     </div>
   </div>
-  <div class="footer-tags"></div>
+  <div class="footer-tags">
+    <h3 class="footer-tags__title">Product tags</h3>
+    <div class="footer-tags__container">
+      <span class="footer-tags__tag" *ngFor="let tag of tags">
+        {{ tag | uppercase}}
+      </span>
+    </div>
+  </div>
+
+  <div class="footer-copyright">
+    <span class="copyright">Copyright © 2020 petrbilek.com</span>
+  </div>
 </footer>
