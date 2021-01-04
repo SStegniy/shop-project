@@ -4,6 +4,8 @@ import { ProductInterface } from '../../shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
 import { OrderService } from '../../shared/services/order.service';
 import { SnackbarService } from '../../shared/services/snackbar.service';
+import { UserInterface } from '../../shared/interfaces/user.interface';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-product-details',
@@ -18,14 +20,17 @@ export class ProductDetailsComponent implements OnInit {
   private currentCategoryIndex = 0;
   public productCount = 1;
   public starCount = [1, 2, 3, 4, 5];
+  private user: UserInterface;
 
   constructor(
     private actRoute: ActivatedRoute,
     private prodService: ProductService,
     private orderService: OrderService,
+    private authService: AuthService,
     private snackbarService: SnackbarService) { }
 
   ngOnInit(): void {
+    this.user = this.getUser();
     this.getProduct();
     this.getRelatedProducts(this.product.category);
   }
@@ -34,6 +39,10 @@ export class ProductDetailsComponent implements OnInit {
     this.actRoute.data.subscribe((data) => {
       this.product = data.product;
     });
+  }
+
+  private getUser(): UserInterface {
+    return this.authService.getUserFromLocalStorage();
   }
 
   private getRelatedProducts(category: string): void {
@@ -48,11 +57,16 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   public addToCart(product: ProductInterface, count: number): void {
-    // ------- add counter for product
-    product.count = count;
-    // ------- add counter for product
-    this.orderService.setOrderToLocalStorage(product);
-    this.productCount = 1;
-    this.snackbarService.snackMessage('Added to cart', true);
+    if (this.user) {
+      // ------- add counter for product
+      product.count = count;
+      // ------- add counter for product
+      this.orderService.setOrderToLocalStorage(product);
+      this.productCount = 1;
+      this.snackbarService.snackMessage('Added to cart', true);
+    }
+    else {
+      this.snackbarService.snackMessage('Please log in', false);
+    }
   }
 }

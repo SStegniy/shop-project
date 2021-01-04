@@ -74,7 +74,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   public removeProduct(id: number): void {
-    this.orderService.removeOrderFromLocalStorage(id);
+    this.orderService.deleteProductFromLocalStorage(id);
     const productIndex = this.orderedProducts.findIndex((prod: ProductInterface) => prod.id === id);
     this.orderedProducts.splice(productIndex, 1);
     this.getTotal();
@@ -87,7 +87,7 @@ export class ShoppingCartComponent implements OnInit {
   public changeProductCount(): void {
     this.orderService.changeOrderCountInLocalStorage(this.orderedProducts);
     this.getTotal();
-    this.orderService.ordersInCart.next();
+    this.orderService.ordersInCart.next(1);
   }
 
   public completeOrder(): void {
