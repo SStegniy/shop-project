@@ -134,3 +134,60 @@
     }
   }
 }
+
+@media screen and (max-width: 1143px) {
+  .card {
+
+    .card__image {
+      min-width: 258px;
+      height: 100%;
+    }
+
+    .card__content {
+      padding: 20px;
+    }
+
+    .card__title {
+      font-size: 17px;
+      line-height: 25px;
+      margin-bottom: 4px;
+    }
+
+    .card__smallDesc {
+      margin-bottom: 8px;
+    }
+
+    .card__product-info .card__info-wrapper {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .card__cost {
+      padding: 23px 23px 20px 0;
+      min-width: 195px;
+    }
+
+    .card__price {
+      font-size: 17px;
+      line-height: 25px;
+    }
+
+    .card__old-price {
+      line-height: 18px;
+      font-size: 10px;
+    }
+
+    .card__delivery p {
+        font-size: 10px;
+    }
+
+    .card__delivery span {
+      font-size: 10px;
+    }
+
+    .card__add-to-wish {
+      padding: 5px 10px;
+      font-size: 13px;
+    }
+  }
+}
