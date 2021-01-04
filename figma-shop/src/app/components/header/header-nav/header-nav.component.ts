@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivationStart, Router } from '@angular/router';
+import { Router, RoutesRecognized } from '@angular/router';
 import { BreadcrumbsInterface } from '../../../shared/interfaces/breadcrumbs.interface';
 import { OrderService } from '../../../shared/services/order.service';
 import { ProductInterface } from '../../../shared/interfaces/product.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialogComponent } from '../../login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-header-nav',
@@ -17,7 +19,8 @@ export class HeaderNavComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private orderService: OrderService) { }
+    private orderService: OrderService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.checkBreadCrumbs();
@@ -26,8 +29,8 @@ export class HeaderNavComponent implements OnInit {
 
   private checkBreadCrumbs(): void {
     this.router.events.subscribe((data) => {
-      if (data instanceof ActivationStart) {
-        this.breadcrumbs = data.snapshot.data.crumbs;
+      if (data instanceof RoutesRecognized) {
+        this.breadcrumbs = data.state.root.children[0].children[0].data.crumbs;
       }
     });
   }
@@ -47,5 +50,9 @@ export class HeaderNavComponent implements OnInit {
     } else {
       this.countOfProducts = 0;
     }
+  }
+
+  public openDialog(): void {
+    this.dialog.open(LoginDialogComponent, {});
   }
 }

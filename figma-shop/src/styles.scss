@@ -220,3 +220,6 @@ body {
 .mat-body, .mat-body-1, .mat-typography {
   font: 400 14px/19px 'Open Sans', sans-serif;
 }
+.cdk-overlay-container .mat-dialog-container {
+  padding: 24px 24px 12px 24px ;
+}
