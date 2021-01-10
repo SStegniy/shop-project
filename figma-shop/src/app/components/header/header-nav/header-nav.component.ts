@@ -6,6 +6,7 @@ import { ProductInterface } from '../../../shared/interfaces/product.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../../login-dialog/login-dialog.component';
 import { WishListService } from '../../../shared/services/wish-list.service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header-nav',

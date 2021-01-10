@@ -22,7 +22,7 @@
             <div class="header-search__wish">
               <a [routerLink]="[ '/wish-list' ]">
                 <img class="wish-image" src="./assets/images/heart.svg" alt="wish-list">
-                <div class="header-search__count" *ngIf="countOfWishList > 0">
+                <div class="header-search__count" *ngIf="countOfWishList">
                   <span>{{ countOfWishList }}</span>
                 </div>
               </a>
@@ -30,7 +30,7 @@
             <div class="header-search__busket">
                 <a [routerLink]="[ '/shopping-cart' ]">
                     <img src="./assets/images/bucket.svg" alt="person">
-                    <div class="header-search__count" *ngIf="countOfProducts > 0">
+                    <div class="header-search__count" *ngIf="countOfProducts">
                       <span>{{ countOfProducts }}</span>
                     </div>
                 </a>
