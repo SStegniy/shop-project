@@ -6,12 +6,17 @@
       <span>Products</span>
     </div>
   </div>
-  <div class="sort-wrapper">
-    <div class="sort">
-      <span class="sort__title">Sort by</span>
-      <select class="sort__element" [(ngModel)]="sortValue" name="sort-select" id="sort">
-        <option *ngFor="let option of sortConditions">{{ option }}</option>
-      </select>
+  <div class="conditions">
+    <div class="sort-wrapper">
+      <div class="sort">
+        <span class="sort__title">Sort by</span>
+        <select class="sort__element" [(ngModel)]="sortValue" name="sort-select" id="sort">
+          <option *ngFor="let option of sortConditions">{{ option }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="mobile-filter" (click)="toggleFilterDialog()">
+      <button class="mobile-filter__button">Filter</button>
     </div>
   </div>
   <main class="main">

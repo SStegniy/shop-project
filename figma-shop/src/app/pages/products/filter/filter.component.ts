@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Options } from '@angular-slider/ngx-slider';
 import { FiltersService } from '../../../shared/services/filters.service';
 import { ProductInterface } from '../../../shared/interfaces/product.interface';
 import { ProductService } from '../../../shared/services/product.service';
 import { distinctUntilChanged } from 'rxjs/operators';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  styleUrls: ['./filter.component.scss'],
 })
 
-export class FilterComponent implements OnInit {
+export class FilterComponent implements OnInit, OnDestroy {
   public objectKeys = Object.keys;
   private allProducts: ProductInterface[];
   public allCategories = {};
@@ -31,6 +32,11 @@ export class FilterComponent implements OnInit {
   private checkedBrands: string[] = [];
   private checkedRatings: number[] = [];
 
+  private resizeObservable$: Observable<Event>;
+  private resizeSubscription$: Subscription;
+  public isMobileLayout = false;
+  public filterStatus: boolean;
+
   constructor(
     private formBuilder: FormBuilder,
     private filterService: FiltersService,
@@ -40,8 +46,10 @@ export class FilterComponent implements OnInit {
     this.allProducts = this.prodService.products.getValue();
     this.allCategories = this.getCategories();
     this.allBrands = this.getBrands();
-    this.createFormGroup();
+    this.form = this.createFormGroup();
     this.formOnChange();
+    this.toggleFilterForm();
+    this.checkIfMobileLayout();
   }
 
   private formOnChange(): void {
@@ -56,11 +64,11 @@ export class FilterComponent implements OnInit {
     });
   }
 
-  private createFormGroup(): void {
-    this.form = this.formBuilder.group({
+  private createFormGroup(): FormGroup {
+    return this.formBuilder.group({
       category: new FormControl(),
-      brand: this.formBuilder.array(this.allBrands.map(elem => new FormControl(false))),
-      rating: this.formBuilder.array(this.allRatings.map(elem => new FormControl(false))),
+      brand: this.formBuilder.array(this.allBrands.map(() => new FormControl(false))),
+      rating: this.formBuilder.array(this.allRatings.map(() => new FormControl(false))),
       price: new FormControl()
     });
   }
@@ -108,5 +116,28 @@ export class FilterComponent implements OnInit {
       rating: [],
       price: [0, this.max]
     });
+  }
+
+  public toggleFilterForm(): void {
+    this.filterService.filterStatus.subscribe(status => {
+      this.filterStatus = status;
+    });
+  }
+
+  public closeFilter(): void {
+    this.filterStatus = false;
+  }
+
+  private checkIfMobileLayout(): void {
+    this.isMobileLayout = window.innerWidth <= 998;
+    this.resizeObservable$ = fromEvent(window, 'resize');
+    this.resizeSubscription$ = this.resizeObservable$.subscribe( (event) => {
+      const window = event.target as Window;
+      this.isMobileLayout = window.innerWidth <= 998;
+    });
+  }
+
+  public ngOnDestroy(): void {
+    this.resizeSubscription$.unsubscribe();
   }
 }

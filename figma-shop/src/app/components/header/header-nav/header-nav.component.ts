@@ -19,6 +19,8 @@ export class HeaderNavComponent implements OnInit {
   public countOfWishList = 0;
   private productsInCart: ProductInterface[] = [];
   private productsInWish: ProductInterface[] = [];
+  public burgerStatus = false;
+  public searchStatus = false;
 
   constructor(
     private router: Router,
@@ -76,5 +78,15 @@ export class HeaderNavComponent implements OnInit {
 
   public openDialog(): void {
     this.dialog.open(LoginDialogComponent, {});
+  }
+
+  public toggleBurger(): void {
+    this.searchStatus = false;
+    this.burgerStatus = !this.burgerStatus;
+  }
+
+  public toggleSearch(): void {
+    this.burgerStatus = false;
+    this.searchStatus = !this.searchStatus;
   }
 }
