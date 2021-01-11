@@ -67,4 +67,15 @@ export class OrderService {
     }
     this.ordersInCart.next(1);
   }
+
+  public getCountOfProducts(): number {
+    if (localStorage.getItem('order')) {
+      const productsInCart = JSON.parse(localStorage.getItem('order'));
+      return productsInCart.reduce((total: number, prod: ProductInterface) => {
+        return total + prod.count;
+      }, 0);
+    } else {
+      return 0;
+    }
+  }
 }

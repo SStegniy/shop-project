@@ -40,8 +40,7 @@ export class LoginDialogComponent implements OnInit {
   }
 
   public signIn(): void {
-    const email: string = this.loginForm.value.email;
-    const password: string = this.loginForm.value.password;
+    const [email, password] = this.loginForm.value;
     this.authService.login(email, password);
     this.dialog.closeAll();
   }
