@@ -4,6 +4,7 @@
       <img [src]="product.imgUrl" alt="image">
     </a>
   </div>
+  <div class="card__content-wrapper">
   <div class="card__content">
     <a [routerLink]="[ '/products', product.id ]">
       <h2 class="card__title">{{ product.title | titlecase }}</h2>
@@ -41,5 +42,6 @@
         <span>Add to wish list</span>
       </button>
     </div>
+  </div>
   </div>
 </div>

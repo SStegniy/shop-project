@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductInterface } from 'src/app/shared/interfaces/product.interface';
 import { ProductService } from '../../shared/services/product.service';
@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   public itemsPerPage = 5;
   public sortConditions = ['Default', 'price Small - Large', 'price Large - Small', 'rating Small - Large', 'rating Large - Small'];
   public sortValue = 'Default';
+  private filterStatus = false;
 
   constructor(
     private productService: ProductService,
@@ -46,6 +47,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
     window.scrollTo(0, 0);
     this.page = page;
     this.itemsPerPage = 5;
+  }
+
+  public toggleFilterDialog(): void {
+    const status = !this.filterStatus;
+    this.filterService.showHideFilter(status);
   }
 
   ngOnDestroy(): void {

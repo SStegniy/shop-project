@@ -1,19 +1,33 @@
 <div class="header-wrapper">
-    <div class="header-search">
-        <div class="header-search__logo">
-            <a [routerLink]="[ '/products' ]">
-                <img src="./assets/images/Freshnesecom.png" alt="logo">
-            </a>
-        </div>
-        <div class="header-search__field">
-            <select class="header-search__select" name="select" id="">
-              <option>All categories</option>
-              <option>Food</option>
-            </select>
-            <img src="./assets/images/arrow-down.svg" alt="arrow-down" autocomplete="off">
-            <input class="header-search__search" type="text" name="search"
-                   placeholder="Search Products, categories ...">
-            <img src="./assets/images/search.svg" alt="search">
+  <div class="header-search">
+    <div class="menu">
+      <div class="burger-menu" (click)="toggleBurger()">
+        <div class="top-line line"></div>
+        <div class="middle-line line"></div>
+        <div class="bottom-line line"></div>
+      </div>
+      <div class="search-menu" (click)="toggleSearch()">
+        <img src="./assets/images/search.svg" alt="search">
+      </div>
+    </div>
+      <div class="header-search__logo">
+        <a [routerLink]="[ '/products' ]">
+            <img src="./assets/images/Freshnesecom.png" alt="logo">
+        </a>
+      </div>
+      <div class="header-search__field" [ngClass]="searchStatus ? 'show-search' : 'hide-search' ">
+        <select class="header-search__select" name="select" id="">
+          <option>All categories</option>
+          <option>Food</option>
+        </select>
+        <img src="./assets/images/arrow-down.svg" alt="arrow-down" autocomplete="off">
+        <input class="header-search__search" type="text" name="search"
+               placeholder="Search Products, categories ...">
+        <img class="header-search__search-icon" src="./assets/images/search.svg" alt="search">
+      </div>
+      <div class="header-search__shop">
+        <div class="header-search__person">
+          <img class="header-icon" src="./assets/images/person.png" (click)="openDialog()" alt="person">
         </div>
         <div class="header-search__shop">
             <div class="header-search__person">
@@ -36,21 +50,22 @@
                 </a>
             </div>
         </div>
-    </div>
-    <div class="header-nav">
-        <nav class="nav">
-            <ul class="list">
-                <li class="item">Electronics<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-                <li class="item">Food<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-                <li class="item">Clothes<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-                <li class="item">Skin<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-                <li class="item">Toys<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-                <li class="item">Special<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-                <li class="item">Sport<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-                <li class="item">Books<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
-            </ul>
-        </nav>
-    </div>
+      </div>
+  </div>
+  <div class="header-nav" [ngClass]="burgerStatus ? 'show-burger' : 'hide-burger' ">
+      <nav class="nav">
+          <ul class="list">
+              <a [routerLink]="['/']"><li class="item">Electronics<img src="./assets/images/arrow-down.svg" alt="dropdown"></li></a>
+              <li class="item">Food<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
+              <li class="item">Clothes<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
+              <li class="item">Skin<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
+              <li class="item">Toys<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
+              <li class="item">Special<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
+              <li class="item">Sport<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
+              <li class="item">Books<img src="./assets/images/arrow-down.svg" alt="dropdown"></li>
+          </ul>
+      </nav>
+  </div>
 </div>
 <div class="breadcrumbs">
   <ul class="breadcrumbs__list">

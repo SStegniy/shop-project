@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import { ProductInterface } from '../interfaces/product.interface';
 import { FilterData } from '../interfaces/filter-data.interface';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FiltersService {
+  public filterStatus: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public filter: FilterData;
 
   constructor() { }
 
-  getFilterData(data): void {
+  public showHideFilter(status: boolean): void {
+    this.filterStatus.next(status);
+  }
+
+  public getFilterData(data): void {
     this.filter = data;
   }
 
-  filterAllProducts(products: ProductInterface[]): ProductInterface[] {
+  public filterAllProducts(products: ProductInterface[]): ProductInterface[] {
     if (!this.filter || this.filter.category === null && this.filter.brand.length &&
       this.filter.rating.length) {
         return products;

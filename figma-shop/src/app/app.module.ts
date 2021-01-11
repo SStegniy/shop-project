@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './shared/material/material.module';
 
 import { HeaderModule } from './components/header/header.module';
 import { SortingModule } from './shared/pipes/sorting/sorting.module';

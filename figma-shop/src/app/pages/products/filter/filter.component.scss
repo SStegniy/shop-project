@@ -21,12 +21,12 @@
 
     &:hover {
       color: #6A983C;
-      text-shadow: 0px 0px 12px #6A983C;
+      text-shadow: 0 0 12px #6A983C;
     }
   }
 
   .filter__name_category {
-    margin-top: 0px;
+    margin-top: 0;
   }
 
   .filter__element {
@@ -115,7 +115,8 @@
     span {
       font-size: 12px;
       line-height: 18px;
-      font-family: 'PoppinsSemiBold';
+      font-family: 'Poppins',sans-serif;
+      font-weight: 600;
     }
 
     input {
@@ -152,5 +153,61 @@
     &:hover {
       color: #6A983C;
     }
+  }
+}
+@media screen and (max-width: 998px) {
+  .overlay {
+    display: block;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+  }
+
+  .show-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+  }
+
+  .filter {
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 70vw;
+    max-height: 90vh;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #6A983C;
+    border-radius: 7px;
+    overflow-y: scroll;
+  }
+
+  .filter::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .filter::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+  }
+
+  .filter::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #6A983C;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  }
+
+  .filter__close {
+    margin-top: 15px;
   }
 }

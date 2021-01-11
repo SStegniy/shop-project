@@ -1,3 +1,5 @@
+@import '../../../../assets/scss.variables/variables';
+
 .shopping-cart-wrapper {
   display: grid;
   grid-template-columns: 1fr 468px;
@@ -46,8 +48,8 @@
     margin-bottom: 30px;
 
     label {
-      font-size: 12px;
-      font-family: 'Poppins', sans-serif;
+      font-size: $textDescriptionSize;
+      font-family: $mainFont;
       font-weight: 600;
     }
     input, select {
@@ -72,7 +74,7 @@
 
     label {
       font-size: 12px;
-      font-family: 'PoppinsSemiBold', sans-serif;
+      font-family: $mainFont;
     }
     textarea {
       resize: none;
@@ -94,7 +96,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: $borderRadius;
     border: 1px solid #D1D1D1;
     padding: 11px 18px;
     background: #F9F9F9;
@@ -248,9 +250,11 @@
   .summary__subtotal, .summary__tax {
     display: flex;
     justify-content: space-between;
-    font-family: 'Poppins', sans-serif;
+    //font-family: 'Poppins', sans-serif;
+    font-family: $mainFont;
     font-weight: 600;
-    font-size: 12px;
+    //font-size: 12px;
+    font-size: $textDescriptionSize;
     line-height: 18px;
   }
 
@@ -317,5 +321,99 @@
     font-size: 26px;
     line-height: 39px;
     color: #6A983C;
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .shopping-cart-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shopping-cart-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 auto 50px auto;
+    grid-gap: 0;
+  }
+
+  .summary {
+    margin-top: 0;
+  }
+
+  .info {
+    margin-top: 20px;
+  }
+
+  .info .notes textarea {
+    margin-bottom: 40px;
+  }
+
+  .info .person-info {
+    margin-top: 20px;
+  }
+
+  .elem-description {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 632px) {
+  .elem-title {
+    font-size: 18px;
+  }
+
+  .summary {
+    padding: 21px 12px;
+
+    .elem-description {
+      font-size: 11px;
+      margin-bottom: 15px;
+    }
+
+    .summary__inner-right {
+      margin-left: 10px;
+    }
+
+    .summary__tax {
+      margin-bottom: 20px;
+    }
+
+    .summary__promo-send {
+      font-size: 13px;
+    }
+
+    .summary__promo-group input {
+      font-size: 12px;
+    }
+  }
+
+  .info {
+    .person-info-group {
+      margin-bottom: 20px;
+
+      input {
+        padding: 7px 9px;
+        font-size: 12px;
+      }
+    }
+    .person-info {
+      margin-bottom: 20px;
+    }
+  }
+
+  .shopping-cart-wrapper .info p {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .info .confirmation__privacy {
+    padding: 5px 7px;
+  }
+
+  .confirmation__privacy label {
+    font-size: 11px;
+    margin-left: 10px;
   }
 }

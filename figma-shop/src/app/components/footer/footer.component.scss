@@ -61,3 +61,46 @@
   font-size: 14px;
   line-height: 19px;
 }
+
+@media screen and (max-width: 623px) {
+  .footer {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+
+  .footer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    .footer-info__item {
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .footer-info__title {
+      font-size: 14px;
+      line-height: 25px;
+    }
+
+    span {
+      font-size: 11px;
+      margin-top: 5px;
+    }
+  }
+
+  .copyright {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .footer-info {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-tags .footer-tags__tag {
+    font-size: 10px;
+  }
+}

@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
 import { BreadcrumbsInterface } from '../../../shared/interfaces/breadcrumbs.interface';
 import { OrderService } from '../../../shared/services/order.service';
-import { ProductInterface } from '../../../shared/interfaces/product.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../../login-dialog/login-dialog.component';
 import { WishListService } from '../../../shared/services/wish-list.service';
@@ -19,8 +18,8 @@ export class HeaderNavComponent implements OnInit, OnDestroy {
   public breadcrumbs: BreadcrumbsInterface[];
   public countOfProducts = 0;
   public countOfWishList = 0;
-  private productsInCart: ProductInterface[] = [];
-  private productsInWish: ProductInterface[] = [];
+  public burgerStatus = false;
+  public searchStatus = false;
   private subscription = new Subject();
 
   constructor(
@@ -67,7 +66,17 @@ export class HeaderNavComponent implements OnInit, OnDestroy {
     this.dialog.open(LoginDialogComponent, {});
   }
 
-  public ngOnDestroy(): void {
+  public toggleBurger(): void {
+    this.searchStatus = false;
+    this.burgerStatus = !this.burgerStatus;
+  }
+
+  public toggleSearch(): void {
+    this.burgerStatus = false;
+    this.searchStatus = !this.searchStatus;
+  }
+
+  ngOnDestroy(): void {
     this.subscription.next();
     this.subscription.complete();
   }
