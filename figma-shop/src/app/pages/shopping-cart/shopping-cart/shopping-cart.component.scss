@@ -331,14 +331,27 @@
     display: flex;
     flex-direction: column-reverse;
     margin: 0 auto 50px auto;
+    grid-gap: 0;
   }
 
-  .summary-wrapper {
-    grid-row: 1;
+  .summary {
+    margin-top: 0;
+  }
+
+  .info {
+    margin-top: 20px;
   }
 
   .info .notes textarea {
     margin-bottom: 40px;
+  }
+
+  .info .person-info {
+    margin-top: 20px;
+  }
+
+  .elem-description {
+    margin-bottom: 20px;
   }
 }
 

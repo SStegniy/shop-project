@@ -147,6 +147,10 @@
         font-size: 15px;
         line-height: 22px;
         cursor: pointer;
+
+        img {
+          margin-left: 5.5px;
+        }
     }
 
     .header-icon {
@@ -297,6 +301,10 @@
         width: 12px;
         height: 14px;
       }
+    }
+
+    .header-search__person, .header-search__wish {
+      margin-right: 10px;
     }
 
     .header-search__logo img {
