@@ -1,3 +1,5 @@
+@import '../../../../assets/scss.variables/variables';
+
 .shopping-cart-wrapper {
   display: grid;
   grid-template-columns: 1fr 468px;
@@ -46,8 +48,8 @@
     margin-bottom: 30px;
 
     label {
-      font-size: 12px;
-      font-family: 'Poppins', sans-serif;
+      font-size: $textDescriptionSize;
+      font-family: $mainFont;
       font-weight: 600;
     }
     input, select {
@@ -72,7 +74,7 @@
 
     label {
       font-size: 12px;
-      font-family: 'PoppinsSemiBold', sans-serif;
+      font-family: $mainFont;
     }
     textarea {
       resize: none;
@@ -94,7 +96,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border-radius: 12px;
+    border-radius: $borderRadius;
     border: 1px solid #D1D1D1;
     padding: 11px 18px;
     background: #F9F9F9;
@@ -248,9 +250,11 @@
   .summary__subtotal, .summary__tax {
     display: flex;
     justify-content: space-between;
-    font-family: 'Poppins', sans-serif;
+    //font-family: 'Poppins', sans-serif;
+    font-family: $mainFont;
     font-weight: 600;
-    font-size: 12px;
+    //font-size: 12px;
+    font-size: $textDescriptionSize;
     line-height: 18px;
   }
 
