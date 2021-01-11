@@ -60,9 +60,7 @@ export class ProductDetailsComponent implements OnInit {
 
   public addToCart(product: ProductInterface, count: number): void {
     if (this.user) {
-      // ------- add counter for product
       product.count = count;
-      // ------- add counter for product
       this.orderService.setOrderToLocalStorage(product);
       this.productCount = 1;
       this.snackbarService.snackMessage('Added to cart', true);
@@ -73,7 +71,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   public addToWishList(product: ProductInterface): void {
-    product.count = 1; // --- add count!!
+    product.count = 1;
     this.wishService.addWishedProduct(product);
   }
 }

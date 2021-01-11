@@ -42,4 +42,15 @@ export class WishListService {
     localStorage.setItem(this.localWishKey, JSON.stringify(wishedProductInLocal));
     this.productsInWishList.next(1);
   }
+
+  public getCountOfWish(): number {
+    if (localStorage.getItem('wished')) {
+      const productsInWish = JSON.parse(localStorage.getItem('wished'));
+      return productsInWish.reduce((total: number, prod: ProductInterface) => {
+        return total + prod.count;
+      }, 0);
+    } else {
+      return 0;
+    }
+  }
 }
