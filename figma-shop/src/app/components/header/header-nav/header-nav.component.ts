@@ -61,14 +61,6 @@ export class HeaderNavComponent implements OnInit, OnDestroy {
 
   private getCountOfWishList(): void {
     this.countOfWishList = this.wishService.getCountOfWish();
-    // if (localStorage.getItem('wished')) {
-    //   this.productsInWish = JSON.parse(localStorage.getItem('wished'));
-    //   this.countOfWishList = this.productsInWish.reduce((total: number, prod: ProductInterface) => {
-    //     return total + prod.count;
-    //   }, 0);
-    // } else {
-    //   this.countOfWishList = 0;
-    // }
   }
 
   public openDialog(): void {
