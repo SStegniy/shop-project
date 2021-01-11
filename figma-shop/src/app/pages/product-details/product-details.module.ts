@@ -22,10 +22,10 @@ const routes: Routes = [
     ProductDetailsComponent
   ],
     imports: [
-        RouterModule.forChild(routes),
-        CommonModule,
-        FooterModule,
-        FormsModule
+      RouterModule.forChild(routes),
+      CommonModule,
+      FooterModule,
+      FormsModule
     ],
   providers: [ProdDetailsResolver]
 })

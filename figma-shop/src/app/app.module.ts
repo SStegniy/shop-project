@@ -12,15 +12,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MaterialModule } from './material/material.module';
 
 import { HeaderModule } from './components/header/header.module';
 import { SortingModule } from './shared/pipes/sorting/sorting.module';
 import { AllProductsResolver } from './pages/products/all-products.resolver';
 import { FooterModule } from './components/footer/footer.module';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+
 
 
 @NgModule({
@@ -40,10 +39,8 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
     FooterModule,
     SortingModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule,
-    MatSnackBarModule,
-    MatDialogModule,
     ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [AllProductsResolver],
   bootstrap: [AppComponent]

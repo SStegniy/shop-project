@@ -1,9 +1,13 @@
 <div class="card">
   <div class="card__image">
-    <img [src]="product.imgUrl" alt="image">
+    <a [routerLink]="[ '/products', product.id ]">
+      <img [src]="product.imgUrl" alt="image">
+    </a>
   </div>
   <div class="card__content">
-    <h2 class="card__title">{{ product.title | titlecase }}</h2>
+    <a [routerLink]="[ '/products', product.id ]">
+      <h2 class="card__title">{{ product.title | titlecase }}</h2>
+    </a>
     <p class="card__smallDesc">{{ product.description.small | titlecase }}</p>
     <div class="star-wrapper">
       <img class="star" *ngFor="let star of starCount; let i = index"
@@ -32,7 +36,7 @@
           <img src="./assets/images/arrow-right-white.svg" alt="arrow-right">
         </div>
       </a>
-      <button class="add-to-wish card__add-to-wish">
+      <button class="add-to-wish card__add-to-wish" (click)="addToWishList(product)">
         <img src="./assets/images/heart.svg" alt="heart">
         <span>Add to wish list</span>
       </button>

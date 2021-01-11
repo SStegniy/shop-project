@@ -1,0 +1,35 @@
+<div class="wish-wrapper">
+  <div class="wish-missing" *ngIf="!products">
+    <p class="wish-missing__text">There are currently no products in the list,
+      you can add them by going <a [routerLink]="['']">here</a></p>
+  </div>
+  <div class="wish" *ngIf="products.length">
+    <div class="wish__card" *ngFor="let product of products; let i = index">
+      <div class="wish__image-wrapper">
+        <a [routerLink]="['/products', product.id]">
+          <img class="wish__image" [src]="product.imgUrl" alt="product">
+        </a>
+      </div>
+      <div class="wish__content">
+        <div class="wish__content-container">
+          <h3 class="wish__title">{{ product.title }}</h3>
+          <p class="wish__description">{{ product.description.small }}</p>
+        </div>
+        <div class="wish__content-price">
+          <h3 class="wish__price">{{ product.price }}</h3>
+          <span class="wish__previous-price">{{ product.previousPrice }}</span>
+        </div>
+      </div>
+      <div class="wish__controls">
+        <div class="wish__remove">
+          <i class="material-icons wish__delete" (click)="removeProduct(product.id, i)">delete</i>
+        </div>
+        <div class="wish__buy">
+          <button class="button wish__button" (click)="addToCart(product)">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

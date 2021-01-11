@@ -12,10 +12,10 @@ import { HeaderComponent } from './header/header.component';
     HeaderTopComponent,
     HeaderNavComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
+    imports: [
+      CommonModule,
+      RouterModule,
+    ],
   exports: [
     HeaderComponent
   ]
