@@ -29,19 +29,25 @@
         <div class="header-search__person">
           <img class="header-icon" src="./assets/images/person.png" (click)="openDialog()" alt="person">
         </div>
-        <div class="header-search__wish">
-          <a [routerLink]="[ '/wish-list' ]">
-            <img class="wish-image header-icon" src="./assets/images/heart.svg" alt="wish-list">
-            <div class="header-search__count" *ngIf="countOfWishList">
-              <span>{{ countOfWishList }}</span>
+        <div class="header-search__shop">
+            <div class="header-search__person">
+                <img src="./assets/images/person.png" (click)="openDialog()" alt="person">
             </div>
-          </a>
-        </div>
-        <div class="header-search__busket">
-          <a [routerLink]="[ '/shopping-cart' ]">
-            <img class="header-icon" src="./assets/images/bucket.svg" alt="person">
-            <div class="header-search__count" *ngIf="countOfProducts">
-              <span>{{ countOfProducts }}</span>
+            <div class="header-search__wish">
+              <a [routerLink]="[ '/wish-list' ]">
+                <img class="wish-image" src="./assets/images/heart.svg" alt="wish-list">
+                <div class="header-search__count" *ngIf="countOfWishList">
+                  <span>{{ countOfWishList }}</span>
+                </div>
+              </a>
+            </div>
+            <div class="header-search__busket">
+                <a [routerLink]="[ '/shopping-cart' ]">
+                    <img src="./assets/images/bucket.svg" alt="person">
+                    <div class="header-search__count" *ngIf="countOfProducts">
+                      <span>{{ countOfProducts }}</span>
+                    </div>
+                </a>
             </div>
           </a>
         </div>
