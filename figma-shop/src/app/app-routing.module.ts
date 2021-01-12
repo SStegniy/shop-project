@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllProductsResolver } from './pages/products/all-products.resolver';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { DeactivateGuard } from './shared/guards/deactivate.guard';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
     path: 'shopping-cart',
     loadChildren: () => import('./pages/shopping-cart/shopping-cart.module').then(m => m.ShoppingCartModule),
     canActivate: [AuthGuard],
+    canDeactivate: [DeactivateGuard],
     data: {
       crumbs: [
         { label: 'home', url: '' },

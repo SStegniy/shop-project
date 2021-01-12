@@ -95,6 +95,12 @@
   }
 }
 
+.user-data {
+  h2 {
+    margin-bottom: 20px;
+  }
+}
+
 @media screen and (max-width: 443px){
   .login-form .social {
     width: 110px;

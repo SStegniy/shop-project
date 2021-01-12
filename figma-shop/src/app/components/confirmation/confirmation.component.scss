@@ -1,0 +1,19 @@
+.confirmation h3 {
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.confirmation .confirmation__choose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation .button {
+  width: 50px;
+}
+
+.confirmation .confirmation__yes {
+  margin-right: 10px;
+}
