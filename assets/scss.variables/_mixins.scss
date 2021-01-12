@@ -1,0 +1,9 @@
+@mixin flexbox($js, $ai, $fd) {
+  display: flex;
+  justify-content: $js;
+  align-items: $ai;
+  flex-direction: $fd;
+}
+@mixin flex($js, $ai, $fd) {
+
+}
