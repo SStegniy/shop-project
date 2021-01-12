@@ -212,11 +212,6 @@
       width: 15px;
     }
 
-    .wish-image {
-      width: 16px;
-      height: 17px;
-    }
-
     .header-search__person, .header-search__wish {
       margin-right: 20px;
     }
@@ -268,14 +263,19 @@
       background-color: #d1d1d1;
     }
   }
+
+  .breadcrumbs {
+    margin: 15px auto 0;
+  }
+
   .show-burger {
     left: 0;
   }
   .hide-burger {
     left: -100%;
   }
-
 }
+
 @media screen and (max-width: 768px) {
   .breadcrumbs {
     margin: 58px auto 0;
