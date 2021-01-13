@@ -130,7 +130,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   }
 
   private checkIfMobileLayout(): void {
-    this.isMobileLayout = window.innerWidth <= 998;
+    this.isMobileLayout = window.innerWidth <= 1047;
     this.resizeObservable$ = fromEvent(window, 'resize');
     this.resizeSubscription$ = this.resizeObservable$.subscribe( (event) => {
       const window = event.target as Window;

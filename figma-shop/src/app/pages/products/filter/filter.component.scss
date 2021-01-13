@@ -238,8 +238,15 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
   }
 
-  .filter__element:first-child {
-    overflow-y: auto;
+  .filter {
+    .filter__element:first-child {
+      max-height: unset;
+      overflow-y: unset;
+    }
+    .filter__element:nth-of-type(2) {
+      max-height: unset;
+      overflow-y: unset;
+    }
   }
 
   .filter__close {
