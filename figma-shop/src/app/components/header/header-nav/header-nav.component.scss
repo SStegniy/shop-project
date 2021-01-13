@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 13px 0 13px 19px;
 
     .menu {
       display: none;
@@ -39,6 +39,10 @@
       cursor: pointer;
     }
 
+    .header-search__logo {
+        margin-top: 10px;
+    }
+
     .header-search__field {
         display: flex;
         justify-content: flex-start;
@@ -46,7 +50,7 @@
         border-radius: 12px;
         padding: 10px 16px;
         border: 1px solid #d1d1d1;
-        max-width: 450px;
+        max-width: 500px;
         flex-grow: 2;
         margin: 0 10px;
     }
@@ -54,13 +58,13 @@
     .header-search__select {
         background-color: inherit;
         appearance: none;
-        margin-right: 3px;
+        margin-right: 17px;
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
     }
 
     .header-search__search {
-        margin-left: 8px;
+        margin-left: 29px;
         padding-left: 16px;
         font-size: 14px;
         border: none;
@@ -81,6 +85,8 @@
     .header-search__shop {
         display: flex;
         justify-content: flex-end;
+        position: relative;
+        right: -10px;
     }
 
     .header-search__person, .header-search__wish {
@@ -133,6 +139,7 @@
     .nav {
         display: inline-block;
         background-color: #F9F9F9;
+        margin-top: 5px;
     }
     .list {
         list-style-type: none;
@@ -161,8 +168,12 @@
 
 .breadcrumbs {
     max-width: 1260px;
-    margin: 0 auto;
+    margin: 10px auto 0;
     padding: 16px 0;
+
+    .breadcrumbs__list {
+      padding: 4px 0 0 5px;
+    }
 
     &__item {
       display: inline-block;
@@ -180,6 +191,12 @@
     }
 }
 
+@media screen and (max-width: 1162px) {
+  .header-nav .item {
+    padding: 16px 10px;
+  }
+}
+
 @media screen and (max-width: 998px) {
   .header-wrapper {
     position: fixed;
@@ -192,12 +209,22 @@
   }
 
   .header-search {
+    padding: 13px;
+
+    .header-search__logo {
+      margin-top: 0;
+    }
 
     .header-search__field {
       display: flex;
       position: absolute;
       top: 70px;
       transition: right .7s linear;
+    }
+
+    .header-search__shop {
+      position: relative;
+      right: 0px;
     }
 
     .show-search {
@@ -239,7 +266,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 58px;
+    top: 45px;
     box-shadow: 1px 9px 8px 0 black;
     transition: left .7s linear;
 
@@ -285,7 +312,7 @@
 @media screen and (max-width: 632px) {
 
   .header-nav {
-    top: 55px;
+    top: 35px;
   }
 
   .header-search {

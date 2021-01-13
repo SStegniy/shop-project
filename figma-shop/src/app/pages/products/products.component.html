@@ -21,7 +21,10 @@
   </div>
   <main class="main">
     <app-filter></app-filter>
-    <div class="products">
+    <div class="products-failed" *ngIf="!filteredProducts.length">
+      <p>Sorry, there are no such products in the list</p>
+    </div>
+    <div class="products" *ngIf="filteredProducts.length">
       <div class="product-card" *ngFor="let product of filteredProducts | sorting: sortValue | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
         <app-product-card [product]="product"></app-product-card>
       </div>
@@ -34,7 +37,7 @@
       <img src="./assets/images/arrow-down-white.svg" alt="arrow-down">
     </div>
     <div class="count-products">
-      <span class="count">117</span>
+      <span class="count">{{ allProducts.length }}</span>
       <span>Products</span>
     </div>
   </div>

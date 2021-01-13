@@ -15,10 +15,22 @@
            src="./assets/images/{{ star <= product.rating ? 'solid-star' : 'star' }}.svg" alt="rating-star">
     </div>
     <div class="card__product-info">
-      <div class="card__info-wrapper"><span>Freshness </span><span class="green">{{ product.freshness | titlecase }}</span></div>
-      <div class="card__info-wrapper"><span>Farm </span><span>{{ product.farm | titlecase }}</span></div>
-      <div class="card__info-wrapper"><span>Delivery </span><span>{{ product.deliveryArea | titlecase }}</span></div>
-      <div class="card__info-wrapper"><span>Stock </span><span class="green">{{ product.stock }}</span></div>
+      <div class="card__info-left">
+        <span>Freshness</span>
+        <span>Farm</span>
+        <span>Delivery</span>
+        <span>Stock</span>
+      </div>
+      <div class="card__info-right">
+        <span class="green">{{ product.freshness | titlecase }}</span>
+        <span>{{ product.farm | titlecase }}</span>
+        <span>{{ product.deliveryArea | titlecase }}</span>
+        <span class="green">{{ product.stock }}</span>
+      </div>
+<!--      <div class="card__info-wrapper"><p>Freshness<span class="green freshness">{{ product.freshness | titlecase }}</span></p></div>-->
+<!--      <div class="card__info-wrapper"><p>Farm<span class="farm">{{ product.farm | titlecase }}</span></p></div>-->
+<!--      <div class="card__info-wrapper"><p>Delivery<span class="delivery">{{ product.deliveryArea | titlecase }}</span></p></div>-->
+<!--      <div class="card__info-wrapper"><p>Stock<span class="green stock">{{ product.stock }}</span></p></div>-->
     </div>
   </div>
   <div class="card__cost">

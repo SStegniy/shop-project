@@ -45,12 +45,12 @@ export class FiltersService {
   }
 
   private checkBrandsPresents(product: ProductInterface): boolean {
-      if (this.filter.brand?.length) {
-        return this.filter.brand.includes(product.farm.toLowerCase());
-      }
-      else {
-        return Boolean(product);
-      }
+    if (this.filter.brand?.length) {
+      return this.filter.brand.includes(product.farm.toLowerCase());
+    }
+    else {
+      return Boolean(product);
+    }
   }
 
   private checkRatingPresents(product: ProductInterface): boolean {

@@ -53,14 +53,14 @@
         </div>
       </div>
     </form>
-    <h2 class="elem-title">Additional information</h2>
+    <h2 class="elem-title elem-title__ad-info">Additional information</h2>
     <p class="elem-description">Please enter your binding info</p>
     <div class="notes">
       <label for="notes">Order notes</label>
       <textarea name="" id="notes" cols="30" rows="10" placeholder="Need a specific delivery day?"></textarea>
     </div>
     <div class="confirmation">
-      <h2 class="elem-title">Confirmation</h2>
+      <h2 class="elem-title elem-title__conf-info">Confirmation</h2>
       <p class="elem-description">We are getting to the end. Just few clicks and your order si ready!</p>
       <div class="confirmation__privacy">
         <input type="checkbox" id="message">
@@ -68,7 +68,7 @@
       </div>
       <div class="confirmation__privacy">
         <input type="checkbox" id="terms">
-        <label for="terms">I agree with sending an Marketing and newsletter emails. No spam, promissed!</label>
+        <label for="terms">I agree with our terms and conditions and privacy policy.</label>
       </div>
       <button class="confirmation__button button" (click)="completeOrder()"
               [disabled]="personForm.invalid" [class.disabled-button]="personForm.invalid">Complete order</button>
