@@ -1,6 +1,7 @@
 .card {
   display: grid;
   grid-template-columns: 268px 1fr;
+  grid-template-rows: 279px;
   border: 1px solid #D1D1D1;
   border-radius: 12px;
 
@@ -27,7 +28,7 @@
   }
 
   .card__content {
-    padding: 32px 10px 32px 35px;
+    padding: 32px 10px 16px 35px;
     width: 100%;
   }
 
@@ -224,6 +225,7 @@
 @media screen and (max-width: 998px) {
   .card {
     grid-template-columns: 36% 1fr;
+    grid-template-rows: auto;
 
     .card__image {
       min-width: 0;
