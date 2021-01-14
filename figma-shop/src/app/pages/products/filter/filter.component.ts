@@ -21,7 +21,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   public allRatings: number[] = [5, 4, 3, 2, 1];
   public form: FormGroup;
   public sliderValue = 90;
-  public sliderHighValue = 300;
+  public sliderHighValue = 400;
   public sliderOptions: Options = {
     floor: 0,
     ceil: 400
@@ -116,6 +116,7 @@ export class FilterComponent implements OnInit, OnDestroy {
       rating: [],
       price: [0, this.max]
     });
+    this.filterService.filter = null;
   }
 
   public toggleFilterForm(): void {
@@ -129,7 +130,7 @@ export class FilterComponent implements OnInit, OnDestroy {
   }
 
   private checkIfMobileLayout(): void {
-    this.isMobileLayout = window.innerWidth <= 998;
+    this.isMobileLayout = window.innerWidth <= 1047;
     this.resizeObservable$ = fromEvent(window, 'resize');
     this.resizeSubscription$ = this.resizeObservable$.subscribe( (event) => {
       const window = event.target as Window;

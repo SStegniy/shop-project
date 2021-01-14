@@ -128,7 +128,7 @@
           </a>
         </div>
         <div class="offers-card__content">
-          <h3 class="offers-card__title">{{ categoryProduct.title }}</h3>
+          <h3 class="offers-card__title">{{ categoryProduct.title | titlecase }}</h3>
           <p class="offers-card__description">{{ categoryProduct.description.small | slice:0:40 }}
             {{ categoryProduct.description.small.length > 40 ? '...' : '' }}</p>
           <div class="offers-card__price-info">

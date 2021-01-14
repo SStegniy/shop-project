@@ -1,12 +1,13 @@
 .card {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 268px 1fr;
+  grid-template-rows: 279px;
   border: 1px solid #D1D1D1;
   border-radius: 12px;
 
   .card__image {
     min-width: 268px;
-    height: 280px;
+    height: 100%;
     position: relative;
 
     img {
@@ -27,24 +28,25 @@
   }
 
   .card__content {
-    padding: 25px;
+    padding: 32px 10px 16px 35px;
+    width: 100%;
   }
 
   .card__title {
     font-size: 18px;
     line-height: 27px;
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
 
   .card__smallDesc {
     font-size: 12px;
     color: #575757;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
   }
 
   .star-wrapper {
-    margin-bottom:17px;
+    margin-bottom: 22px;
   }
 
   .star {
@@ -53,17 +55,38 @@
 
   .card__product-info {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
 
-    .card__info-wrapper {
+
+    .card__info-left, .card__info-right {
+      display: flex;
+      flex-direction: column;
       color: #A9A9A9;
-      margin-top: 10px;
-      font-size: 14px;
-      line-height: 19px;
 
-      .green {
-        color: #6A983C;
+      span {
+        margin-top: 12px;
       }
+      span:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .card__info-right {
+      span {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .card__info-left {
+      margin-right: 32px;
+    }
+
+    .green {
+      color: #6A983C;
     }
 
     .card__info-wrapper:first-child {
@@ -78,11 +101,11 @@
   }
 
   .card__cost {
-    padding: 30px 30px 28px 0;
+    padding: 32px 30px 32px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 205px;
+    min-width: 200px
   }
 
   .card__price {
@@ -201,6 +224,13 @@
 
 @media screen and (max-width: 998px) {
   .card {
+    grid-template-columns: 36% 1fr;
+    grid-template-rows: auto;
+
+    .card__image {
+      min-width: 0;
+      max-width: 100%;
+    }
 
     .card__content {
       padding: 10px;
@@ -225,8 +255,17 @@
       height: 14px;
     }
 
+    .card__product-info {
+      .card__info-left, .card__info-right {
+        span {
+          margin-top: 4px;
+          font-size: 9px;
+        }
+      }
+    }
+
     .card__product-info .card__info-wrapper {
-      font-size: 10px;
+      font-size: 8px;
       line-height: 13px;
     }
 
@@ -287,7 +326,16 @@
 
     .card__content {
       padding: 10px 0 10px 10px;
-      max-width: 160px;
+      max-width: 151px;
+
+      .card__info-left {
+        margin-right: 7px;
+      }
+
+      .card__info-right {
+        width: 100px;
+        overflow: hidden;
+      }
     }
 
     .card__title {
