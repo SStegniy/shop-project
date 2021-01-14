@@ -15,7 +15,14 @@ import { MatIconModule } from '@angular/material/icon';
     MatSnackBarModule,
     MatDialogModule,
     MatBadgeModule,
-    MatIconModule,
+    MatIconModule
+  ],
+  exports: [
+    MatAutocompleteModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatBadgeModule,
+    MatIconModule
   ]
 })
 export class MaterialModule { }

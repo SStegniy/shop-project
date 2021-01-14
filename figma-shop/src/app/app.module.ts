@@ -19,29 +19,30 @@ import { SortingModule } from './shared/pipes/sorting/sorting.module';
 import { AllProductsResolver } from './pages/products/all-products.resolver';
 import { FooterModule } from './components/footer/footer.module';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
-
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    ConfirmationComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    HeaderModule,
-    FooterModule,
-    SortingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MaterialModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+        HeaderModule,
+        FooterModule,
+        SortingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MaterialModule
+    ],
   providers: [AllProductsResolver],
   bootstrap: [AppComponent]
 })
