@@ -54,22 +54,6 @@ const routes: Routes = [
       ]
     }
   },
-  {
-    path: 'chat',
-    loadChildren: () => import('./pages/chat/chat.module').then(m => m.ChatModule)
-  },
-  {
-    path: 'careers',
-    loadChildren: () => import('./pages/careers/careers.module').then(m => m.CareersModule)
-  },
-  {
-    path: 'blog',
-    loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule)
-  },
-  {
-    path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
-  }
 ];
 
 @NgModule({
