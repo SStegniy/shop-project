@@ -1,0 +1,73 @@
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+
+  .left-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 20px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  }
+
+  .right-menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .admin-person {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .admin-person__img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .admin-search, .admin-language {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 16px;
+    height: 100%;
+  }
+
+  .admin-search {
+    border-left: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+  }
+
+  .admin-language {
+    border-right: 1px solid #b3b3b3;
+  }
+
+  .admin-menu {
+    padding: 10px 10px;
+  }
+}

@@ -76,7 +76,8 @@ export class AuthService {
         const user = {
           userId: userResponse.user.uid,
           email: userResponse.user.email,
-          displayName: name
+          displayName: name,
+          image: ''
         };
         this.afFirestore.collection('userList').add(user)
           .then(() => {
@@ -95,11 +96,13 @@ export class AuthService {
   }
 
   private updateUserData(user: firebase.default.User): Promise<void> {
+    console.log(user);
     const userRef: AngularFirestoreDocument<UserInterface> = this.afFirestore.doc(`userList/${user.uid}`);
     const userData = {
       userId: user.uid,
       email: user.email,
-      displayName: user.displayName
+      displayName: user.displayName,
+      image: user.photoURL
     };
     this.setUserToLocalStorage(userData);
     return userRef.set(userData, {merge: true});

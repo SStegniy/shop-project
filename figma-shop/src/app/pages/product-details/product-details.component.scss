@@ -1,4 +1,5 @@
 .details-container {
+  padding: 0 45px;
   max-width: 1260px;
   margin: 0 auto;
 }
@@ -354,6 +355,10 @@
 }
 
 @media screen and (max-width: 998px) {
+  .details-container {
+    padding: 0 20px;
+  }
+
   .details {
     grid-template-columns: 40% 1fr;
     grid-gap: 20px;
@@ -433,6 +438,12 @@
   }
   .offers {
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 623px) {
+  .details-container {
+    padding: 0 15px;
   }
 }
 

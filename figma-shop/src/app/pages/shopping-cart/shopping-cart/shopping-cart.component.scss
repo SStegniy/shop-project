@@ -6,6 +6,7 @@
   grid-gap: 32px;
   max-width: 1260px;
   margin: 30px auto 50px auto;
+  padding: 0 45px;
 }
 
 .elem-title {
@@ -335,6 +336,7 @@
 @media screen and (max-width: 998px) {
   .shopping-cart-wrapper {
     grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
   }
 }
 
@@ -368,6 +370,10 @@
 }
 
 @media screen and (max-width: 632px) {
+  .shopping-cart-wrapper {
+    padding: 0 15px;
+  }
+
   .elem-title {
     font-size: 18px;
   }

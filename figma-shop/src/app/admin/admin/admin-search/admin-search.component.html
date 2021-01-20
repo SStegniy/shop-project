@@ -1,0 +1,12 @@
+<div class="admin-search-wrapper">
+  <div class="admin-search">
+    <h2 class="admin-search__title"><mat-icon class="admin-shop-icon">shopping_basket</mat-icon> Products</h2>
+    <div class="admin-search__search">
+      <img src="./assets/images/search.svg" alt="search">
+      <input [formControl]="search" type="text" placeholder="Search for a product">
+    </div>
+    <div class="admin-search__add">
+      <button class="admin-search__button" (click)="openDialog()">ADD NEW PRODUCT</button>
+    </div>
+  </div>
+</div>

@@ -18,8 +18,8 @@ export interface ProductInterface {
     buyProperties: string;
     stock: number | string;
     imgUrl: string;
-    count: number;
+    count?: number;
     description: DescriptionInterface;
-    reviews: MessageInterface[];
-    questions: MessageInterface[];
+    reviews?: MessageInterface[] | undefined;
+    questions?: MessageInterface[] | undefined;
 }

@@ -5,6 +5,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -15,13 +16,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatSnackBarModule,
     MatDialogModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   exports: [
     MatAutocompleteModule,
     MatSnackBarModule,
     MatDialogModule,
     MatBadgeModule,
+    MatIconModule,
+    MatTableModule,
     MatIconModule
   ]
 })

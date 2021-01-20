@@ -1,0 +1,79 @@
+.example-form {
+  width: 100%;
+  //overflow-x: hidden;
+}
+
+.form-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.horizontal-line {
+  width: 120%;
+  border-bottom: 1px solid gray;
+  margin: 10px 0;
+  position: relative;
+  left: -30px;
+}
+
+.add-input {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+
+  .add-input__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 15px;
+  }
+
+  .add-input-width {
+    width: 100%;
+  }
+}
+
+.add-description__text {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+
+  .add-description__text-right, .add-description__text-left {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .description-width {
+    width: 47%;
+  }
+}
+
+.add-image {
+  margin: 20px 0;
+
+  .add-image__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .add-image__image-outer {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border: 1px solid black;
+    margin-left: 50px;
+
+    img {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

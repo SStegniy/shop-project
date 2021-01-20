@@ -11,6 +11,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'products',
     loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule),
     resolve: { products: AllProductsResolver },

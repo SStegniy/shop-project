@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 
+import { AdminModule } from './admin/admin.module';
 import { HeaderModule } from './components/header/header.module';
 import { SortingModule } from './shared/pipes/sorting/sorting.module';
 import { AllProductsResolver } from './pages/products/all-products.resolver';
@@ -36,6 +37,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         AngularFirestoreModule,
+        AdminModule,
         HeaderModule,
         FooterModule,
         SortingModule,

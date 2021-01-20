@@ -1,0 +1,188 @@
+<form class="example-form" [formGroup]="addForm">
+  <mat-dialog-content>
+  <h2 mat-dialog-title class="form-title">Information</h2>
+  <div class="add-input">
+    <div class="add-input__column">
+      <mat-form-field class="example-full-width add-input-width">
+        <mat-label>Title</mat-label>
+        <input type="email" matInput formControlName="title">
+        <mat-error *ngIf="addForm.get('title').hasError('required')">
+          title is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width add-input-width">
+        <mat-label>Category</mat-label>
+        <input type="text" matInput formControlName="category">
+        <mat-error *ngIf="addForm.get('category').hasError('required')">
+          category is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width add-input-width">
+        <mat-label>Price</mat-label>
+        <input type="number" matInput formControlName="price">
+        <mat-error *ngIf="addForm.get('price').hasError('required')">
+          Price is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width add-input-width">
+        <mat-label>Freshness</mat-label>
+        <input type="text" matInput formControlName="freshness">
+        <mat-error *ngIf="addForm.get('freshness').hasError('required')">
+          Freshness is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="add-input__column">
+      <mat-form-field class="example-full-width">
+        <mat-label>Farm</mat-label>
+        <input type="text" matInput formControlName="farm">
+        <mat-error *ngIf="addForm.get('farm').hasError('required')">
+          Farm is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Delivery area</mat-label>
+        <input type="text" matInput formControlName="deliveryArea">
+        <mat-error *ngIf="addForm.get('deliveryArea').hasError('required')">
+          Delivery area is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Delivery time</mat-label>
+        <input type="text" matInput formControlName="deliveryTime">
+        <mat-error *ngIf="addForm.get('deliveryTime').hasError('required')">
+          Delivery time is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Country</mat-label>
+        <input type="text" matInput formControlName="country">
+        <mat-error *ngIf="addForm.get('country').hasError('required')">
+          Country is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="add-input__column">
+      <mat-form-field class="example-full-width">
+        <mat-label>Size</mat-label>
+        <input type="text" matInput formControlName="sizes">
+        <mat-error *ngIf="addForm.get('sizes').hasError('required')">
+          Size is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Buy property</mat-label>
+        <input type="text" matInput formControlName="buyProperties">
+        <mat-error *ngIf="addForm.get('buyProperties').hasError('required')">
+          Buy property is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Stock</mat-label>
+        <input type="text" matInput formControlName="stock">
+        <mat-error *ngIf="addForm.get('stock').hasError('required')">
+          Stock is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Color</mat-label>
+        <input type="text" matInput formControlName="color">
+        <mat-error *ngIf="addForm.get('color').hasError('required')">
+          Color is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="add-description" formGroupName="description">
+    <h2 mat-dialog-title class="form-title">Description</h2>
+    <div class="add-description__text">
+      <div class="add-description__text-left">
+        <mat-form-field class="example-full-width description-width">
+          <mat-label>Small</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    formControlName="small"></textarea>
+          <mat-error *ngIf="addForm.get('description').get('small').hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width description-width">
+          <mat-label>Main</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    formControlName="main"></textarea>
+          <mat-error *ngIf="addForm.get('description').get('main').hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="add-description__text-right">
+        <mat-form-field class="example-full-width description-width">
+          <mat-label>Origins</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    formControlName="origins"></textarea>
+          <mat-error *ngIf="addForm.get('description').get('origins').hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width description-width">
+          <mat-label>How to cook</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5"
+                    formControlName="howToCook"></textarea>
+          <mat-error *ngIf="addForm.get('description').get('howToCook').hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="add-image">
+    <h2 mat-dialog-title class="form-title">Image</h2>
+
+    <div class="add-image__container">
+      <div class="add-image__file-outer">
+        <mat-form-field>
+          <ngx-mat-file-input #removableInput formControlName="imgUrl"
+                              (change)="uploadFile()" placeholder="Image">
+          </ngx-mat-file-input>
+          <button mat-icon-button matSuffix *ngIf="!removableInput.empty"
+                  (click)="removableInput.clear($event); removeFile();"><mat-icon>clear</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-progress-bar class="admin-progress-bar" mode="determinate" [value]="uploadImage | async"></mat-progress-bar>
+      </div>
+      <div class="add-image__image-outer" *ngIf="uploadImageUrl">
+        <img [src]="uploadImageUrl" alt="added-image">
+      </div>
+    </div>
+  </div>
+
+  <button class="button" (click)="addProduct()">Add product</button>
+  </mat-dialog-content>
+</form>

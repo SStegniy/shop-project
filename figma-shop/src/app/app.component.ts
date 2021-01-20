@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import { Event } from '@angular/router';
+import { Component } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +8,18 @@ import { Event } from '@angular/router';
 })
 export class AppComponent {
   title = 'figma-shop';
-  componentRemoveFooter = ['ShoppingCartComponent'];
-  isFooterDisplayed = 'show-footer';
+  public showHead: boolean;
 
-  componentAdded(e: Event): void {
-    this.isFooterDisplayed = this.componentRemoveFooter.includes(e.constructor.name) ? 'hide' : 'show';
+  constructor(private router: Router) {
+    this.router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event.url.includes('/admin')) {
+          this.showHead = false;
+        } else {
+          this.showHead = true;
+        }
+      }
+    });
   }
+
 }
