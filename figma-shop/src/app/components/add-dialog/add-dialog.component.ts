@@ -16,7 +16,7 @@ import { SnackbarService } from '../../shared/services/snackbar.service';
 export class AddDialogComponent implements OnInit {
   public addForm: FormGroup;
   public uploadImage: Observable<number>;
-  private uploadImageUrl: string;
+  public uploadImageUrl: string;
   private $subscription = new Subject();
 
   constructor(
